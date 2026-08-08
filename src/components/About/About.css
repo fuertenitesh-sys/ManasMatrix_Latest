@@ -13,7 +13,7 @@
 
 .about__visual-card {
   background: var(--gradient-card);
-  border: 1.5px solid var(--color-border-gold);
+  border: 1.8px solid var(--color-border-gold);
   border-radius: var(--radius-xl);
   overflow: hidden;
   position: relative;
@@ -22,7 +22,7 @@
 
 .about__visual-img-wrapper {
   position: relative;
-  height: 240px;
+  height: 260px;
   overflow: hidden;
 }
 
@@ -41,15 +41,15 @@
 
 .about__visual-badge {
   position: absolute;
-  bottom: 12px;
+  bottom: 14px;
   left: 16px;
   right: 16px;
-  padding: 8px 14px;
-  background: rgba(5, 8, 24, 0.9);
+  padding: 10px 16px;
+  background: rgba(5, 8, 24, 0.92);
   backdrop-filter: blur(8px);
-  border: 1px solid var(--color-border-gold);
+  border: 1.5px solid var(--color-border-gold);
   border-radius: var(--radius-sm);
-  font-size: 0.78rem;
+  font-size: 0.88rem; /* Larger Badge Font */
   font-weight: 700;
   color: var(--color-gold);
   display: flex;
@@ -59,25 +59,25 @@
 }
 
 .about__visual-inner {
-  padding: 24px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 12px;
+  gap: 14px;
   position: relative;
 }
 
 .about__logo-box {
   background: #ffffff;
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: var(--radius-md);
   border: 1.5px solid rgba(245, 158, 11, 0.4);
   box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
 }
 
 .about__logo-img {
-  height: 44px;
+  height: 48px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -85,21 +85,22 @@
 
 .about__visual-title {
   font-family: var(--font-heading);
-  font-size: 1.35rem;
+  font-size: 1.5rem; /* Larger Card Title */
   font-weight: 800;
   letter-spacing: 1px;
 }
 
 .about__visual-sub {
-  font-size: 0.8rem;
+  font-size: 0.88rem; /* Larger Subtext */
   color: var(--color-text-muted);
+  font-weight: 600;
 }
 
 .about__visual-stats {
   display: flex;
   gap: 20px;
-  margin-top: 12px;
-  padding-top: 16px;
+  margin-top: 14px;
+  padding-top: 18px;
   border-top: 1px solid var(--color-border);
   width: 100%;
   justify-content: space-around;
@@ -114,67 +115,67 @@
 
 .about__visual-stat-num {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.7rem; /* Larger Stat Number */
+  font-weight: 800;
   color: var(--color-gold);
 }
 
 .about__visual-stat-label {
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   color: var(--color-text-muted);
-  font-weight: 500;
+  font-weight: 600;
   text-align: center;
 }
 
-/* Content */
+/* Content Layout - Large Font Sizes */
 .about__content {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
 }
 
 .about__text {
-  color: var(--color-text-secondary);
-  line-height: 1.75;
-  font-size: 0.95rem;
+  color: #E2E8F0;
+  line-height: 1.85;
+  font-size: 1.15rem; /* Larger Main About Paragraph Text (was 0.95rem) */
 }
 
 .about__services-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
 .about__service-tag {
   display: inline-block;
-  padding: 6px 12px;
-  background: rgba(245, 158, 11, 0.08);
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  padding: 8px 18px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1.5px solid rgba(245, 158, 11, 0.3);
   border-radius: var(--radius-full);
-  font-size: 0.78rem;
-  font-weight: 600;
+  font-size: 0.92rem; /* Larger Service Tag Font */
+  font-weight: 700;
   color: var(--color-gold);
   transition: all var(--transition-fast);
 }
 
 .about__service-tag:hover {
-  background: rgba(245, 158, 11, 0.18);
+  background: rgba(245, 158, 11, 0.2);
   transform: translateY(-1px);
 }
 
 .about__features {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .about__feature {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
-  padding: 14px;
+  gap: 16px;
+  padding: 16px 18px;
   background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
+  border: 1.5px solid var(--color-border);
   border-radius: var(--radius-md);
   transition: all var(--transition-normal);
 }
@@ -186,26 +187,26 @@
 
 .about__feature-icon {
   flex-shrink: 0;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(245, 158, 11, 0.1);
+  background: rgba(245, 158, 11, 0.12);
   border-radius: var(--radius-sm);
 }
 
 .about__feature-title {
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-size: 1.12rem; /* Larger Feature Title */
+  font-weight: 800;
   color: var(--color-text-primary);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .about__feature-desc {
-  font-size: 0.8rem;
+  font-size: 0.98rem; /* Larger Feature Description */
   color: var(--color-text-muted);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* --- Report Dashboard Showcase Section --- */
@@ -225,27 +226,28 @@
 .about__report-text {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 }
 
 .about__report-points {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 12px;
+  gap: 14px;
+  margin-top: 14px;
 }
 
 .about__report-point {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  font-size: 0.88rem;
+  gap: 14px;
+  font-size: 1.05rem; /* Larger Report Point Text */
   color: var(--color-text-secondary);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .about__report-point strong {
   color: var(--color-gold);
+  font-weight: 700;
 }
 
 .about__report-img-wrapper {
@@ -262,7 +264,7 @@
 
 .about__report-img {
   width: 100%;
-  height: 380px;
+  height: 400px;
   object-fit: cover;
   display: block;
 }
@@ -272,12 +274,12 @@
   bottom: 16px;
   left: 16px;
   right: 16px;
-  padding: 10px 16px;
-  background: rgba(5, 8, 24, 0.9);
+  padding: 12px 18px;
+  background: rgba(5, 8, 24, 0.92);
   backdrop-filter: blur(12px);
-  border: 1px solid var(--color-border-gold);
+  border: 1.5px solid var(--color-border-gold);
   border-radius: var(--radius-md);
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: var(--color-gold);
   text-align: center;

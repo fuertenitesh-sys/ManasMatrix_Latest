@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 16px 40px;
+  padding: 18px 40px;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   background: transparent;
 }
@@ -14,7 +14,7 @@
   backdrop-filter: blur(24px);
   border-bottom: none !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  padding: 12px 40px;
+  padding: 14px 40px;
 }
 
 .navbar__inner {
@@ -27,11 +27,11 @@
   margin: 0;
 }
 
-/* Taqsha Style Logo Layout: MANAS MATRIX by GROWUP BUSINESS SERVICES */
+/* Logo Layout - Enhanced Large Font Sizes */
 .navbar__logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   text-decoration: none;
   flex-shrink: 0;
   transition: transform var(--transition-fast);
@@ -43,7 +43,7 @@
 }
 
 .navbar__logo-icon-img {
-  height: 44px;
+  height: 48px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.6));
@@ -57,7 +57,7 @@
 
 .navbar__logo-title {
   font-family: var(--font-heading);
-  font-size: 1.45rem;
+  font-size: 1.75rem; /* Larger Brand Title */
   font-weight: 800;
   letter-spacing: 2px;
   color: #FF6B35;
@@ -71,22 +71,22 @@
 }
 
 .navbar__logo-sub {
-  font-size: 0.62rem;
+  font-size: 0.78rem; /* Larger Subtitle */
   color: #F59E0B;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.8px;
   font-weight: 700;
-  margin-top: 3px;
+  margin-top: 4px;
   white-space: nowrap;
   text-transform: uppercase;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
-/* Nav Links - Increased Equal Distance / Gap Between Each Item */
+/* Nav Links - High-Visibility Large Font Sizes (1.15rem, font-weight: 700) */
 .navbar__links {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 32px; /* Generous equal distance between links */
+  gap: 32px;
   list-style: none;
   margin: 0 auto;
   padding: 0;
@@ -105,16 +105,16 @@
   align-items: center;
   justify-content: center;
   padding: 8px 12px;
-  color: #E2E8F0;
+  color: #F1F5F9;
   text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 1.15rem; /* Increased Nav Link Font Size */
+  font-weight: 700; /* Bolder Font Weight */
   letter-spacing: 0.3px;
   transition: all var(--transition-fast);
-  height: 38px;
+  height: 42px;
   line-height: 1;
   white-space: nowrap;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .navbar__link span {
@@ -153,7 +153,7 @@
   color: var(--color-gold) !important;
 }
 
-/* Actions Section - Taqsha Style Login & CTA Buttons */
+/* Actions Section - Larger Login & Book Now CTA Buttons */
 .navbar__actions {
   display: flex;
   align-items: center;
@@ -161,18 +161,17 @@
   flex-shrink: 0;
 }
 
-/* Taqsha Style Login Pill Button */
 .navbar__login-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 20px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  padding: 10px 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.8px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--radius-full);
   color: #FFFFFF;
   font-family: var(--font-body);
-  font-size: 0.88rem;
+  font-size: 1.05rem; /* Larger Login Button Font */
   font-weight: 700;
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -189,8 +188,8 @@
 }
 
 .navbar__cta {
-  font-size: 0.88rem;
-  padding: 9px 22px;
+  font-size: 1.05rem; /* Larger CTA Button Font */
+  padding: 10px 26px;
   white-space: nowrap;
 }
 
@@ -273,8 +272,8 @@
   padding: 12px 16px;
   color: #E2E8F0;
   text-decoration: none;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 700;
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
 }
@@ -286,7 +285,7 @@
 }
 
 /* Responsive Breakpoints */
-@media (max-width: 1080px) {
+@media (max-width: 1100px) {
   .navbar {
     padding: 14px 20px;
   }
@@ -316,11 +315,11 @@
   }
 
   .navbar__logo-icon-img {
-    height: 36px;
+    height: 38px;
   }
 
   .navbar__logo-title {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
   }
 
   .navbar__logo-sub {
