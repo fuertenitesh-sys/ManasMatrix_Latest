@@ -224,7 +224,7 @@
   line-height: 1.5;
 }
 
-/* --- Report Dashboard Showcase Section (Inspired by Taqsha) --- */
+/* --- Report Dashboard Showcase Section --- */
 .about__report-showcase {
   margin-top: 100px;
   padding-top: 60px;
@@ -304,7 +304,7 @@
   text-align: center;
 }
 
-/* --- Expert Counselor Showcase Section (Inspired by Taqsha) --- */
+/* --- Expert Counselor Showcase Section --- */
 .about__expert-showcase {
   margin-top: 80px;
 }
@@ -405,11 +405,36 @@
   .about__visual {
     max-width: 400px;
     margin: 0 auto;
+    width: 100%;
   }
   .about__cert-badge {
     right: 0;
   }
   .about__report-img-wrapper {
     order: -1;
+  }
+}
+
+@media (max-width: 576px) {
+  .about__visual-inner {
+    padding: 32px 20px;
+  }
+  .about__report-showcase {
+    margin-top: 60px;
+    padding-top: 40px;
+  }
+  .about__report-img {
+    height: 280px;
+  }
+  .about__expert-card {
+    padding: 24px 16px;
+  }
+  .about__expert-img {
+    height: 260px;
+  }
+  .about__cert-badge {
+    position: static;
+    margin-top: 16px;
+    justify-content: center;
   }
 }

@@ -21,6 +21,7 @@ const programs = [
     gradient: 'linear-gradient(135deg, rgba(13,148,136,0.15), rgba(13,148,136,0.05))',
     border: 'rgba(13,148,136,0.4)',
     glowColor: 'rgba(13,148,136,0.2)',
+    anim: 'fade-up delay-100',
   },
   {
     id: 'child',
@@ -43,6 +44,7 @@ const programs = [
     gradient: 'linear-gradient(135deg, rgba(59,130,246,0.15), rgba(59,130,246,0.05))',
     border: 'rgba(59,130,246,0.4)',
     glowColor: 'rgba(59,130,246,0.2)',
+    anim: 'fade-up delay-200',
   },
   {
     id: 'professional',
@@ -67,6 +69,7 @@ const programs = [
     gradient: 'linear-gradient(135deg, rgba(255,107,53,0.15), rgba(255,107,53,0.05))',
     border: 'rgba(255,107,53,0.4)',
     glowColor: 'rgba(255,107,53,0.2)',
+    anim: 'fade-up delay-300',
   },
   {
     id: 'elite',
@@ -100,6 +103,7 @@ const programs = [
     gradient: 'linear-gradient(135deg, rgba(245,158,11,0.15), rgba(124,58,237,0.08))',
     border: 'rgba(245,158,11,0.5)',
     glowColor: 'rgba(245,158,11,0.25)',
+    anim: 'zoom-in delay-400',
   },
 ];
 
@@ -111,23 +115,24 @@ const Programs = () => {
       <div className="glow-orb" style={{ width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(245,158,11,0.07), transparent)', bottom: '0', right: '0' }}></div>
 
       <div className="container">
-        <div className="section-header">
+        <div className="section-header animate-reveal fade-up">
           <div className="section-badge">💎 Our Programs</div>
           <h2 className="section-title">
             Choose Your <span className="gradient-text-gold">Transformation</span> Path
           </h2>
           <div className="divider"></div>
-          <p className="section-subtitle" style={{ marginTop: '16px' }}>
+          <p className="section-subtitle">
             Science-backed programs designed for every stage of life — starting from just ₹1,999.
           </p>
         </div>
 
+        {/* Outer Grid Container of Pricing Cards */}
         <div className="programs__grid">
           {programs.map((program) => (
             <div
               key={program.id}
               id={`program-${program.id}`}
-              className={`programs__card ${program.popular ? 'programs__card--popular' : ''}`}
+              className={`programs__card ${program.popular ? 'programs__card--popular' : ''} animate-reveal ${program.anim}`}
               style={{
                 background: program.gradient,
                 borderColor: hoveredId === program.id ? program.border : 'var(--color-border)',
@@ -194,7 +199,7 @@ const Programs = () => {
           ))}
         </div>
 
-        <div className="programs__note">
+        <div className="programs__note animate-reveal fade-up">
           <p>📞 Call us at <a href="tel:9106545374" style={{ color: 'var(--color-gold)' }}>9106545374</a> to discuss which program is right for you.</p>
         </div>
       </div>

@@ -18,12 +18,12 @@ const About = () => {
         {/* Main Grid */}
         <div className="about__grid">
           {/* Left Visual Box with Official Logo & Location */}
-          <div className="about__visual">
+          <div className="about__visual animate-reveal fade-left">
             <div className="about__visual-card">
               <div className="about__visual-inner">
                 {/* Official Logo Display */}
                 <div className="about__logo-box">
-                  <img src="/logo_clean.png" alt="MANAS MATRIX Logo" className="about__logo-img" />
+                  <img src="/logo_brain_icon.png" alt="MANAS MATRIX Logo" className="about__logo-img" />
                 </div>
                 <h3 className="about__visual-title gradient-text-gold">MANAS MATRIX</h3>
                 <p className="about__visual-sub">GrowUp Business Services</p>
@@ -63,9 +63,9 @@ const About = () => {
           </div>
 
           {/* Right Content */}
-          <div className="about__content">
+          <div className="about__content animate-reveal fade-right">
             <div className="section-badge">🏢 Who We Are</div>
-            <h2 className="section-title">
+            <h2 className="section-title" style={{ textAlign: 'left' }}>
               Transform Your Future <br />
               <span className="gradient-text-gold">With Science</span>
             </h2>
@@ -101,9 +101,9 @@ const About = () => {
         {/* --- Image Section 1: Brain Mapping Report Dashboard Feature (Inspired by Taqsha) --- */}
         <div className="about__report-showcase">
           <div className="about__report-grid">
-            <div className="about__report-text">
+            <div className="about__report-text animate-reveal fade-left">
               <div className="section-badge">📊 Deep Scientific Insights</div>
-              <h2 className="section-title">
+              <h2 className="section-title" style={{ textAlign: 'left' }}>
                 Serious Insight Through a Journey <br />
                 <span className="gradient-text-gold">Children & Parents Enjoy</span>
               </h2>
@@ -135,7 +135,7 @@ const About = () => {
               </Link>
             </div>
             
-            <div className="about__report-img-wrapper">
+            <div className="about__report-img-wrapper animate-reveal fade-right">
               <div className="about__report-img-card glass-card">
                 <img src="/brain_report.jpg" alt="Brain Intelligence Analysis Dashboard Report" className="about__report-img" />
                 <div className="about__report-img-badge">
@@ -147,7 +147,7 @@ const About = () => {
         </div>
 
         {/* --- Image Section 2: Meet Our Expert Counselor (Inspired by Taqsha) --- */}
-        <div className="about__expert-showcase">
+        <div className="about__expert-showcase animate-reveal zoom-in">
           <div className="about__expert-card glass-card">
             <div className="about__expert-grid">
               <div className="about__expert-img-wrapper">

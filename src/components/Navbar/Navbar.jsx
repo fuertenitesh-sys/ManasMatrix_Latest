@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import LoginModal from '../LoginModal/LoginModal';
 import './Navbar.css';
 
@@ -7,9 +7,10 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
+    const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -23,15 +24,24 @@ const Navbar = () => {
     { label: 'Contact', path: '/contact' },
   ];
 
-  const handleNavClick = () => setMenuOpen(false);
+  const handleNavClick = (path) => {
+    setMenuOpen(false);
+    if (location.pathname === path) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+  };
 
   return (
     <>
       <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} id="navbar">
         <div className="container navbar__inner">
-          {/* Official Transparent Logo - Big & Clear */}
-          <Link to="/" className="navbar__logo" id="navbar-logo" onClick={handleNavClick}>
-            <img src="/logo_clean.png" alt="MANAS MATRIX Logo" className="navbar__logo-img" />
+          {/* Logo with Brain Graphic + Ultra-Crisp Bright HTML Typography */}
+          <Link to="/" className="navbar__logo" id="navbar-logo" onClick={() => handleNavClick('/')}>
+            <img src="/logo_brain_icon.png" alt="MANAS MATRIX Logo Icon" className="navbar__logo-icon-img" />
+            <div className="navbar__logo-text-group">
+              <span className="navbar__logo-title">MANAS MATRIX</span>
+              <span className="navbar__logo-sub">GrowUp Business Services</span>
+            </div>
           </Link>
 
           {/* Desktop Nav Links */}
@@ -41,7 +51,7 @@ const Navbar = () => {
                 <NavLink
                   to={link.path}
                   className={({ isActive }) => `navbar__link ${isActive ? 'navbar__link--active' : ''}`}
-                  onClick={handleNavClick}
+                  onClick={() => handleNavClick(link.path)}
                   end={link.path === '/'}
                 >
                   <span>{link.label}</span>
@@ -62,7 +72,7 @@ const Navbar = () => {
               📍 Rajkot ↗
             </a>
 
-            {/* Login Button (Inspired by Taqsha Header) */}
+            {/* Login Button */}
             <button
               className="navbar__login-btn"
               onClick={() => setLoginOpen(true)}
@@ -71,7 +81,7 @@ const Navbar = () => {
               <span>👤 Login</span>
             </button>
 
-            <Link to="/contact" className="btn-primary navbar__cta" id="navbar-cta">
+            <Link to="/contact" className="btn-primary navbar__cta" id="navbar-cta" onClick={() => handleNavClick('/contact')}>
               <span>📞 Book Now</span>
             </Link>
           </div>
@@ -97,7 +107,7 @@ const Navbar = () => {
                 <NavLink
                   to={link.path}
                   className={({ isActive }) => `navbar__mobile-link ${isActive ? 'navbar__mobile-link--active' : ''}`}
-                  onClick={handleNavClick}
+                  onClick={() => handleNavClick(link.path)}
                   end={link.path === '/'}
                 >
                   {link.label}
@@ -125,7 +135,7 @@ const Navbar = () => {
               >
                 👤 Login
               </button>
-              <Link to="/contact" className="btn-primary" onClick={handleNavClick} style={{ flex: 1.2, justifyContent: 'center' }}>
+              <Link to="/contact" className="btn-primary" onClick={() => handleNavClick('/contact')} style={{ flex: 1.2, justifyContent: 'center' }}>
                 <span>📞 Book Now</span>
               </Link>
             </li>

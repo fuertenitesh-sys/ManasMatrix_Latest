@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Testimonials.css';
 
 const testimonials = [
@@ -36,26 +36,85 @@ const testimonials = [
   },
 ];
 
+// Smooth Animated Count-Up Component
+const CountUpNumber = ({ target, suffix = '', duration = 2000 }) => {
+  const [count, setCount] = useState(0);
+  const elementRef = useRef(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          let startTime = null;
+
+          const animate = (currentTime) => {
+            if (!startTime) startTime = currentTime;
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            const easeProgress = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.floor(easeProgress * target));
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              setCount(target);
+            }
+          };
+
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    const currentEl = elementRef.current;
+    if (currentEl) {
+      observer.observe(currentEl);
+    }
+
+    return () => {
+      if (currentEl) observer.unobserve(currentEl);
+    };
+  }, [target, duration]);
+
+  return (
+    <span ref={elementRef} className="count-up-num">
+      {count}{suffix}
+    </span>
+  );
+};
+
+const trustItems = [
+  { id: '1', icon: '👨‍👩‍👧', num: 500, suffix: '+', label: 'Happy Clients' },
+  { id: '2', icon: '⭐', num: 98, suffix: '%', label: 'Satisfaction Rate' },
+  { id: '3', icon: '🏆', num: 5, suffix: '+', label: 'Years in Rajkot' },
+  { id: '4', icon: '📊', num: 1000, suffix: '+', label: 'Reports Generated' },
+];
+
 const Testimonials = () => {
+  // Double array for seamless infinite marquee loop
+  const marqueeItems = [...trustItems, ...trustItems];
+
   return (
     <section className="testimonials section" id="testimonials">
       <div className="glow-orb" style={{ width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(124,58,237,0.08), transparent)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}></div>
 
       <div className="container">
-        <div className="section-header">
-          <div className="section-badge">💬 Testimonials</div>
+        <div className="section-header animate-reveal fade-up">
+          <div className="section-badge">💬 Testimonials & Impact</div>
           <h2 className="section-title">
             Real Stories of <span className="gradient-text-gold">Transformation</span>
           </h2>
           <div className="divider"></div>
-          <p className="section-subtitle" style={{ marginTop: '16px' }}>
+          <p className="section-subtitle">
             Hundreds of families and professionals in Rajkot have already transformed their lives through our brain mapping programs.
           </p>
         </div>
 
         <div className="testimonials__grid">
           {testimonials.map((t, i) => (
-            <div key={t.name} className="testimonials__card glass-card" id={`testimonial-${i + 1}`}>
+            <div key={t.name} className={`testimonials__card glass-card animate-reveal fade-up delay-${(i + 1) * 100}`} id={`testimonial-${i + 1}`}>
               <div className="testimonials__rating">
                 {'⭐'.repeat(t.rating)}
               </div>
@@ -74,23 +133,25 @@ const Testimonials = () => {
           ))}
         </div>
 
-        {/* Trust indicators */}
-        <div className="testimonials__trust">
-          <div className="testimonials__trust-item">
-            <span className="testimonials__trust-num">500+</span>
-            <span className="testimonials__trust-label">Happy Clients</span>
+        {/* Continuous Right-to-Left Infinite Marquee Motion Bar */}
+        <div className="testimonials__trust-wrapper animate-reveal zoom-in">
+          <div className="testimonials__trust-badge-hint">
+            <span>⚡ Hover cursor over any card to pause motion</span>
           </div>
-          <div className="testimonials__trust-item">
-            <span className="testimonials__trust-num">98%</span>
-            <span className="testimonials__trust-label">Satisfaction Rate</span>
-          </div>
-          <div className="testimonials__trust-item">
-            <span className="testimonials__trust-num">5+</span>
-            <span className="testimonials__trust-label">Years in Rajkot</span>
-          </div>
-          <div className="testimonials__trust-item">
-            <span className="testimonials__trust-num">1000+</span>
-            <span className="testimonials__trust-label">Reports Generated</span>
+
+          <div className="testimonials__trust-container">
+            <div className="testimonials__trust-track">
+              {marqueeItems.map((item, idx) => (
+                <div key={`${item.id}-${idx}`} className="testimonials__trust-card">
+                  <div className="testimonials__trust-icon-box">{item.icon}</div>
+                  <div className="testimonials__trust-num">
+                    <CountUpNumber target={item.num} suffix={item.suffix} duration={2200} />
+                  </div>
+                  <span className="testimonials__trust-label">{item.label}</span>
+                  <div className="testimonials__trust-glow"></div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

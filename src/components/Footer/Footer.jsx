@@ -5,6 +5,10 @@ import './Footer.css';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const handleLinkClick = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
   const programs = [
     { name: 'DISC Personality Assessment', price: '₹1,999', path: '/programs' },
     { name: 'Growth Transformation (Child)', price: '₹9,999', path: '/programs' },
@@ -27,13 +31,15 @@ const Footer = () => {
     <footer className="footer" id="footer">
       <div className="footer__top">
         <div className="container footer__top-inner">
-          <div className="footer__brand">
-            {/* Official Logo */}
-            <div className="footer__logo">
-              <div className="footer__logo-box">
-                <img src="/logo_clean.png" alt="MANAS MATRIX Logo" className="footer__logo-img" />
+          {/* Brand Column */}
+          <div className="footer__brand animate-reveal fade-up delay-100">
+            <Link to="/" className="footer__logo" onClick={handleLinkClick} style={{ textDecoration: 'none' }}>
+              <img src="/logo_brain_icon.png" alt="MANAS MATRIX Logo Icon" className="footer__logo-icon-img" />
+              <div className="footer__logo-text-group">
+                <span className="footer__logo-title">MANAS MATRIX</span>
+                <span className="footer__logo-sub">GrowUp Business Services</span>
               </div>
-            </div>
+            </Link>
 
             <p className="footer__tagline">
               Know Yourself Better to Grow Better. Rajkot's leading Brain Mapping & Self Discovery Center.
@@ -41,7 +47,6 @@ const Footer = () => {
 
             <div className="footer__contact-quick">
               <a href="tel:9106545374" className="footer__phone" id="footer-phone">📞 9106545374</a>
-              {/* Clickable Location */}
               <a
                 href={mapSearchUrl}
                 target="_blank"
@@ -62,11 +67,12 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="footer__col">
+          {/* Programs Column */}
+          <div className="footer__col animate-reveal fade-up delay-200">
             <h4 className="footer__col-title">Our Programs</h4>
             <div className="footer__programs">
               {programs.map((p) => (
-                <Link key={p.name} to={p.path} className="footer__program-link">
+                <Link key={p.name} to={p.path} className="footer__program-link" onClick={handleLinkClick}>
                   <span>{p.name}</span>
                   <span className="footer__program-price">{p.price}</span>
                 </Link>
@@ -74,32 +80,34 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="footer__col">
+          {/* Services Column */}
+          <div className="footer__col animate-reveal fade-up delay-300">
             <h4 className="footer__col-title">Counselling Services</h4>
             <ul className="footer__links">
               {services.map((s) => (
                 <li key={s}>
-                  <Link to="/services" className="footer__link">✦ {s}</Link>
+                  <Link to="/services" className="footer__link" onClick={handleLinkClick}>✦ {s}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="footer__col">
+          {/* Quick Links Column */}
+          <div className="footer__col animate-reveal fade-up delay-400">
             <h4 className="footer__col-title">Quick Links</h4>
             <ul className="footer__links">
-              <li><Link to="/" className="footer__link">Home</Link></li>
-              <li><Link to="/about" className="footer__link">About Us</Link></li>
-              <li><Link to="/how-it-works" className="footer__link">How It Works</Link></li>
-              <li><Link to="/programs" className="footer__link">Programs & Pricing</Link></li>
-              <li><Link to="/services" className="footer__link">Our Services</Link></li>
-              <li><Link to="/contact" className="footer__link">Contact Us</Link></li>
+              <li><Link to="/" className="footer__link" onClick={handleLinkClick}>Home</Link></li>
+              <li><Link to="/about" className="footer__link" onClick={handleLinkClick}>About Us</Link></li>
+              <li><Link to="/how-it-works" className="footer__link" onClick={handleLinkClick}>How It Works</Link></li>
+              <li><Link to="/programs" className="footer__link" onClick={handleLinkClick}>Programs & Pricing</Link></li>
+              <li><Link to="/services" className="footer__link" onClick={handleLinkClick}>Our Services</Link></li>
+              <li><Link to="/contact" className="footer__link" onClick={handleLinkClick}>Contact Us</Link></li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div className="footer__bottom">
+      <div className="footer__bottom animate-reveal fade-up">
         <div className="container footer__bottom-inner">
           <p>© {currentYear} Manas Matrix | GrowUp Business Services. All rights reserved.</p>
           <a

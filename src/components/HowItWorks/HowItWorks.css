@@ -1,59 +1,41 @@
-.how-it-works {
-  position: relative;
-}
-
 .how-it-works__steps {
   display: flex;
   flex-direction: column;
   gap: 0;
-  position: relative;
   max-width: 800px;
   margin: 0 auto;
+  position: relative;
 }
 
 .how-it-works__step {
-  position: relative;
   display: flex;
   flex-direction: column;
-}
-
-.how-it-works__connector {
-  display: flex;
-  justify-content: center;
-  height: 40px;
+  align-items: center;
   position: relative;
-  z-index: 0;
-}
-
-.how-it-works__connector-line {
-  width: 2px;
-  height: 100%;
-  opacity: 0.4;
 }
 
 .how-it-works__step-card {
-  padding: 28px 32px;
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 24px;
+  align-items: center;
+  padding: 32px 40px;
+  width: 100%;
   position: relative;
-  z-index: 1;
+  overflow: hidden;
 }
 
 .how-it-works__step-num {
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: 2.4rem;
   font-weight: 700;
   line-height: 1;
-  opacity: 0.3;
-  flex-shrink: 0;
-  width: 60px;
-  text-align: center;
+  opacity: 0.8;
 }
 
 .how-it-works__step-icon {
-  width: 52px;
-  height: 52px;
+  width: 56px;
+  height: 56px;
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
@@ -63,48 +45,79 @@
 }
 
 .how-it-works__step-content {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .how-it-works__step-title {
   font-family: var(--font-heading);
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 8px;
+  font-size: 1.4rem;
+  font-weight: 700;
 }
 
 .how-it-works__step-desc {
+  font-size: 0.92rem;
   color: var(--color-text-secondary);
-  font-size: 0.93rem;
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
-/* Bottom CTA */
+.how-it-works__connector {
+  display: flex;
+  justify-content: center;
+  height: 36px;
+  position: relative;
+  z-index: 1;
+}
+
+.how-it-works__connector-line {
+  width: 2px;
+  height: 100%;
+  border-radius: var(--radius-full);
+}
+
 .how-it-works__cta {
+  text-align: center;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  margin-top: 60px;
-  text-align: center;
+  gap: 20px;
 }
 
 .how-it-works__cta-text {
-  font-family: var(--font-accent);
-  font-size: 1.3rem;
-  font-style: italic;
+  font-size: 1.1rem;
   color: var(--color-text-secondary);
+  font-weight: 500;
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .how-it-works__step-card {
-    flex-wrap: wrap;
-    padding: 20px;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    padding: 24px 20px;
+  }
+  .how-it-works__step-num {
+    grid-column: span 2;
+    font-size: 1.8rem;
+  }
+  .how-it-works__step-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .how-it-works__step-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 16px;
     gap: 12px;
   }
   .how-it-works__step-num {
-    font-size: 2rem;
-    width: 40px;
+    font-size: 1.5rem;
   }
 }

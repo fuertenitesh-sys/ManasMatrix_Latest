@@ -24,7 +24,13 @@ const LoginModal = ({ isOpen, onClose }) => {
         <button className="login-modal__close" onClick={onClose} aria-label="Close modal">✕</button>
         
         <div className="login-modal__header">
-          <img src="/logo_clean.png" alt="MANAS MATRIX Logo" className="login-modal__logo" />
+          <div className="login-modal__logo-box">
+            <img src="/logo_brain_icon.png" alt="MANAS MATRIX Logo Icon" className="login-modal__logo-icon-img" />
+            <div className="login-modal__logo-text-group">
+              <span className="login-modal__logo-title">MANAS MATRIX</span>
+              <span className="login-modal__logo-sub">GrowUp Business Services</span>
+            </div>
+          </div>
           <h3 className="login-modal__title">Client Portal Login</h3>
           <p className="login-modal__sub">Access your Brain Mapping Reports & Progress Dashboard</p>
         </div>

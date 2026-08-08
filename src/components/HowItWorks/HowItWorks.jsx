@@ -9,6 +9,7 @@ const steps = [
     title: 'Fingerprint Scanning',
     desc: 'Our certified experts conduct a quick and painless fingerprint scan using advanced Dermatoglyphics (DMI) technology.',
     color: '#F59E0B',
+    anim: 'fade-up delay-100',
   },
   {
     num: '02',
@@ -16,6 +17,7 @@ const steps = [
     title: 'Brain Intelligence Analysis',
     desc: 'Our software analyzes your fingerprint patterns to map your unique brain structure, revealing dominant intelligence types and learning styles.',
     color: '#7C3AED',
+    anim: 'fade-up delay-200',
   },
   {
     num: '03',
@@ -23,6 +25,7 @@ const steps = [
     title: 'Detailed Report Generation',
     desc: 'Receive a comprehensive printed Brain Mapping Report covering strengths, potential, personality traits, and recommended development areas.',
     color: '#3B82F6',
+    anim: 'fade-up delay-300',
   },
   {
     num: '04',
@@ -30,6 +33,7 @@ const steps = [
     title: 'Personalized Counselling',
     desc: 'A one-on-one expert counselling session to explain your report, answer questions, and create a customized growth & development plan.',
     color: '#FF6B35',
+    anim: 'fade-up delay-400',
   },
   {
     num: '05',
@@ -37,6 +41,7 @@ const steps = [
     title: 'Ongoing Coaching & Review',
     desc: 'Regular follow-up sessions, habit coaching, and monthly/quarterly progress reviews to ensure lasting transformation.',
     color: '#0D9488',
+    anim: 'fade-up delay-500',
   },
 ];
 
@@ -46,20 +51,20 @@ const HowItWorks = () => {
       <div className="glow-orb" style={{ width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(124,58,237,0.1), transparent)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}></div>
 
       <div className="container">
-        <div className="section-header">
+        <div className="section-header animate-reveal fade-up">
           <div className="section-badge">⚡ The Process</div>
           <h2 className="section-title">
             How Brain Mapping <span className="gradient-text-gold">Works</span>
           </h2>
           <div className="divider"></div>
-          <p className="section-subtitle" style={{ marginTop: '16px' }}>
+          <p className="section-subtitle">
             A simple, scientific, and life-changing 5-step journey to discover your true potential.
           </p>
         </div>
 
         <div className="how-it-works__steps">
           {steps.map((step, index) => (
-            <div key={step.num} className="how-it-works__step" id={`step-${step.num}`}>
+            <div key={step.num} className={`how-it-works__step animate-reveal ${step.anim}`} id={`step-${step.num}`}>
               <div className="how-it-works__step-card glass-card">
                 <div className="how-it-works__step-num" style={{ color: step.color }}>
                   {step.num}
@@ -85,8 +90,8 @@ const HowItWorks = () => {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="how-it-works__cta">
+        {/* Bottom CTA Box Component */}
+        <div className="how-it-works__cta animate-reveal fade-up">
           <p className="how-it-works__cta-text">
             Ready to discover your brain's hidden potential?
           </p>

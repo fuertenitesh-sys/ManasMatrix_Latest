@@ -29,31 +29,35 @@ const Contact = () => {
       <div className="glow-orb" style={{ width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(245,158,11,0.1), transparent)', bottom: '0', left: '0' }}></div>
 
       <div className="container">
-        <div className="section-header">
+        <div className="section-header animate-reveal fade-up">
           <div className="section-badge">📞 Get In Touch</div>
           <h2 className="section-title">
             Begin Your <span className="gradient-text-gold">Transformation</span> Today
           </h2>
           <div className="divider"></div>
-          <p className="section-subtitle" style={{ marginTop: '16px' }}>
+          <p className="section-subtitle">
             Contact us for a free consultation. Our experts in Rajkot are ready to guide you.
           </p>
         </div>
 
         <div className="contact__grid">
-          {/* Info */}
-          <div className="contact__info">
+          {/* Left Info Card */}
+          <div className="contact__info animate-reveal fade-left delay-100">
             <div className="contact__info-card glass-card">
-              <div className="contact__brand-header">
-                <img src="/logo_clean.png" alt="MANAS MATRIX Logo" className="contact__logo-img" />
+              <div className="contact__brand-header animate-reveal fade-up">
+                <img src="/logo_brain_icon.png" alt="MANAS MATRIX Logo Icon" className="contact__logo-icon-img" />
+                <div className="contact__brand-text">
+                  <span className="contact__brand-title">MANAS MATRIX</span>
+                  <span className="contact__brand-sub">GrowUp Business Services</span>
+                </div>
               </div>
 
-              <h3 className="contact__info-title">Let's Connect</h3>
-              <p className="contact__info-text">
+              <h3 className="contact__info-title animate-reveal fade-up delay-100">Let's Connect</h3>
+              <p className="contact__info-text animate-reveal fade-up delay-200">
                 Ready to discover your brain's true potential? Book a free consultation call with our certified Brain Mapping experts today.
               </p>
 
-              <div className="contact__details">
+              <div className="contact__details animate-reveal fade-up delay-300">
                 {/* Phone */}
                 <a href="tel:9106545374" className="contact__detail contact__detail--clickable" id="contact-phone">
                   <div className="contact__detail-icon">📞</div>
@@ -63,7 +67,7 @@ const Contact = () => {
                   </div>
                 </a>
 
-                {/* Clickable Location Link */}
+                {/* Location */}
                 <a
                   href={mapSearchUrl}
                   target="_blank"
@@ -98,7 +102,7 @@ const Contact = () => {
               </div>
 
               {/* Programs quick links */}
-              <div className="contact__programs">
+              <div className="contact__programs animate-reveal zoom-in delay-400">
                 <p className="contact__programs-label">Our Programs:</p>
                 {[
                   { name: 'DISC Assessment', price: '₹1,999' },
@@ -115,8 +119,8 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Form */}
-          <div className="contact__form-wrapper">
+          {/* Right Form Card */}
+          <div className="contact__form-wrapper animate-reveal fade-right delay-200">
             <form className="contact__form glass-card" onSubmit={handleSubmit} id="contact-form">
               <h3 className="contact__form-title">Book a Free Consultation</h3>
 

@@ -115,8 +115,12 @@
 @media (max-width: 580px) {
   .services__grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .services__card {
+    padding: 24px 18px;
   }
   .services__quote {
-    padding: 32px 24px;
+    padding: 28px 16px;
   }
 }

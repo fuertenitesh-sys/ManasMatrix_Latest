@@ -13,18 +13,20 @@ const CTABanner = () => {
       </div>
 
       <div className="container cta-banner__content">
-        <div className="cta-banner__brain">🧠</div>
-        <div className="section-badge" style={{ margin: '0 auto 16px' }}>🚀 Begin Now</div>
-        <h2 className="cta-banner__title">
+        <div className="cta-banner__brain animate-reveal zoom-in">🧠</div>
+        <div className="section-badge animate-reveal fade-up" style={{ margin: '0 auto 16px' }}>🚀 Begin Now</div>
+        
+        <h2 className="cta-banner__title animate-reveal fade-up delay-100">
           Your Mind Holds The<br />
           <span className="gradient-text-gold">Blueprint of Your Future</span>
         </h2>
-        <p className="cta-banner__subtitle">
+        
+        <p className="cta-banner__subtitle animate-reveal fade-up delay-200">
           Don't just wonder about your potential — <em>discover it</em>. Join 500+ families
           and professionals in Rajkot who have already unlocked their brain's true power.
         </p>
 
-        <div className="cta-banner__actions">
+        <div className="cta-banner__actions animate-reveal fade-up delay-300">
           <Link to="/contact" className="btn-primary cta-banner__btn" id="cta-banner-primary">
             <span>🚀 Begin Your Elite Transformation Journey</span>
           </Link>
@@ -33,7 +35,7 @@ const CTABanner = () => {
           </a>
         </div>
 
-        <div className="cta-banner__programs">
+        <div className="cta-banner__programs animate-reveal zoom-in delay-400">
           {[
             { emoji: '🔍', name: 'DISC Assessment', price: '₹1,999' },
             { emoji: '🌱', name: 'Child Program', price: '₹9,999' },
