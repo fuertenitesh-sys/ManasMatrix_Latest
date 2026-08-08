@@ -171,14 +171,14 @@
   gap: 8px;
 }
 
-/* Stats Bar with Spacing - Flush Far Left */
+/* Stats Bar with Generous Spacing / Gap (64px) */
 .hero__stats {
   display: flex;
   align-items: center;
   justify-content: flex-start !important;
-  gap: 48px;
-  margin-top: 8px;
-  margin-bottom: 4px;
+  gap: 64px !important; /* Generous distance between stat items */
+  margin-top: 12px;
+  margin-bottom: 6px;
   margin-left: 0 !important;
   padding-left: 0 !important;
   width: 100%;
@@ -194,16 +194,17 @@
 
 .hero__stat-number {
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--color-gold);
   line-height: 1;
 }
 
 .hero__stat-label {
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   color: var(--color-text-muted);
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .hero__stat-divider {
@@ -375,7 +376,7 @@
     padding-right: 16px !important;
   }
   .hero__stats {
-    gap: 16px;
+    gap: 20px !important;
     justify-content: space-between !important;
     width: 100%;
   }

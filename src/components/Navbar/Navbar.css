@@ -21,7 +21,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 24px;
   width: 100%;
   max-width: 100%;
   margin: 0;
@@ -81,13 +81,14 @@
   opacity: 0.9;
 }
 
-/* Taqsha Style Nav Links */
+/* Nav Links - Increased Equal Distance / Gap Between Each Item */
 .navbar__links {
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  gap: 32px; /* Generous equal distance between links */
   list-style: none;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   height: 100%;
 }
@@ -103,10 +104,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 14px;
+  padding: 8px 12px;
   color: #E2E8F0;
   text-decoration: none;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.3px;
   transition: all var(--transition-fast);
@@ -128,8 +129,8 @@
   content: '';
   position: absolute;
   bottom: 2px;
-  left: 12px;
-  right: 12px;
+  left: 8px;
+  right: 8px;
   height: 3px;
   background: var(--gradient-gold);
   border-radius: var(--radius-full);
@@ -156,7 +157,7 @@
 .navbar__actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   flex-shrink: 0;
 }
 
@@ -285,7 +286,7 @@
 }
 
 /* Responsive Breakpoints */
-@media (max-width: 1020px) {
+@media (max-width: 1080px) {
   .navbar {
     padding: 14px 20px;
   }
