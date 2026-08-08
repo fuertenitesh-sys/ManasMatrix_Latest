@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { RocketIcon, PhoneIcon, GraduationCapIcon, DnaIcon, BarChartIcon, StarIcon } from '../Icons';
 import './Hero.css';
 
 const Hero = () => {
@@ -33,20 +34,9 @@ const Hero = () => {
       </div>
 
       <div className="container hero__content">
-        {/* Left Column */}
+        {/* Left Column - Point 3: Text aligned strictly to left */}
         <div className="hero__left animate-reveal fade-left">
-          {/* Badge */}
-          <div className="section-badge hero__badge">
-            🧠 Brain Mapping Report •{' '}
-            <a
-              href="https://maps.google.com/?q=MANAS+MATRIX+Spire+150+Feet+Ring+Rd+Rajkot"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero__badge-location"
-            >
-              📍 Rajkot, Gujarat ↗
-            </a>
-          </div>
+          {/* Point 4: Location badge removed per prompt requirement */}
 
           {/* Heading */}
           <h1 className="hero__title">
@@ -60,14 +50,23 @@ const Hero = () => {
             Understand how your child learns. Beyond marks. A scientific cognitive assessment that gives parents a clear, structured view of the skills shaping how their child thinks, focuses, learns, and grows.
           </p>
 
-          {/* Feature Pills */}
+          {/* Feature Pills with Vector SVG Icons (No Emojis) */}
           <div className="hero__pills">
-            <span className="hero__pill">🎓 Recommended for Ages 4 - 25</span>
-            <span className="hero__pill">🧬 100% Scientific DMI Analysis</span>
-            <span className="hero__pill">📊 Printed Intelligence Report</span>
+            <span className="hero__pill">
+              <GraduationCapIcon size={14} color="#F59E0B" />
+              <span>Recommended for Ages 4 - 25</span>
+            </span>
+            <span className="hero__pill">
+              <DnaIcon size={14} color="#60A5FA" />
+              <span>100% Scientific DMI Analysis</span>
+            </span>
+            <span className="hero__pill">
+              <BarChartIcon size={14} color="#FF6B35" />
+              <span>Printed Intelligence Report</span>
+            </span>
           </div>
 
-          {/* Stats Bar */}
+          {/* Point 5: Stats Bar with Generous Spacing */}
           <div className="hero__stats">
             <div className="hero__stat">
               <span className="hero__stat-number">500+</span>
@@ -85,18 +84,20 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* CTAs */}
+          {/* CTAs with Vector SVG Icons */}
           <div className="hero__ctas">
             <Link to="/programs" className="btn-primary" id="hero-cta-primary">
-              <span>🚀 Explore Programs</span>
+              <RocketIcon size={18} />
+              <span>Explore Programs</span>
             </Link>
             <a href="tel:9106545374" className="btn-secondary" id="hero-cta-secondary">
-              📞 Call: 9106545374
+              <PhoneIcon size={18} />
+              <span>Call: 9106545374</span>
             </a>
           </div>
         </div>
 
-        {/* Right Column: Floating Interactive Assessment Card (Restored to original right-side floating position) */}
+        {/* Right Column: Floating Interactive Assessment Card */}
         <div className="hero__right animate-reveal fade-right">
           <div className="hero__floating-card glass-card">
             <div className="hero__card-header">
@@ -123,17 +124,14 @@ const Hero = () => {
             </div>
 
             <div className="hero__card-footer">
-              <span className="hero__card-footer-badge">⭐ 4 Programs Available</span>
+              <span className="hero__card-footer-badge">
+                <StarIcon size={14} color="#FCD34D" />
+                <span>4 Programs Available</span>
+              </span>
               <span className="hero__card-price">Starting ₹1,999</span>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="hero__scroll">
-        <div className="hero__scroll-dot"></div>
-        <span>Scroll to explore</span>
       </div>
     </section>
   );

@@ -1,207 +1,179 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { StarIcon, CheckIcon, ArrowRightIcon, BriefcaseIcon, ChildIcon, UsersIcon, BarChartIcon } from '../Icons';
 import './Programs.css';
 
-const programs = [
-  {
-    id: 'disc',
-    badge: '🔍 Entry Level',
-    badgeColor: '#0D9488',
-    title: 'DISC Personality Assessment',
-    subtitle: 'Know Yourself First',
-    price: '₹1,999',
-    tagline: 'Your Mind Holds The Blueprint of Your Future',
-    features: [
-      'Mini Cognitive Assessment',
-      'DISC Personality Analysis',
-      'Natural SWOT Analysis',
-      'Quick Potential Snapshot',
-    ],
-    cta: 'Unlock Your Personality',
-    popular: false,
-    gradient: 'linear-gradient(135deg, rgba(13,148,136,0.15), rgba(13,148,136,0.05))',
-    border: 'rgba(13,148,136,0.4)',
-    glowColor: 'rgba(13,148,136,0.2)',
-    anim: 'fade-up delay-100',
-  },
-  {
-    id: 'child',
-    badge: '🌱 Child Program',
-    badgeColor: '#3B82F6',
-    title: 'Growth Transformation Program',
-    subtitle: 'Build Your Child\'s Future With Science',
-    price: '₹9,999',
-    tagline: 'Advance Brain Mapping Report for Children',
-    features: [
-      'Printed Brain Mapping Report',
-      'Complete Brain Mapping Analysis',
-      'Personalized Counseling Session',
-      '1 Month Development Plan',
-      'Habit & Performance Coaching',
-      'Monthly Review Session',
-    ],
-    cta: 'Start Child\'s Journey',
-    popular: false,
-    gradient: 'linear-gradient(135deg, rgba(59,130,246,0.15), rgba(59,130,246,0.05))',
-    border: 'rgba(59,130,246,0.4)',
-    glowColor: 'rgba(59,130,246,0.2)',
-    anim: 'fade-up delay-200',
-  },
-  {
-    id: 'professional',
-    badge: '💼 Professional',
-    badgeColor: '#FF6B35',
-    title: 'Advanced Brain Mapping',
-    subtitle: 'Build The Mindset That Builds Success',
-    price: '₹14,999',
-    tagline: 'For Business Professionals & Leaders',
-    features: [
-      'Printed Premium Brain Mapping Report',
-      'Advanced Brain Intelligence Analysis',
-      'Personalized Business Growth Consultation',
-      'Leadership & Performance Analysis',
-      'Business Decision Making Assessment',
-      '30 Day Growth Optimization Plan',
-      'Habit Building & High Performance Coaching',
-      'Monthly Review & Performance Tracking',
-    ],
-    cta: 'Elevate Your Performance',
-    popular: false,
-    gradient: 'linear-gradient(135deg, rgba(255,107,53,0.15), rgba(255,107,53,0.05))',
-    border: 'rgba(255,107,53,0.4)',
-    glowColor: 'rgba(255,107,53,0.2)',
-    anim: 'fade-up delay-300',
-  },
-  {
-    id: 'elite',
-    badge: '⭐ Most Popular',
-    badgeColor: '#F59E0B',
-    title: 'Elite Family Transformation',
-    subtitle: 'Transform Your Family\'s Future With Science',
-    price: '₹37,499',
-    tagline: 'The Ultimate Family Transformation Program',
-    features: [
-      'Everything in Growth Transformation Program',
-      '90 Day Complete Development Journey',
-      'Personalized Family Counseling Sessions',
-      'Family Brain Reports (2-3 Members)',
-      'Quarterly Progress Review Sessions',
-      'Advanced Brain Performance Coaching',
-      'Premium Personal Growth Guidance',
-      'Long-Term Transformation Planning',
-    ],
-    outcomes: [
-      'Better Child Development & Growth',
-      'Improved Parent-Child Understanding',
-      'Better Family Communication Patterns',
-      'Long-Term Habit Transformation',
-      'Emotional Intelligence Development',
-      'Complete Family Alignment For Future',
-      'Sustainable Personal Transformation',
-    ],
-    cta: 'Begin Elite Journey',
-    popular: true,
-    gradient: 'linear-gradient(135deg, rgba(245,158,11,0.15), rgba(124,58,237,0.08))',
-    border: 'rgba(245,158,11,0.5)',
-    glowColor: 'rgba(245,158,11,0.25)',
-    anim: 'zoom-in delay-400',
-  },
-];
-
 const Programs = () => {
-  const [hoveredId, setHoveredId] = useState(null);
+  const programsData = [
+    {
+      id: 'disc',
+      title: 'DISC Assessment',
+      subtitle: 'Understand Personality & Behavioral Traits',
+      tagline: 'Ideal for Students & Early Career',
+      price: '₹1,999',
+      badge: 'Popular Entry',
+      badgeColor: 'rgba(59, 130, 246, 0.15)',
+      badgeTextColor: '#60A5FA',
+      icon: <BarChartIcon size={24} color="#60A5FA" />,
+      features: [
+        'DISC Personality Profile Analysis',
+        'Dominance, Influence, Steadiness & Compliance Score',
+        'Basic Communication & Behavior Style Insights',
+        'Digital Assessment Report',
+        'Self-Discovery Summary Session',
+      ],
+      outcomes: ['Behavioral Awareness', 'Communication Boost'],
+      ctaText: 'Book Assessment →',
+      ctaClass: 'btn-secondary',
+    },
+    {
+      id: 'child',
+      title: 'Child Program',
+      subtitle: 'Discover Innate Learning Potential',
+      tagline: 'Recommended for Ages 4 to 16',
+      price: '₹9,999',
+      badge: 'Most Popular',
+      badgeColor: 'rgba(245, 158, 11, 0.15)',
+      badgeTextColor: '#F59E0B',
+      icon: <ChildIcon size={24} color="#F59E0B" />,
+      features: [
+        'Full 10-Lobe DMI Fingerprint Brain Mapping',
+        'Multiple Intelligence (MI) & Brain Dominance Analysis',
+        'Visual, Auditory, Kinesthetic Learning Style Identification',
+        'Printed 40+ Page Premium Brain Report',
+        '1-on-1 Parent Counselling Session in Rajkot',
+      ],
+      outcomes: ['Study Method Clarity', 'Parenting Blueprint'],
+      ctaText: 'Unlock Child Potential →',
+      ctaClass: 'btn-primary',
+      popular: true,
+    },
+    {
+      id: 'professional',
+      title: 'Professional',
+      subtitle: 'Build The Mindset That Builds Success',
+      tagline: 'For Business Professionals & Leaders',
+      price: '₹14,999',
+      badge: 'Career & Business',
+      badgeColor: 'rgba(239, 68, 68, 0.15)',
+      badgeTextColor: '#EF4444',
+      icon: <BriefcaseIcon size={24} color="#FF6B35" />,
+      features: [
+        'Printed Premium Brain Mapping Report',
+        'Advanced Brain Intelligence Analysis',
+        'Personalized Business Growth Consultation',
+        'Leadership & Performance Analysis',
+        'Business Decision Making Assessment',
+        '30 Day Growth Optimization Plan',
+        'Habit Building & High Performance Coaching',
+        'Monthly Review & Performance Tracking',
+      ],
+      outcomes: ['Leadership Boost', 'Decision Making Clarity'],
+      ctaText: 'Elevate Performance →',
+      ctaClass: 'btn-primary',
+    },
+    {
+      id: 'elite-family',
+      title: 'Elite Family',
+      subtitle: 'Complete Family Transformation',
+      tagline: 'For Entire Family (Parents + Children)',
+      price: '₹37,499',
+      badge: 'Complete Package',
+      badgeColor: 'rgba(168, 85, 247, 0.15)',
+      badgeTextColor: '#C084FC',
+      icon: <UsersIcon size={24} color="#C084FC" />,
+      features: [
+        'Complete Brain Mapping for 4 Family Members',
+        'Family Harmony & Inter-relational Dynamics Analysis',
+        'Parent-Child Communication Blueprint',
+        '4 Printed Premium Intelligence Reports',
+        'Multiple Counselling & Progress Alignment Sessions',
+        'Lifelong Cognitive Guidance & Support',
+      ],
+      outcomes: ['Family Harmony', 'Complete Alignment'],
+      ctaText: 'Transform Family →',
+      ctaClass: 'btn-primary',
+    },
+  ];
 
   return (
-    <section className="programs section" id="programs">
-      <div className="glow-orb" style={{ width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(245,158,11,0.07), transparent)', bottom: '0', right: '0' }}></div>
-
+    <section className="section programs" id="programs">
       <div className="container">
-        <div className="section-header animate-reveal fade-up">
-          <div className="section-badge">💎 Our Programs</div>
+        <div className="section-header">
+          <div className="section-badge">
+            <StarIcon size={14} color="#F59E0B" />
+            <span>Programs & Pricing</span>
+          </div>
           <h2 className="section-title">
-            Choose Your <span className="gradient-text-gold">Transformation</span> Path
+            Tailored Brain Intelligence <span className="gradient-text-gold">Programs</span>
           </h2>
-          <div className="divider"></div>
           <p className="section-subtitle">
-            Science-backed programs designed for every stage of life — starting from just ₹1,999.
+            Scientific cognitive assessments designed to give clarity at every stage of life — from early childhood learning to executive performance.
           </p>
         </div>
 
-        {/* Outer Grid Container of Pricing Cards */}
+        {/* Image 3 Fix: Balanced 2x2 Grid where all 4 cards are displayed side-by-side in equal 2-column cards */}
         <div className="programs__grid">
-          {programs.map((program) => (
+          {programsData.map((program) => (
             <div
               key={program.id}
-              id={`program-${program.id}`}
-              className={`programs__card ${program.popular ? 'programs__card--popular' : ''} animate-reveal ${program.anim}`}
-              style={{
-                background: program.gradient,
-                borderColor: hoveredId === program.id ? program.border : 'var(--color-border)',
-                boxShadow: hoveredId === program.id ? `0 20px 60px ${program.glowColor}` : 'none',
-              }}
-              onMouseEnter={() => setHoveredId(program.id)}
-              onMouseLeave={() => setHoveredId(null)}
+              className={`programs__card glass-card ${program.popular ? 'programs__card--popular' : ''}`}
             >
-              {program.popular && (
-                <div className="programs__popular-tag">⭐ Most Popular</div>
-              )}
+              {program.popular && <div className="programs__popular-tag">MOST RECOMMENDED</div>}
 
               <div className="programs__card-header">
-                <div className="programs__badge" style={{ background: `${program.badgeColor}20`, color: program.badgeColor, border: `1px solid ${program.badgeColor}40` }}>
-                  {program.badge}
+                <div className="programs__card-icon-box">
+                  {program.icon}
                 </div>
-                <div className="programs__price" style={{ color: program.badgeColor }}>
-                  {program.price}
-                  <span className="programs__price-sub">only</span>
+                <div
+                  className="programs__badge"
+                  style={{ background: program.badgeColor, color: program.badgeTextColor }}
+                >
+                  <span>{program.badge}</span>
                 </div>
               </div>
 
-              <h3 className="programs__title">{program.title}</h3>
-              <p className="programs__subtitle">{program.subtitle}</p>
-              <p className="programs__tagline">{program.tagline}</p>
+              <div className="programs__price-row">
+                <div className="programs__price">{program.price}</div>
+                <div className="programs__price-sub">per report</div>
+              </div>
 
-              <div className="programs__divider" style={{ background: program.border }}></div>
+              <h3 className="programs__title">{program.title}</h3>
+              <div className="programs__subtitle">{program.subtitle}</div>
+              <div className="programs__tagline">{program.tagline}</div>
+
+              <div className="programs__divider"></div>
 
               <div className="programs__features">
-                <p className="programs__features-label">Includes:</p>
-                {program.features.map((f) => (
-                  <div key={f} className="programs__feature-item">
-                    <span className="programs__feature-check" style={{ color: program.badgeColor }}>✓</span>
-                    <span>{f}</span>
+                <div className="programs__features-label">INCLUDES:</div>
+                {program.features.map((feat, idx) => (
+                  <div key={idx} className="programs__feature-item">
+                    <CheckIcon size={16} color="#F59E0B" className="programs__feature-check" />
+                    <span>{feat}</span>
                   </div>
                 ))}
               </div>
 
-              {program.outcomes && (
-                <div className="programs__outcomes">
-                  <p className="programs__outcomes-label">Your Family Will Experience:</p>
-                  {program.outcomes.map((o) => (
-                    <div key={o} className="programs__outcome-item">
-                      <span className="programs__feature-check" style={{ color: '#F59E0B' }}>•</span>
-                      <span>{o}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
+              <div className="programs__outcomes">
+                <div className="programs__outcomes-label">KEY OUTCOMES:</div>
+                {program.outcomes.map((out, idx) => (
+                  <div key={idx} className="programs__outcome-item">
+                    <StarIcon size={12} color="#FCD34D" />
+                    <span>{out}</span>
+                  </div>
+                ))}
+              </div>
 
-              <a
-                href="tel:9106545374"
-                className="programs__cta"
-                id={`program-cta-${program.id}`}
-                style={{
-                  background: program.popular
-                    ? 'var(--gradient-orange-gold)'
-                    : `linear-gradient(135deg, ${program.badgeColor}, ${program.badgeColor}cc)`,
-                }}
-              >
-                {program.cta} →
-              </a>
+              <Link to="/contact" className={`programs__cta ${program.ctaClass}`}>
+                <span>{program.ctaText}</span>
+              </Link>
             </div>
           ))}
         </div>
 
-        <div className="programs__note animate-reveal fade-up">
-          <p>📞 Call us at <a href="tel:9106545374" style={{ color: 'var(--color-gold)' }}>9106545374</a> to discuss which program is right for you.</p>
-        </div>
+        <p className="programs__note">
+          💡 All programs include a 1-on-1 private consultation with certified Brain Mapping experts in Rajkot, Gujarat.
+        </p>
       </div>
     </section>
   );

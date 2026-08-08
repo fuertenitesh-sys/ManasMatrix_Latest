@@ -4,7 +4,7 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding-top: 120px;
+  padding-top: 130px;
   padding-bottom: 80px;
 }
 
@@ -71,32 +71,23 @@
   align-items: center;
 }
 
-/* Left Column */
+/* Left Column - Point 3: Text aligned to left side */
 .hero__left {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
   gap: 22px;
-}
-
-.hero__badge-location {
-  color: var(--color-gold);
-  text-decoration: none;
-  font-weight: 700;
-  transition: opacity var(--transition-fast);
-}
-
-.hero__badge-location:hover {
-  opacity: 0.85;
-  text-decoration: underline;
 }
 
 .hero__title {
   font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
   font-weight: 700;
   line-height: 1.1;
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
 .hero__title-line {
@@ -115,59 +106,66 @@
   line-height: 1.75;
   max-width: 620px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  text-align: left;
 }
 
 /* Feature Pills */
 .hero__pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
+  justify-content: flex-start;
 }
 
 .hero__pill {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  padding: 7px 16px;
-  background: rgba(5, 8, 24, 0.75);
+  padding: 8px 16px;
+  background: rgba(5, 8, 24, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius-full);
   color: var(--color-text-primary);
   backdrop-filter: blur(12px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* Stats */
+/* Point 5: Stats Bar with Generous Spacing / Distance */
 .hero__stats {
   display: flex;
   align-items: center;
-  gap: 24px;
-  margin-top: 4px;
+  gap: 48px;
+  margin-top: 8px;
+  margin-bottom: 4px;
 }
 
 .hero__stat {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  align-items: flex-start;
 }
 
 .hero__stat-number {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--color-gold);
   line-height: 1;
 }
 
 .hero__stat-label {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   color: var(--color-text-muted);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .hero__stat-divider {
   width: 1px;
-  height: 40px;
-  background: var(--color-border);
+  height: 44px;
+  background: rgba(255, 255, 255, 0.15);
   flex-shrink: 0;
 }
 
@@ -285,6 +283,9 @@
 .hero__card-footer-badge {
   color: #CBD5E1 !important;
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .hero__card-price {
@@ -293,175 +294,43 @@
   font-size: 0.9rem;
 }
 
-/* Scroll Indicator */
-.hero__scroll {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
-  z-index: 1;
-}
-
-.hero__scroll-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--color-gold);
-  border-radius: 50%;
-  animation: float 1.5s ease-in-out infinite;
-}
-
-/* ============================================
-   RESPONSIVE BREAKPOINTS (TABLETS & MOBILE PHONES)
-   ============================================ */
-
+/* Responsive */
 @media (max-width: 992px) {
   .hero {
     padding-top: 100px;
     padding-bottom: 60px;
-    min-height: auto;
   }
-
   .hero__content {
     grid-template-columns: 1fr;
     gap: 36px;
-    text-align: center;
   }
-
   .hero__left {
     align-items: center;
-    gap: 18px;
+    text-align: center;
   }
-
-  .hero__title {
-    font-size: clamp(2rem, 6.5vw, 3.2rem);
+  .hero__title, .hero__subtitle {
+    text-align: center;
   }
-
-  .hero__subtitle {
-    margin: 0 auto;
-    font-size: 0.95rem;
-  }
-
-  .hero__pills {
+  .hero__pills, .hero__stats, .hero__ctas {
     justify-content: center;
   }
-
-  .hero__stats {
-    justify-content: center;
-  }
-
-  .hero__ctas {
-    justify-content: center;
-    width: 100%;
-  }
-
   .hero__right {
     justify-content: center;
-    width: 100%;
-  }
-
-  .hero__floating-card {
-    max-width: 400px;
-  }
-
-  .hero__full-bg-overlay {
-    background: rgba(5, 8, 24, 0.92);
   }
 }
 
 @media (max-width: 576px) {
-  .hero {
-    padding-top: 90px;
-    padding-bottom: 50px;
-  }
-
-  .hero__left {
-    gap: 16px;
-  }
-
-  .hero__badge {
-    font-size: 0.74rem;
-    padding: 5px 12px;
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .hero__title {
-    font-size: clamp(1.8rem, 8vw, 2.5rem);
-    line-height: 1.15;
-  }
-
-  .hero__subtitle {
-    font-size: 0.88rem;
-    line-height: 1.6;
-  }
-
-  .hero__pills {
-    gap: 6px;
-  }
-
-  .hero__pill {
-    font-size: 0.72rem;
-    padding: 5px 12px;
-  }
-
   .hero__stats {
-    gap: 14px;
+    gap: 20px;
+    justify-content: space-between;
     width: 100%;
-    justify-content: space-around;
   }
-
-  .hero__stat-number {
-    font-size: 1.4rem;
-  }
-
-  .hero__stat-label {
-    font-size: 0.7rem;
-  }
-
-  .hero__stat-divider {
-    height: 30px;
-  }
-
   .hero__ctas {
-    flex-direction: column;
     width: 100%;
-    gap: 12px;
+    flex-direction: column;
   }
-
-  .hero__ctas .btn-primary,
-  .hero__ctas .btn-secondary {
+  .hero__ctas .btn-primary, .hero__ctas .btn-secondary {
     width: 100%;
     justify-content: center;
-    padding: 12px 20px;
-    font-size: 0.9rem;
-  }
-
-  .hero__floating-card {
-    padding: 20px 16px;
-    max-width: 100%;
-  }
-
-  .hero__scroll {
-    display: none;
-  }
-}
-
-@media (max-width: 360px) {
-  .hero__title {
-    font-size: 1.65rem;
-  }
-
-  .hero__stat-number {
-    font-size: 1.25rem;
-  }
-
-  .hero__stat-label {
-    font-size: 0.65rem;
   }
 }
