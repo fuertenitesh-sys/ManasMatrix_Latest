@@ -1,0 +1,324 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 120px;
+  padding-bottom: 80px;
+}
+
+/* Full Section Vivid Background Image */
+.hero__full-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero__full-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  transition: transform 0.3s ease-out;
+  transform: scale(1.03);
+  filter: brightness(1.06) contrast(1.05);
+}
+
+.hero__full-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(5, 8, 24, 0.96) 0%,
+    rgba(5, 8, 24, 0.82) 38%,
+    rgba(5, 8, 24, 0.30) 68%,
+    rgba(5, 8, 24, 0.08) 100%
+  );
+}
+
+.hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.hero__orb--1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.12), transparent);
+  top: -150px;
+  left: -100px;
+}
+
+.hero__orb--2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.12), transparent);
+  bottom: -150px;
+  right: -100px;
+}
+
+/* Content */
+.hero__content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Left Column */
+.hero__left {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.hero__badge-location {
+  color: var(--color-gold);
+  text-decoration: none;
+  font-weight: 700;
+  transition: opacity var(--transition-fast);
+}
+
+.hero__badge-location:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__title-line {
+  display: block;
+}
+
+.hero__title-highlight {
+  display: block;
+  font-style: italic;
+  font-size: 1.08em;
+}
+
+.hero__subtitle {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+  max-width: 620px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Taqsha style Feature Pills */
+.hero__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero__pill {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 7px 16px;
+  background: rgba(5, 8, 24, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-full);
+  color: var(--color-text-primary);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Stats */
+.hero__stats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 4px;
+}
+
+.hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero__stat-number {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  line-height: 1;
+}
+
+.hero__stat-label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.hero__stat-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--color-border);
+  flex-shrink: 0;
+}
+
+/* CTAs */
+.hero__ctas {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+/* Right Column - Floating Assessment Card */
+.hero__right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero__floating-card {
+  width: 100%;
+  max-width: 380px;
+  padding: 28px;
+  border: 1.5px solid var(--color-border-gold);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(245, 158, 11, 0.2);
+  animation: float 6s ease-in-out infinite;
+  background: rgba(5, 8, 24, 0.85);
+  backdrop-filter: blur(16px);
+}
+
+.hero__card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 16px;
+}
+
+.hero__card-logo {
+  height: 40px;
+  width: auto;
+}
+
+.hero__card-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.hero__card-sub {
+  font-size: 0.75rem;
+  color: var(--color-gold);
+}
+
+.hero__card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.hero__metric {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hero__metric-label {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+.hero__bar-bg {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.hero__bar-fill {
+  height: 100%;
+  background: var(--gradient-gold);
+  border-radius: var(--radius-full);
+}
+
+.hero__card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border);
+}
+
+.hero__card-price {
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+/* Scroll Indicator */
+.hero__scroll {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  z-index: 1;
+}
+
+.hero__scroll-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-gold);
+  border-radius: 50%;
+  animation: float 1.5s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero__content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .hero__left {
+    align-items: center;
+  }
+  .hero__subtitle {
+    margin: 0 auto;
+  }
+  .hero__pills {
+    justify-content: center;
+  }
+  .hero__stats {
+    justify-content: center;
+  }
+  .hero__ctas {
+    justify-content: center;
+  }
+  .hero__right {
+    justify-content: center;
+  }
+  .hero__full-bg-overlay {
+    background: rgba(5, 8, 24, 0.90);
+  }
+}
