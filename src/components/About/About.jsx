@@ -143,7 +143,10 @@ const About = () => {
               <div className="about__report-img-card glass-card">
                 <img src="/brain_report.jpg" alt="Manas Matrix Brain Report Sample" className="about__report-img" />
                 <div className="about__report-img-badge">
-                  <span>📊 1000+ Printed Reports Generated in Rajkot</span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                    <BarChartIcon size={14} color="#F59E0B" />
+                    <span>1000+ Printed Reports Generated in Rajkot</span>
+                  </span>
                 </div>
               </div>
             </div>
