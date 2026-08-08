@@ -72,20 +72,36 @@
   width: 100%;
 }
 
-/* Left Column - Flush Left Start for Heading, Subtitle, Pills, Stats, CTAs */
+/* Left Column - Taqsha Inspired Text Layout */
 .hero__left {
   display: flex;
   flex-direction: column;
   align-items: flex-start !important;
   text-align: left !important;
-  gap: 22px;
+  gap: 20px;
   padding-left: 0 !important;
   margin-left: 0 !important;
 }
 
+/* Taqsha Style Badge: POWERED BY DMI TECHNOLOGY */
+.hero__taqsha-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  background: rgba(245, 158, 11, 0.06);
+  border: 1.5px solid rgba(245, 158, 11, 0.35);
+  border-radius: var(--radius-sm);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #FF6B35;
+  text-transform: uppercase;
+  box-shadow: 0 0 15px rgba(255, 107, 53, 0.15);
+}
+
 .hero__title {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  font-size: clamp(2.6rem, 5vw, 4.4rem);
   font-weight: 700;
   line-height: 1.1;
   display: flex;
@@ -99,12 +115,14 @@
 .hero__title-line {
   display: block;
   text-align: left !important;
+  color: #FFFFFF;
 }
 
 .hero__title-highlight {
   display: block;
   font-style: italic;
   font-size: 1.08em;
+  font-family: var(--font-heading);
   text-align: left !important;
 }
 
@@ -119,7 +137,7 @@
   padding-left: 0 !important;
 }
 
-/* Feature Pills - Flush Left Start */
+/* Feature Pills - Flush Left */
 .hero__pills {
   display: flex;
   flex-wrap: wrap;

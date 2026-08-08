@@ -34,23 +34,26 @@ const Hero = () => {
       </div>
 
       <div className="container hero__content">
-        {/* Left Column - Point 3: Text aligned strictly to left */}
+        {/* Left Column: Taqsha Inspired Content & Typography */}
         <div className="hero__left animate-reveal fade-left">
-          {/* Point 4: Location badge removed per prompt requirement */}
+          {/* Taqsha Style Badge */}
+          <div className="hero__taqsha-badge">
+            POWERED BY DMI TECHNOLOGY
+          </div>
 
-          {/* Heading */}
+          {/* Taqsha Style Heading */}
           <h1 className="hero__title">
-            <span className="hero__title-line">Know Yourself</span>
-            <span className="hero__title-highlight gradient-text-gold">Better to</span>
-            <span className="hero__title-line">Grow Better</span>
+            <span className="hero__title-line">Understand how your</span>
+            <span className="hero__title-line">child learns.</span>
+            <span className="hero__title-highlight gradient-text-gold">Beyond marks.</span>
           </h1>
 
-          {/* Subtitle */}
+          {/* Taqsha Subtitle Paragraph */}
           <p className="hero__subtitle">
-            Understand how your child learns. Beyond marks. A scientific cognitive assessment that gives parents a clear, structured view of the skills shaping how their child thinks, focuses, learns, and grows.
+            A scientific cognitive assessment that gives parents a clear, structured view of the skills shaping how their child thinks, focuses, learns, and grows.
           </p>
 
-          {/* Feature Pills with Vector SVG Icons (No Emojis) */}
+          {/* Taqsha Style Feature Pills */}
           <div className="hero__pills">
             <span className="hero__pill">
               <GraduationCapIcon size={14} color="#F59E0B" />
@@ -62,11 +65,11 @@ const Hero = () => {
             </span>
             <span className="hero__pill">
               <BarChartIcon size={14} color="#FF6B35" />
-              <span>Printed Intelligence Report</span>
+              <span>Printed 40+ Page Intelligence Report</span>
             </span>
           </div>
 
-          {/* Point 5: Stats Bar with Generous Spacing */}
+          {/* Stats Bar with Spacing */}
           <div className="hero__stats">
             <div className="hero__stat">
               <span className="hero__stat-number">500+</span>
@@ -84,7 +87,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* CTAs with Vector SVG Icons */}
+          {/* CTAs */}
           <div className="hero__ctas">
             <Link to="/programs" className="btn-primary" id="hero-cta-primary">
               <RocketIcon size={18} />

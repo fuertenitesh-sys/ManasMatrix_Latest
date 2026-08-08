@@ -9,7 +9,6 @@
   background: transparent;
 }
 
-/* Point 6: Scrolled navbar blends seamlessly with Hero without any bottom border line */
 .navbar--scrolled {
   background: rgba(5, 8, 24, 0.95);
   backdrop-filter: blur(24px);
@@ -28,7 +27,7 @@
   margin: 0;
 }
 
-/* Point 1: Official Logo starts flush from far left */
+/* Taqsha Style Logo Layout: MANAS MATRIX by GROWUP BUSINESS SERVICES */
 .navbar__logo {
   display: flex;
   align-items: center;
@@ -58,10 +57,11 @@
 
 .navbar__logo-title {
   font-family: var(--font-heading);
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 800;
-  letter-spacing: 1.5px;
-  background: linear-gradient(135deg, #FF6B35 0%, #F59E0B 50%, #60A5FA 100%);
+  letter-spacing: 2px;
+  color: #FF6B35;
+  background: linear-gradient(135deg, #FF6B35 0%, #F59E0B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -71,19 +71,21 @@
 }
 
 .navbar__logo-sub {
-  font-size: 0.65rem;
-  color: var(--color-text-secondary);
-  letter-spacing: 0.5px;
-  font-weight: 500;
-  margin-top: 2px;
+  font-size: 0.62rem;
+  color: #F59E0B;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  margin-top: 3px;
   white-space: nowrap;
+  text-transform: uppercase;
+  opacity: 0.9;
 }
 
-/* Nav Links - High Visibility Single-Line Centered Alignment */
+/* Taqsha Style Nav Links */
 .navbar__links {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 12px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -106,7 +108,7 @@
   text-decoration: none;
   font-size: 0.92rem;
   font-weight: 600;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.3px;
   transition: all var(--transition-fast);
   height: 38px;
   line-height: 1;
@@ -150,7 +152,7 @@
   color: var(--color-gold) !important;
 }
 
-/* Actions Section - Only Book Now CTA Button */
+/* Actions Section - Taqsha Style Login & CTA Buttons */
 .navbar__actions {
   display: flex;
   align-items: center;
@@ -158,9 +160,36 @@
   flex-shrink: 0;
 }
 
+/* Taqsha Style Login Pill Button */
+.navbar__login-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-full);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+
+.navbar__login-btn:hover {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
 .navbar__cta {
   font-size: 0.88rem;
-  padding: 10px 22px;
+  padding: 9px 22px;
   white-space: nowrap;
 }
 
