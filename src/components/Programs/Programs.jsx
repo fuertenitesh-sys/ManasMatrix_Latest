@@ -114,10 +114,10 @@ const Programs = () => {
 
         {/* Balanced 2-Column Grid where Professional and Elite Family sit side-by-side */}
         <div className="programs__grid">
-          {programsData.map((program) => (
+          {programsData.map((program, index) => (
             <div
               key={program.id}
-              className={`programs__card glass-card ${program.popular ? 'programs__card--popular' : ''}`}
+              className={`programs__card glass-card ${program.popular ? 'programs__card--popular' : ''} animate-reveal ${index % 2 === 0 ? 'fade-left delay-100' : 'fade-right delay-200'}`}
             >
               {program.popular && <div className="programs__popular-tag">MOST RECOMMENDED</div>}
 
