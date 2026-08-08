@@ -69,15 +69,18 @@
   grid-template-columns: 1.15fr 0.85fr;
   gap: 50px;
   align-items: center;
+  width: 100%;
 }
 
-/* Left Column - Point 3: Text aligned to left side */
+/* Left Column - Flush Left Start for Heading, Subtitle, Pills, Stats, CTAs */
 .hero__left {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  align-items: flex-start !important;
+  text-align: left !important;
   gap: 22px;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
 }
 
 .hero__title {
@@ -87,17 +90,22 @@
   line-height: 1.1;
   display: flex;
   flex-direction: column;
-  text-align: left;
+  text-align: left !important;
+  align-items: flex-start !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
 }
 
 .hero__title-line {
   display: block;
+  text-align: left !important;
 }
 
 .hero__title-highlight {
   display: block;
   font-style: italic;
   font-size: 1.08em;
+  text-align: left !important;
 }
 
 .hero__subtitle {
@@ -106,15 +114,21 @@
   line-height: 1.75;
   max-width: 620px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-  text-align: left;
+  text-align: left !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
 }
 
-/* Feature Pills */
+/* Feature Pills - Flush Left Start */
 .hero__pills {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  justify-content: flex-start;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  width: 100%;
 }
 
 .hero__pill {
@@ -132,20 +146,25 @@
   gap: 8px;
 }
 
-/* Point 5: Stats Bar with Generous Spacing / Distance */
+/* Stats Bar with Spacing - Flush Left */
 .hero__stats {
   display: flex;
   align-items: center;
+  justify-content: flex-start !important;
   gap: 48px;
   margin-top: 8px;
   margin-bottom: 4px;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  width: 100%;
 }
 
 .hero__stat {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  align-items: flex-start;
+  align-items: flex-start !important;
+  text-align: left !important;
 }
 
 .hero__stat-number {
@@ -169,13 +188,17 @@
   flex-shrink: 0;
 }
 
-/* CTAs */
+/* CTAs - Flush Left */
 .hero__ctas {
   display: flex;
   align-items: center;
+  justify-content: flex-start !important;
   gap: 16px;
   flex-wrap: wrap;
   margin-top: 8px;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  width: 100%;
 }
 
 /* Right Column - Floating Interactive Assessment Card */
@@ -294,7 +317,7 @@
   font-size: 0.9rem;
 }
 
-/* Responsive */
+/* Responsive Breakpoints */
 @media (max-width: 992px) {
   .hero {
     padding-top: 100px;
@@ -305,14 +328,14 @@
     gap: 36px;
   }
   .hero__left {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start !important;
+    text-align: left !important;
   }
   .hero__title, .hero__subtitle {
-    text-align: center;
+    text-align: left !important;
   }
   .hero__pills, .hero__stats, .hero__ctas {
-    justify-content: center;
+    justify-content: flex-start !important;
   }
   .hero__right {
     justify-content: center;
@@ -322,7 +345,7 @@
 @media (max-width: 576px) {
   .hero__stats {
     gap: 20px;
-    justify-content: space-between;
+    justify-content: space-between !important;
     width: 100%;
   }
   .hero__ctas {
