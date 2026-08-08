@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { RocketIcon, PhoneIcon, GraduationCapIcon, DnaIcon, BarChartIcon, StarIcon } from '../Icons';
 import './Hero.css';
 
 const Hero = () => {
@@ -34,42 +33,41 @@ const Hero = () => {
       </div>
 
       <div className="container hero__content">
-        {/* Left Column: Taqsha Inspired Content & Typography */}
+        {/* Left Column */}
         <div className="hero__left animate-reveal fade-left">
-          {/* Taqsha Style Badge */}
-          <div className="hero__taqsha-badge">
-            POWERED BY DMI TECHNOLOGY
+          {/* Badge */}
+          <div className="section-badge hero__badge">
+            🧠 Brain Mapping Report •{' '}
+            <a
+              href="https://maps.google.com/?q=MANAS+MATRIX+Spire+150+Feet+Ring+Rd+Rajkot"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero__badge-location"
+            >
+              📍 Rajkot, Gujarat ↗
+            </a>
           </div>
 
-          {/* Taqsha Style Heading */}
+          {/* Heading */}
           <h1 className="hero__title">
-            <span className="hero__title-line">Understand how your</span>
-            <span className="hero__title-line">child learns.</span>
-            <span className="hero__title-highlight gradient-text-gold">Beyond marks.</span>
+            <span className="hero__title-line">Know Yourself</span>
+            <span className="hero__title-highlight gradient-text-gold">Better to</span>
+            <span className="hero__title-line">Grow Better</span>
           </h1>
 
-          {/* Taqsha Subtitle Paragraph */}
+          {/* Subtitle */}
           <p className="hero__subtitle">
-            A scientific cognitive assessment that gives parents a clear, structured view of the skills shaping how their child thinks, focuses, learns, and grows.
+            Understand how your child learns. Beyond marks. A scientific cognitive assessment that gives parents a clear, structured view of the skills shaping how their child thinks, focuses, learns, and grows.
           </p>
 
-          {/* Taqsha Style Feature Pills */}
+          {/* Feature Pills */}
           <div className="hero__pills">
-            <span className="hero__pill">
-              <GraduationCapIcon size={14} color="#F59E0B" />
-              <span>Recommended for Ages 4 - 25</span>
-            </span>
-            <span className="hero__pill">
-              <DnaIcon size={14} color="#60A5FA" />
-              <span>100% Scientific DMI Analysis</span>
-            </span>
-            <span className="hero__pill">
-              <BarChartIcon size={14} color="#FF6B35" />
-              <span>Printed 40+ Page Intelligence Report</span>
-            </span>
+            <span className="hero__pill">🎓 Recommended for Ages 4 - 25</span>
+            <span className="hero__pill">🧬 100% Scientific DMI Analysis</span>
+            <span className="hero__pill">📊 Printed Intelligence Report</span>
           </div>
 
-          {/* Stats Bar with Spacing */}
+          {/* Stats Bar */}
           <div className="hero__stats">
             <div className="hero__stat">
               <span className="hero__stat-number">500+</span>
@@ -90,17 +88,15 @@ const Hero = () => {
           {/* CTAs */}
           <div className="hero__ctas">
             <Link to="/programs" className="btn-primary" id="hero-cta-primary">
-              <RocketIcon size={18} />
-              <span>Explore Programs</span>
+              <span>🚀 Explore Programs</span>
             </Link>
             <a href="tel:9106545374" className="btn-secondary" id="hero-cta-secondary">
-              <PhoneIcon size={18} />
-              <span>Call: 9106545374</span>
+              📞 Call: 9106545374
             </a>
           </div>
         </div>
 
-        {/* Right Column: Floating Interactive Assessment Card */}
+        {/* Right Column: Floating Interactive Assessment Card (Restored to original right-side floating position) */}
         <div className="hero__right animate-reveal fade-right">
           <div className="hero__floating-card glass-card">
             <div className="hero__card-header">
@@ -127,14 +123,17 @@ const Hero = () => {
             </div>
 
             <div className="hero__card-footer">
-              <span className="hero__card-footer-badge">
-                <StarIcon size={14} color="#FCD34D" />
-                <span>4 Programs Available</span>
-              </span>
+              <span className="hero__card-footer-badge">⭐ 4 Programs Available</span>
               <span className="hero__card-price">Starting ₹1,999</span>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="hero__scroll">
+        <div className="hero__scroll-dot"></div>
+        <span>Scroll to explore</span>
       </div>
     </section>
   );

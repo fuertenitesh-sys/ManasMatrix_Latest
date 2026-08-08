@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import LoginModal from '../LoginModal/LoginModal';
-import { PhoneIcon, ArrowRightIcon } from '../Icons';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -11,17 +10,18 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
     { label: 'Home', path: '/' },
-    { label: 'Programs ∨', path: '/programs' },
+    { label: 'About', path: '/about' },
     { label: 'How It Works', path: '/how-it-works' },
-    { label: 'About Us', path: '/about' },
-    { label: 'Contact Us', path: '/contact' },
+    { label: 'Programs', path: '/programs' },
+    { label: 'Services', path: '/services' },
+    { label: 'Contact', path: '/contact' },
   ];
 
   const handleNavClick = (path) => {
@@ -34,17 +34,17 @@ const Navbar = () => {
   return (
     <>
       <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} id="navbar">
-        <div className="navbar__inner">
-          {/* Taqsha Style Logo: MANAS MATRIX by GROWUP BUSINESS SERVICES */}
+        <div className="container navbar__inner">
+          {/* Logo with Brain Graphic + Ultra-Crisp Bright HTML Typography */}
           <Link to="/" className="navbar__logo" id="navbar-logo" onClick={() => handleNavClick('/')}>
             <img src="/logo_brain_icon.png" alt="MANAS MATRIX Logo Icon" className="navbar__logo-icon-img" />
             <div className="navbar__logo-text-group">
               <span className="navbar__logo-title">MANAS MATRIX</span>
-              <span className="navbar__logo-sub">by GROWUP BUSINESS SERVICES</span>
+              <span className="navbar__logo-sub">GrowUp Business Services</span>
             </div>
           </Link>
 
-          {/* Desktop Nav Links (Taqsha Style) */}
+          {/* Desktop Nav Links */}
           <ul className="navbar__links" id="navbar-links">
             {navLinks.map((link) => (
               <li key={link.label} className="navbar__item">
@@ -60,24 +60,33 @@ const Navbar = () => {
             ))}
           </ul>
 
-          {/* Taqsha Style Right Action Buttons: Login + Book Now CTA */}
+          {/* Action Buttons: Location + Login + Book Now */}
           <div className="navbar__actions">
+            <a
+              href="https://maps.google.com/?q=MANAS+MATRIX+Spire+150+Feet+Ring+Rd+Rajkot"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="navbar__location-btn"
+              title="Click to view location on Google Maps"
+            >
+              📍 Rajkot ↗
+            </a>
+
+            {/* Login Button */}
             <button
               className="navbar__login-btn"
               onClick={() => setLoginOpen(true)}
               id="navbar-login-btn"
             >
-              <span>Login</span>
-              <ArrowRightIcon size={14} />
+              <span>👤 Login</span>
             </button>
 
             <Link to="/contact" className="btn-primary navbar__cta" id="navbar-cta" onClick={() => handleNavClick('/contact')}>
-              <PhoneIcon size={16} />
-              <span>Book Now</span>
+              <span>📞 Book Now</span>
             </Link>
           </div>
 
-          {/* Mobile Hamburger Toggle */}
+          {/* Mobile Hamburger */}
           <button
             className={`navbar__hamburger ${menuOpen ? 'navbar__hamburger--open' : ''}`}
             onClick={() => setMenuOpen(!menuOpen)}
@@ -90,7 +99,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu Drawer */}
+        {/* Mobile Menu */}
         <div className={`navbar__mobile-menu ${menuOpen ? 'navbar__mobile-menu--open' : ''}`} id="navbar-mobile-menu">
           <ul>
             {navLinks.map((link) => (
@@ -105,6 +114,16 @@ const Navbar = () => {
                 </NavLink>
               </li>
             ))}
+            <li>
+              <a
+                href="https://maps.google.com/?q=MANAS+MATRIX+Spire+150+Feet+Ring+Rd+Rajkot"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="navbar__mobile-location"
+              >
+                📍 Spire, 150 Feet Ring Rd, Rajkot ↗
+              </a>
+            </li>
             <li style={{ display: 'flex', gap: '10px', marginTop: '12px' }}>
               <button
                 className="navbar__login-btn"
@@ -114,12 +133,10 @@ const Navbar = () => {
                   setLoginOpen(true);
                 }}
               >
-                <span>Login</span>
-                <ArrowRightIcon size={14} />
+                👤 Login
               </button>
               <Link to="/contact" className="btn-primary" onClick={() => handleNavClick('/contact')} style={{ flex: 1.2, justifyContent: 'center' }}>
-                <PhoneIcon size={16} />
-                <span>Book Now</span>
+                <span>📞 Book Now</span>
               </Link>
             </li>
           </ul>
