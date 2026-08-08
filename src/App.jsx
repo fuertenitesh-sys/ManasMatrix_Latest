@@ -18,11 +18,13 @@ const ScrollRevealObserver = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const observerCallback = (entries, observer) => {
+    const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
+        } else {
+          // Removes .is-visible when scrolled out of view so animation re-triggers when scrolling back down!
+          entry.target.classList.remove('is-visible');
         }
       });
     };
