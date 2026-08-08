@@ -63,17 +63,6 @@ function App() {
           </Routes>
         </main>
         <Footer />
-
-        {/* Floating Call CTA */}
-        <a
-          href="tel:9106545374"
-          className="floating-cta"
-          id="floating-cta"
-          aria-label="Call Manas Matrix"
-          title="Call us: 9106545374"
-        >
-          <span>📞</span>
-        </a>
       </div>
     </Router>
   );
