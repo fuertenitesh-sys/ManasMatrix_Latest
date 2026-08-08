@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { PhoneIcon, MapPinIcon, InstagramIcon, CheckIcon, MailIcon } from '../Icons';
 import './Contact.css';
 
 const Contact = () => {
@@ -30,7 +31,10 @@ const Contact = () => {
 
       <div className="container">
         <div className="section-header animate-reveal fade-up">
-          <div className="section-badge">📞 Get In Touch</div>
+          <div className="section-badge">
+            <PhoneIcon size={14} color="#F59E0B" />
+            <span>Get In Touch</span>
+          </div>
           <h2 className="section-title">
             Begin Your <span className="gradient-text-gold">Transformation</span> Today
           </h2>
@@ -60,7 +64,9 @@ const Contact = () => {
               <div className="contact__details animate-reveal fade-up delay-300">
                 {/* Phone */}
                 <a href="tel:9106545374" className="contact__detail contact__detail--clickable" id="contact-phone">
-                  <div className="contact__detail-icon">📞</div>
+                  <div className="contact__detail-icon">
+                    <PhoneIcon size={20} color="#F59E0B" />
+                  </div>
                   <div>
                     <div className="contact__detail-label">Call Us Directly</div>
                     <div className="contact__detail-value">9106545374 ↗</div>
@@ -76,7 +82,9 @@ const Contact = () => {
                   id="contact-location"
                   title="Click to open location in Google Maps"
                 >
-                  <div className="contact__detail-icon">📍</div>
+                  <div className="contact__detail-icon">
+                    <MapPinIcon size={20} color="#EC4899" />
+                  </div>
                   <div>
                     <div className="contact__detail-label">Location (Click for Google Maps)</div>
                     <div className="contact__detail-value">
@@ -93,28 +101,14 @@ const Contact = () => {
                   className="contact__detail contact__detail--clickable"
                   id="contact-instagram"
                 >
-                  <div className="contact__detail-icon">📸</div>
+                  <div className="contact__detail-icon">
+                    <InstagramIcon size={20} color="#8B5CF6" />
+                  </div>
                   <div>
                     <div className="contact__detail-label">Instagram</div>
                     <div className="contact__detail-value">@manas_matrix ↗</div>
                   </div>
                 </a>
-              </div>
-
-              {/* Programs quick links */}
-              <div className="contact__programs animate-reveal zoom-in delay-400">
-                <p className="contact__programs-label">Our Programs:</p>
-                {[
-                  { name: 'DISC Assessment', price: '₹1,999' },
-                  { name: 'Child Program', price: '₹9,999' },
-                  { name: 'Professional', price: '₹14,999' },
-                  { name: 'Elite Family', price: '₹37,499' },
-                ].map((p) => (
-                  <div key={p.name} className="contact__program-chip">
-                    <span>{p.name}</span>
-                    <span className="contact__program-price">{p.price}</span>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
@@ -126,7 +120,8 @@ const Contact = () => {
 
               {submitted && (
                 <div className="contact__success">
-                  ✅ Thank you! We will contact you within 24 hours.
+                  <CheckIcon size={18} color="#10B981" />
+                  <span>Thank you! We will contact you within 24 hours.</span>
                 </div>
               )}
 
@@ -205,7 +200,8 @@ const Contact = () => {
               </div>
 
               <button type="submit" className="btn-primary contact__submit" id="contact-submit">
-                <span>📩 Send Enquiry</span>
+                <MailIcon size={16} />
+                <span>Send Enquiry</span>
               </button>
             </form>
           </div>
