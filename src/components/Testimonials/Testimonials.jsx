@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { StarIcon, UsersIcon, BriefcaseIcon, GraduationCapIcon, AwardIcon, BarChartIcon, RocketIcon, HeartIcon } from '../Icons';
 import './Testimonials.css';
 
 const testimonials = [
@@ -8,7 +9,7 @@ const testimonials = [
     text: 'The Brain Mapping Report for my son was life-changing! We finally understood why he struggles with traditional learning. The counselling helped us create a personalized approach that has improved his grades dramatically.',
     rating: 5,
     program: 'Growth Transformation Program',
-    avatar: '👩',
+    avatar: <HeartIcon size={20} color="#EC4899" />,
   },
   {
     name: 'Rahul Mehta',
@@ -16,7 +17,7 @@ const testimonials = [
     text: 'The Advanced Brain Mapping for Professionals was exactly what I needed. Understanding my decision-making style and leadership strengths helped me grow my business by 40% in just 6 months.',
     rating: 5,
     program: 'Advanced Brain Mapping',
-    avatar: '👨‍💼',
+    avatar: <BriefcaseIcon size={20} color="#3B82F6" />,
   },
   {
     name: 'Kavita & Vijay Patel',
@@ -24,7 +25,7 @@ const testimonials = [
     text: 'The Elite Family Transformation Program brought our entire family closer. We understand each other so much better now. Our children\'s performance has improved and our communication as a family is so much healthier.',
     rating: 5,
     program: 'Elite Family Transformation',
-    avatar: '👨‍👩‍👧‍👦',
+    avatar: <UsersIcon size={20} color="#F59E0B" />,
   },
   {
     name: 'Aakash Joshi',
@@ -32,7 +33,7 @@ const testimonials = [
     text: 'I was confused about my career after 10th. The DISC Assessment and counselling helped me discover I have strong analytical and leadership abilities. Now I know exactly which direction to take!',
     rating: 5,
     program: 'DISC Personality Assessment',
-    avatar: '🧑‍🎓',
+    avatar: <GraduationCapIcon size={20} color="#8B5CF6" />,
   },
 ];
 
@@ -86,10 +87,10 @@ const CountUpNumber = ({ target, suffix = '', duration = 2000 }) => {
 };
 
 const trustItems = [
-  { id: '1', icon: '👨‍👩‍👧', num: 500, suffix: '+', label: 'Happy Clients' },
-  { id: '2', icon: '⭐', num: 98, suffix: '%', label: 'Satisfaction Rate' },
-  { id: '3', icon: '🏆', num: 5, suffix: '+', label: 'Years in Rajkot' },
-  { id: '4', icon: '📊', num: 1000, suffix: '+', label: 'Reports Generated' },
+  { id: '1', icon: <UsersIcon size={28} color="#F59E0B" />, num: 500, suffix: '+', label: 'Happy Clients' },
+  { id: '2', icon: <StarIcon size={28} color="#FCD34D" />, num: 98, suffix: '%', label: 'Satisfaction Rate' },
+  { id: '3', icon: <AwardIcon size={28} color="#C084FC" />, num: 5, suffix: '+', label: 'Years in Rajkot' },
+  { id: '4', icon: <BarChartIcon size={28} color="#3B82F6" />, num: 1000, suffix: '+', label: 'Reports Generated' },
 ];
 
 const Testimonials = () => {
@@ -102,7 +103,10 @@ const Testimonials = () => {
 
       <div className="container">
         <div className="section-header animate-reveal fade-up">
-          <div className="section-badge">💬 Testimonials & Impact</div>
+          <div className="section-badge">
+            <HeartIcon size={14} color="#F59E0B" />
+            <span>Testimonials & Impact</span>
+          </div>
           <h2 className="section-title">
             Real Stories of <span className="gradient-text-gold">Transformation</span>
           </h2>
@@ -115,15 +119,18 @@ const Testimonials = () => {
         <div className="testimonials__grid">
           {testimonials.map((t, i) => (
             <div key={t.name} className={`testimonials__card glass-card animate-reveal fade-up delay-${(i + 1) * 100}`} id={`testimonial-${i + 1}`}>
-              <div className="testimonials__rating">
-                {'⭐'.repeat(t.rating)}
+              <div className="testimonials__rating" style={{ display: 'flex', gap: '4px' }}>
+                {[...Array(t.rating)].map((_, idx) => (
+                  <StarIcon key={idx} size={16} color="#FCD34D" />
+                ))}
               </div>
               <p className="testimonials__text">"{t.text}"</p>
-              <div className="testimonials__program">
-                🎯 {t.program}
+              <div className="testimonials__program" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <RocketIcon size={16} color="#F59E0B" />
+                <span>{t.program}</span>
               </div>
               <div className="testimonials__author">
-                <div className="testimonials__avatar">{t.avatar}</div>
+                <div className="testimonials__avatar" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{t.avatar}</div>
                 <div>
                   <div className="testimonials__name">{t.name}</div>
                   <div className="testimonials__role">{t.role}</div>
@@ -135,8 +142,9 @@ const Testimonials = () => {
 
         {/* Continuous Right-to-Left Infinite Marquee Motion Bar */}
         <div className="testimonials__trust-wrapper animate-reveal zoom-in">
-          <div className="testimonials__trust-badge-hint">
-            <span>⚡ Hover cursor over any card to pause motion</span>
+          <div className="testimonials__trust-badge-hint" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+             <RocketIcon size={14} color="#F59E0B" />
+            <span>Hover cursor over any card to pause motion</span>
           </div>
 
           <div className="testimonials__trust-container">
