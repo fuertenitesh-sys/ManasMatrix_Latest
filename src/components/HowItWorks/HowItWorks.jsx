@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FingerprintIcon, BrainIcon, BarChartIcon, UsersIcon, RocketIcon } from '../Icons';
 import './HowItWorks.css';
 
 const steps = [
   {
     num: '01',
-    icon: '🖐️',
+    icon: <FingerprintIcon size={26} color="#F59E0B" />,
     title: 'Fingerprint Scanning',
     desc: 'Our certified experts conduct a quick and painless fingerprint scan using advanced Dermatoglyphics (DMI) technology.',
     color: '#F59E0B',
@@ -13,7 +14,7 @@ const steps = [
   },
   {
     num: '02',
-    icon: '🧠',
+    icon: <BrainIcon size={26} color="#7C3AED" />,
     title: 'Brain Intelligence Analysis',
     desc: 'Our software analyzes your fingerprint patterns to map your unique brain structure, revealing dominant intelligence types and learning styles.',
     color: '#7C3AED',
@@ -21,7 +22,7 @@ const steps = [
   },
   {
     num: '03',
-    icon: '📊',
+    icon: <BarChartIcon size={26} color="#3B82F6" />,
     title: 'Detailed Report Generation',
     desc: 'Receive a comprehensive printed Brain Mapping Report covering strengths, potential, personality traits, and recommended development areas.',
     color: '#3B82F6',
@@ -29,7 +30,7 @@ const steps = [
   },
   {
     num: '04',
-    icon: '🤝',
+    icon: <UsersIcon size={26} color="#FF6B35" />,
     title: 'Personalized Counselling',
     desc: 'A one-on-one expert counselling session to explain your report, answer questions, and create a customized growth & development plan.',
     color: '#FF6B35',
@@ -37,7 +38,7 @@ const steps = [
   },
   {
     num: '05',
-    icon: '📈',
+    icon: <BarChartIcon size={26} color="#0D9488" />,
     title: 'Ongoing Coaching & Review',
     desc: 'Regular follow-up sessions, habit coaching, and monthly/quarterly progress reviews to ensure lasting transformation.',
     color: '#0D9488',
@@ -52,7 +53,10 @@ const HowItWorks = () => {
 
       <div className="container">
         <div className="section-header animate-reveal fade-up">
-          <div className="section-badge">⚡ The Process</div>
+          <div className="section-badge">
+            <RocketIcon size={14} color="#F59E0B" />
+            <span>The Process</span>
+          </div>
           <h2 className="section-title">
             How Brain Mapping <span className="gradient-text-gold">Works</span>
           </h2>
@@ -96,7 +100,8 @@ const HowItWorks = () => {
             Ready to discover your brain's hidden potential?
           </p>
           <Link to="/programs" className="btn-primary" id="howitworks-cta">
-            <span>🚀 Start Your Journey</span>
+            <RocketIcon size={18} />
+            <span>Start Your Journey</span>
           </Link>
         </div>
       </div>

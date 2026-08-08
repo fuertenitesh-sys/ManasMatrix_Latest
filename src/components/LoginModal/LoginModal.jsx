@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { PhoneIcon, MailIcon, LockIcon, CheckIcon } from '../Icons';
 import './LoginModal.css';
 
 const LoginModal = ({ isOpen, onClose }) => {
@@ -37,7 +38,8 @@ const LoginModal = ({ isOpen, onClose }) => {
 
         {submitted ? (
           <div className="login-modal__success">
-            ✅ Welcome back! Redirecting to your dashboard...
+            <CheckIcon size={18} color="#10B981" />
+            <span>Welcome back! Redirecting to your dashboard...</span>
           </div>
         ) : (
           <form className="login-modal__form" onSubmit={handleSubmit}>
@@ -47,14 +49,16 @@ const LoginModal = ({ isOpen, onClose }) => {
                 className={`login-modal__tab ${loginType === 'phone' ? 'login-modal__tab--active' : ''}`}
                 onClick={() => setLoginType('phone')}
               >
-                📱 Phone / Mobile
+                <PhoneIcon size={14} />
+                <span>Phone / Mobile</span>
               </button>
               <button
                 type="button"
                 className={`login-modal__tab ${loginType === 'email' ? 'login-modal__tab--active' : ''}`}
                 onClick={() => setLoginType('email')}
               >
-                ✉️ Email Address
+                <MailIcon size={14} />
+                <span>Email Address</span>
               </button>
             </div>
 
@@ -92,7 +96,8 @@ const LoginModal = ({ isOpen, onClose }) => {
             </div>
 
             <button type="submit" className="btn-primary login-modal__submit">
-              <span>🔐 Login to Portal</span>
+              <LockIcon size={16} />
+              <span>Login to Portal</span>
             </button>
 
             <p className="login-modal__footer-text">
