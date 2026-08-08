@@ -61,18 +61,22 @@
   right: -100px;
 }
 
-/* Content Layout - 2 Columns Desktop */
+/* Content Layout - Laptop Far-Left Screen Full Width Grid (matching navbar logo) */
 .hero__content {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 40px;
   align-items: center;
   width: 100%;
+  max-width: 100% !important;
+  padding-left: 40px !important; /* Aligns flush with the far-left Navbar logo */
+  padding-right: 40px !important;
+  margin: 0 !important;
 }
 
-/* Point 2: Left Column - Hero text & buttons left-aligned with a clean tight offset */
+/* Left Column - Hero text, pills, stats & buttons flush to far left edge */
 .hero__left {
   display: flex;
   flex-direction: column;
@@ -95,6 +99,7 @@
   align-items: flex-start !important;
   margin-left: 0 !important;
   padding-left: 0 !important;
+  width: 100%;
 }
 
 .hero__title-line {
@@ -113,14 +118,14 @@
   font-size: 1.05rem; /* Original text size preserved */
   color: var(--color-text-secondary);
   line-height: 1.75;
-  max-width: 620px;
+  max-width: 640px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
   text-align: left !important;
   margin-left: 0 !important;
   padding-left: 0 !important;
 }
 
-/* Feature Pills - Flush Left */
+/* Feature Pills - Flush Far Left */
 .hero__pills {
   display: flex;
   flex-wrap: wrap;
@@ -147,7 +152,7 @@
   gap: 8px;
 }
 
-/* Stats Bar with Generous Spacing - Flush Left */
+/* Stats Bar with Generous Spacing - Flush Far Left */
 .hero__stats {
   display: flex;
   align-items: center;
@@ -189,7 +194,7 @@
   flex-shrink: 0;
 }
 
-/* CTAs - Flush Left */
+/* CTAs - Flush Far Left */
 .hero__ctas {
   display: flex;
   align-items: center;
@@ -327,6 +332,8 @@
   .hero__content {
     grid-template-columns: 1fr;
     gap: 36px;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
   .hero__left {
     align-items: flex-start !important;
@@ -344,6 +351,10 @@
 }
 
 @media (max-width: 576px) {
+  .hero__content {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
   .hero__stats {
     gap: 20px;
     justify-content: space-between !important;
