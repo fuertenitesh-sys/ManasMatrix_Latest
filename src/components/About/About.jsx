@@ -6,13 +6,13 @@ const About = () => {
   return (
     <section className="section about" id="about">
       <div className="container">
-        {/* Main About Grid: Left side image card & right side content aligned side-by-side in equal line */}
+        {/* Main About Grid: Left side brand new dedicated showcase image card */}
         <div className="about__grid">
-          {/* Left Column: High-Quality Brain Analysis Showcase Image Card */}
+          {/* Left Column: Dedicated New Brain Analysis Showcase Image Card */}
           <div className="about__visual animate-reveal fade-right">
             <div className="about__visual-card glass-card">
               <div className="about__visual-img-wrapper">
-                <img src="/hero_student.jpg" alt="Brain Intelligence Assessment Session" className="about__visual-showcase-img" />
+                <img src="/about_counseling.jpg" alt="Dedicated Brain Intelligence Counseling Session" className="about__visual-showcase-img" />
                 <div className="about__visual-overlay"></div>
                 <div className="about__visual-badge">
                   <BrainIcon size={18} color="#F59E0B" />
