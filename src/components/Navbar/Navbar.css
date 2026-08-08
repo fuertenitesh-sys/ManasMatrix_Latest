@@ -10,7 +10,7 @@
 }
 
 .navbar--scrolled {
-  background: linear-gradient(90deg, rgba(15, 30, 75, 0.95) 0%, rgba(255, 107, 53, 0.9) 100%);
+  background: rgba(15, 30, 75, 0.98);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
