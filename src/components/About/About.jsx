@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrainIcon, DnaIcon, BarChartIcon, UsersIcon, CheckIcon, StarIcon } from '../Icons';
+import { BrainIcon, DnaIcon, BarChartIcon, UsersIcon, CheckIcon } from '../Icons';
 import './About.css';
 
 const About = () => {
@@ -12,7 +12,7 @@ const About = () => {
           <div className="about__visual animate-reveal fade-right">
             <div className="about__visual-card glass-card">
               <div className="about__visual-img-wrapper">
-                <img src="/hero_student_learning.jpg" alt="Brain Intelligence Assessment Session" className="about__visual-showcase-img" />
+                <img src="/hero_student.jpg" alt="Brain Intelligence Assessment Session" className="about__visual-showcase-img" />
                 <div className="about__visual-overlay"></div>
                 <div className="about__visual-badge">
                   <BrainIcon size={18} color="#F59E0B" />
@@ -141,7 +141,7 @@ const About = () => {
 
             <div className="about__report-img-wrapper">
               <div className="about__report-img-card glass-card">
-                <img src="/brain_report_dashboard.jpg" alt="Manas Matrix Brain Report Sample" className="about__report-img" />
+                <img src="/brain_report.jpg" alt="Manas Matrix Brain Report Sample" className="about__report-img" />
                 <div className="about__report-img-badge">
                   <span>📊 1000+ Printed Reports Generated in Rajkot</span>
                 </div>
