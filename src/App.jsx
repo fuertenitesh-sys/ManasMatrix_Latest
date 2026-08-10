@@ -17,12 +17,12 @@ const ScrollRevealObserver = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const observerCallback = (entries, observer) => {
+    const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          // Disconnect observer for this element so it stays visible and doesn't re-trigger layout shifts on scroll up/down
-          observer.unobserve(entry.target);
+        } else {
+          entry.target.classList.remove('is-visible');
         }
       });
     };
