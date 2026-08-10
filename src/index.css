@@ -82,18 +82,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 0; /* Hides horizontal scrollbar */
-}
-::-webkit-scrollbar-track {
-  background: var(--color-bg-primary);
-}
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--color-gold), var(--color-orange));
-  border-radius: var(--radius-full);
-}
+/* Removed custom scrollbar to fix threaded scrolling fallback */
 
 /* Container */
 .container {
@@ -275,8 +264,6 @@ h1, h2, h3, h4, h5, h6 {
 .animate-reveal {
   opacity: 0;
   transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
-  backface-visibility: hidden;
 }
 
 .animate-reveal.fade-up {
