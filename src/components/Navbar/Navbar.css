@@ -10,22 +10,10 @@
 }
 
 .navbar--scrolled {
-  background: #ffffff;
+  background: rgba(15, 30, 75, 0.98);
   backdrop-filter: blur(16px);
   box-shadow: none;
   padding: 12px 40px;
-}
-
-.navbar--scrolled .navbar__link {
-  color: #1a202c;
-}
-
-.navbar--scrolled .navbar__link:hover {
-  color: var(--color-gold);
-}
-
-.navbar--scrolled .navbar__logo-sub {
-  color: #4a5568;
 }
 
 .navbar__inner {
