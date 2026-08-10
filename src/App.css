@@ -2,6 +2,8 @@
 .app {
   min-height: 100vh;
   position: relative;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Floating CTA button */
