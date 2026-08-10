@@ -15,33 +15,6 @@ import './App.css';
 
 // Component to handle Re-triggerable Bi-directional Scroll Reveal Observer
 const ScrollRevealObserver = () => {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        } else {
-          // Removes .is-visible when scrolled out of view so animation re-triggers when scrolling back down!
-          entry.target.classList.remove('is-visible');
-        }
-      });
-    };
-
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px 0px -15px 0px',
-      threshold: 0.05,
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    const elements = document.querySelectorAll('.animate-reveal');
-    elements.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, [pathname]);
-
   return null;
 };
 

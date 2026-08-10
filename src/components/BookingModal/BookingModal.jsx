@@ -23,7 +23,7 @@ const BookingModal = ({ isOpen, onClose }) => {
     }
     return () => {
       document.removeEventListener('keydown', handleEsc);
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = '';
     };
   }, [isOpen, onClose]);
 
