@@ -89,6 +89,7 @@ body {
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 0; /* Hides horizontal scrollbar */
 }
 ::-webkit-scrollbar-track {
   background: var(--color-bg-primary);
