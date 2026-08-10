@@ -1,6 +1,6 @@
 .about__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
   gap: 48px;
   align-items: center;
 }
@@ -217,7 +217,7 @@
 
 .about__report-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
   gap: 48px;
   align-items: center;
 }
@@ -283,11 +283,4 @@
   text-align: center;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-  .about__grid,
-  .about__report-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-}
+/* Responsive handled natively by CSS Grid auto-fit and minmax */

@@ -1,6 +1,6 @@
 .testimonials__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
   gap: 24px;
 }
 
@@ -226,11 +226,7 @@
 }
 
 /* Responsive */
-@media (max-width: 900px) {
-  .testimonials__grid {
-    grid-template-columns: 1fr;
-  }
-}
+/* Responsive layout handled by auto-fit and minmax */
 
 @media (max-width: 600px) {
   .testimonials__trust-card {

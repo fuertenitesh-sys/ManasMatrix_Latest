@@ -90,7 +90,7 @@
 
 .hero__title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 8vw, 4.2rem);
+  font-size: clamp(2rem, 6vw, 4.2rem);
   font-weight: 700;
   line-height: 1.1;
   display: flex;
@@ -157,7 +157,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-start !important;
-  gap: 48px;
+  gap: clamp(16px, 4vw, 48px);
+  flex-wrap: wrap;
   margin-top: 8px;
   margin-bottom: 4px;
   margin-left: 0 !important;
@@ -330,7 +331,7 @@
     padding-bottom: 60px;
   }
   .hero__content {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 36px;
     padding-left: 20px !important;
     padding-right: 20px !important;
@@ -371,5 +372,8 @@
   .hero__ctas .btn-primary, .hero__ctas .btn-secondary {
     width: 100%;
     justify-content: center;
+  }
+  .hero__full-bg-img {
+    object-position: 65% center;
   }
 }
