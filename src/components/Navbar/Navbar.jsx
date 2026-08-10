@@ -11,7 +11,14 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Scroll listener temporarily disabled for testing native scrolling
+    const handleScroll = () => {
+      setScrolled((prev) => {
+        const isScrolled = window.scrollY > 20;
+        return prev !== isScrolled ? isScrolled : prev;
+      });
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [

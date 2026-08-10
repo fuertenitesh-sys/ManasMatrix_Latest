@@ -13,8 +13,33 @@ import ContactPage from './pages/ContactPage';
 
 import './App.css';
 
-// Component to handle Re-triggerable Bi-directional Scroll Reveal Observer
 const ScrollRevealObserver = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const observerCallback = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          // Disconnect observer for this element so it stays visible and doesn't re-trigger layout shifts on scroll up/down
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -15px 0px',
+      threshold: 0.05,
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const elements = document.querySelectorAll('.animate-reveal');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, [pathname]);
+
   return null;
 };
 
