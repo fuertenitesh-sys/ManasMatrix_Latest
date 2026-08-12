@@ -31,15 +31,40 @@ const BookingModal = ({ isOpen, onClose }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate booking submission
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', phone: '', service: '', date: '', time: '' });
-      onClose();
-    }, 4000);
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      const response = await fetch('/api/bookings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to submit booking');
+      }
+
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ name: '', phone: '', service: '', date: '', time: '' });
+        onClose();
+      }, 4000);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen && !submitted) return null;
@@ -148,8 +173,9 @@ const BookingModal = ({ isOpen, onClose }) => {
                 </div>
               </div>
 
-              <button type="submit" className="btn-primary booking-submit">
-                <span>Confirm Booking Request</span>
+              {error && <div className="booking-error-message" style={{color: '#EF4444', marginBottom: '10px', fontSize: '14px'}}>{error}</div>}
+              <button type="submit" className="btn-primary booking-submit" disabled={isSubmitting}>
+                <span>{isSubmitting ? 'Submitting...' : 'Confirm Booking Request'}</span>
               </button>
             </form>
           </>

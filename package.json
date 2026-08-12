@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "render-build": "npm install && npm run build && npm install --prefix server",
+    "start": "node server/server.js"
   },
   "dependencies": {
     "pngjs": "^7.0.0",

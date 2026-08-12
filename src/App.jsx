@@ -10,6 +10,7 @@ import HowItWorksPage from './pages/HowItWorksPage';
 import ProgramsPage from './pages/ProgramsPage';
 import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
+import AdminPage from './pages/Admin/AdminPage';
 
 import './App.css';
 
@@ -58,6 +59,7 @@ function App() {
             <Route path="/programs" element={<ProgramsPage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/admin/bookings" element={<AdminPage />} />
           </Routes>
         </main>
         <Footer />
