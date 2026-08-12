@@ -38,7 +38,7 @@ const AdminPage = () => {
   };
 
   if (isLoading) {
-    return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>Loading...</div>;
+    return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', backgroundColor: '#F3F4F6', color: '#111827', fontSize: '18px' }}>Loading Dashboard...</div>;
   }
 
   return (

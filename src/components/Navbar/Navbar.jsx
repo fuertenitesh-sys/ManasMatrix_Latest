@@ -45,7 +45,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${location.pathname.startsWith('/admin') ? 'navbar--admin' : ''}`} id="navbar">
+      <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${location.pathname.startsWith('/admin') && !scrolled ? 'navbar--admin' : ''}`} id="navbar">
         <div className="navbar__inner">
           {/* Logo: MANAS MATRIX GrowUp Business Services */}
           <Link to="/" className="navbar__logo" id="navbar-logo" onClick={() => handleNavClick('/')}>
