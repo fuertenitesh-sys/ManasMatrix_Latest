@@ -44,6 +44,14 @@ const ScrollRevealObserver = () => {
   return null;
 };
 
+const ConditionalFooter = () => {
+  const { pathname } = useLocation();
+  if (pathname.startsWith('/admin')) {
+    return null;
+  }
+  return <Footer />;
+};
+
 function App() {
   return (
     <Router>
@@ -62,7 +70,7 @@ function App() {
             <Route path="/admin/bookings" element={<AdminPage />} />
           </Routes>
         </main>
-        <Footer />
+        <ConditionalFooter />
       </div>
     </Router>
   );
