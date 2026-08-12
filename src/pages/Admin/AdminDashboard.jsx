@@ -6,6 +6,8 @@ const AdminDashboard = ({ onLogout }) => {
   const [error, setError] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('All');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
 
   useEffect(() => {
     fetchBookings();
@@ -67,7 +69,24 @@ const AdminDashboard = ({ onLogout }) => {
       
     const matchesStatus = statusFilter === 'All' || booking.status === statusFilter;
 
-    return matchesSearch && matchesStatus;
+    let matchesDate = true;
+    if (startDate || endDate) {
+      const bDate = new Date(booking.submittedAt);
+      bDate.setHours(0,0,0,0);
+      
+      if (startDate) {
+        const sDate = new Date(startDate);
+        sDate.setHours(0,0,0,0);
+        if (bDate < sDate) matchesDate = false;
+      }
+      if (endDate) {
+        const eDate = new Date(endDate);
+        eDate.setHours(0,0,0,0);
+        if (bDate > eDate) matchesDate = false;
+      }
+    }
+
+    return matchesSearch && matchesStatus && matchesDate;
   });
 
   // Summary stats
@@ -86,12 +105,6 @@ const AdminDashboard = ({ onLogout }) => {
         {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
           <h1 style={{ fontSize: '24px', color: '#111827', margin: 0 }}>Manas Matrix Admin Dashboard</h1>
-          <button 
-            onClick={handleLogout}
-            style={{ backgroundColor: '#EF4444', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            Logout
-          </button>
         </div>
 
         {error && <div style={{ color: 'red', marginBottom: '16px' }}>{error}</div>}
@@ -115,7 +128,7 @@ const AdminDashboard = ({ onLogout }) => {
         {/* Filters and Table */}
         <div style={{ backgroundColor: 'white', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)', overflow: 'hidden' }}>
           
-          <div style={{ padding: '16px', borderBottom: '1px solid #E5E7EB', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+          <div style={{ padding: '16px', borderBottom: '1px solid #E5E7EB', display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
             <input 
               type="text" 
               placeholder="Search by Name, Phone, or ID..." 
@@ -123,10 +136,28 @@ const AdminDashboard = ({ onLogout }) => {
               onChange={(e) => setSearchTerm(e.target.value)}
               style={{ padding: '8px 12px', border: '1px solid #D1D5DB', borderRadius: '4px', flex: '1', minWidth: '250px' }}
             />
+            
+            <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+              <span style={{ fontSize: '14px', color: '#374151' }}>From:</span>
+              <input 
+                type="date" 
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+                style={{ padding: '8px', border: '1px solid #D1D5DB', borderRadius: '4px' }}
+              />
+              <span style={{ fontSize: '14px', color: '#374151' }}>To:</span>
+              <input 
+                type="date" 
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+                style={{ padding: '8px', border: '1px solid #D1D5DB', borderRadius: '4px' }}
+              />
+            </div>
+
             <select 
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              style={{ padding: '8px 12px', border: '1px solid #D1D5DB', borderRadius: '4px', backgroundColor: 'white' }}
+              style={{ padding: '8px 12px', border: '1px solid #D1D5DB', borderRadius: '4px', backgroundColor: 'white', cursor: 'pointer' }}
             >
               <option value="All">All Statuses</option>
               <option value="New">New</option>
@@ -181,7 +212,9 @@ const AdminDashboard = ({ onLogout }) => {
                             padding: '4px 8px', 
                             borderRadius: '4px', 
                             border: '1px solid #D1D5DB',
+                            cursor: 'pointer',
                             backgroundColor: booking.status === 'New' ? '#FEF3C7' : 
+                                             booking.status === 'Contacted' ? '#DBEAFE' : 
                                              booking.status === 'Confirmed' ? '#D1FAE5' : 
                                              booking.status === 'Completed' ? '#E0E7FF' : 
                                              booking.status === 'Cancelled' ? '#FEE2E2' : '#F3F4F6'

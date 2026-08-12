@@ -72,12 +72,27 @@ const Navbar = () => {
             ))}
           </ul>
 
-          {/* Action Button: Only "Book Now" CTA */}
+          {/* Action Button */}
           <div className="navbar__actions">
-            <button className="btn-primary navbar__cta" id="navbar-cta" onClick={openBookingModal}>
-              <PhoneIcon size={16} />
-              <span>Book Now</span>
-            </button>
+            {location.pathname.startsWith('/admin') ? (
+              <button 
+                className="btn-primary navbar__cta" 
+                style={{ background: '#EF4444' }} 
+                onClick={async () => {
+                  try {
+                    await fetch('/api/auth/logout', { method: 'POST' });
+                    window.location.href = '/admin/bookings';
+                  } catch(err) {}
+                }}
+              >
+                <span>Logout</span>
+              </button>
+            ) : (
+              <button className="btn-primary navbar__cta" id="navbar-cta" onClick={openBookingModal}>
+                <PhoneIcon size={16} />
+                <span>Book Now</span>
+              </button>
+            )}
           </div>
 
           {/* Mobile Hamburger Toggle */}
