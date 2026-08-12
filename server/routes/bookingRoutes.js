@@ -41,12 +41,14 @@ router.post('/', async (req, res) => {
   }
 });
 
-// @desc    Get all bookings
+// @desc    Get all bookings (Limited to last 30 days)
 // @route   GET /api/bookings
 // @access  Private (Admin only)
 router.get('/', protect, async (req, res) => {
   try {
-    const bookings = await Booking.find({}).sort({ submittedAt: -1 });
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+    const bookings = await Booking.find({ submittedAt: { $gte: thirtyDaysAgo } }).sort({ submittedAt: -1 });
     res.json(bookings);
   } catch (error) {
     res.status(500).json({ message: 'Failed to fetch bookings' });

@@ -303,3 +303,9 @@
     display: none;
   }
 }
+
+/* Admin Route Navbar Styling */
+.navbar--admin { background-color: #FFFFFF !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important; padding: 12px 40px; }
+.navbar--admin .navbar__link, .navbar--admin .navbar__logo-title, .navbar--admin .navbar__logo-sub { color: #111827 !important; text-shadow: none !important; }
+.navbar--admin .navbar__logo-title { background: none !important; -webkit-text-fill-color: #111827 !important; }
+
