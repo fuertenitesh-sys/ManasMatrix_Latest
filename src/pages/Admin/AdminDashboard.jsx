@@ -80,7 +80,7 @@ const AdminDashboard = ({ onLogout }) => {
   if (isLoading) return <div style={{ padding: '40px', textAlign: 'center' }}>Loading dashboard...</div>;
 
   return (
-    <div style={{ backgroundColor: '#F3F4F6', minHeight: '100vh', padding: '24px' }}>
+    <div style={{ backgroundColor: '#F3F4F6', minHeight: '100vh', padding: '24px', paddingTop: '100px', color: '#111827' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         
         {/* Header */}
