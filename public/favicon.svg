@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <!-- Vivid Left Lobe Gradient (Orange Gold) -->
+    <linearGradient id="leftBrainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B35" />
+      <stop offset="50%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#FCD34D" />
+    </linearGradient>
+
+    <!-- Vivid Right Lobe Gradient (Electric Blue Purple) -->
+    <linearGradient id="rightBrainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA" />
+      <stop offset="50%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#7C3AED" />
+    </linearGradient>
+
+    <!-- Dark Contrast Outer Ring -->
+    <linearGradient id="bgRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080E24" />
+      <stop offset="100%" stop-color="#050818" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="brainGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#F59E0B" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- High Contrast Dark Rounded Badge Background for Chrome Tabs -->
+  <rect x="4" y="4" width="120" height="120" rx="32" fill="url(#bgRingGrad)" stroke="#F59E0B" stroke-width="3" />
+
+  <!-- Left Brain Lobe (Orange / Gold) -->
+  <g filter="url(#brainGlow)">
+    <path d="M 61 20 
+             C 44 20, 26 30, 24 48 
+             C 22 60, 28 72, 32 80 
+             C 24 90, 36 106, 50 108 
+             C 58 109, 61 100, 61 92 Z" 
+          fill="url(#leftBrainGrad)" />
+
+    <!-- Left Synapse Nodes & Patterns -->
+    <path d="M 38 42 Q 48 40, 52 48" stroke="#FFFFFF" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.95" />
+    <path d="M 32 60 Q 44 58, 50 68" stroke="#FFFFFF" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.9" />
+    <path d="M 40 78 Q 48 76, 52 86" stroke="#FFFFFF" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.9" />
+    <circle cx="34" cy="40" r="4.5" fill="#FFFFFF" opacity="0.95" />
+    <circle cx="30" cy="62" r="4" fill="#FFFFFF" opacity="0.9" />
+    <circle cx="42" cy="84" r="4" fill="#FFFFFF" opacity="0.9" />
+  </g>
+
+  <!-- Right Brain Lobe (Electric Blue / Purple) -->
+  <g filter="url(#brainGlow)">
+    <path d="M 67 20 
+             C 84 20, 102 30, 104 48 
+             C 106 60, 100 72, 96 80 
+             C 104 90, 92 106, 78 108 
+             C 70 109, 67 100, 67 92 Z" 
+          fill="url(#rightBrainGrad)" />
+
+    <!-- Right Synapse Nodes & Patterns -->
+    <path d="M 90 42 Q 80 40, 76 48" stroke="#FFFFFF" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.95" />
+    <path d="M 96 60 Q 84 58, 78 68" stroke="#FFFFFF" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.9" />
+    <path d="M 88 78 Q 80 76, 76 86" stroke="#FFFFFF" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.9" />
+    <circle cx="94" cy="40" r="4.5" fill="#FFFFFF" opacity="0.95" />
+    <circle cx="98" cy="62" r="4" fill="#FFFFFF" opacity="0.9" />
+    <circle cx="86" cy="84" r="4" fill="#FFFFFF" opacity="0.9" />
+  </g>
+
+  <!-- Golden Center Brain Axis Line -->
+  <line x1="64" y1="18" x2="64" y2="108" stroke="#FCD34D" stroke-width="4.5" stroke-linecap="round" />
+</svg>

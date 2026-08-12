@@ -1,0 +1,126 @@
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.services__card {
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: default;
+}
+
+.services__icon {
+  font-size: 2.2rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.15);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+}
+
+.services__card:hover .services__icon {
+  background: rgba(245, 158, 11, 0.15);
+  transform: scale(1.1);
+}
+
+.services__title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.services__desc {
+  color: var(--color-text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  flex: 1;
+}
+
+.services__arrow {
+  font-size: 1.2rem;
+  color: var(--color-gold);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all var(--transition-normal);
+  font-weight: 700;
+}
+
+.services__card:hover .services__arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Quote Banner */
+.services__quote {
+  margin-top: 64px;
+  padding: 48px;
+  background: linear-gradient(135deg, rgba(245,158,11,0.08), rgba(124,58,237,0.08));
+  border: 1px solid rgba(245,158,11,0.2);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.services__quote::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(245,158,11,0.06), transparent 60%);
+}
+
+.services__quote-mark {
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  color: var(--color-gold);
+  opacity: 0.3;
+  line-height: 1;
+  position: relative;
+}
+
+.services__quote-text {
+  font-family: var(--font-accent);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-style: italic;
+  color: var(--color-text-primary);
+  max-width: 700px;
+  margin: 0 auto 16px;
+  line-height: 1.5;
+  position: relative;
+}
+
+.services__quote-author {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .services__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .services__card {
+    padding: 24px 18px;
+  }
+  .services__quote {
+    padding: 28px 16px;
+  }
+}

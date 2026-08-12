@@ -1,0 +1,237 @@
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 24px;
+}
+
+.testimonials__card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.testimonials__rating {
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.testimonials__text {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  font-style: italic;
+  font-family: var(--font-accent);
+  flex: 1;
+}
+
+.testimonials__program {
+  display: inline-block;
+  padding: 5px 12px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  align-self: flex-start;
+}
+
+.testimonials__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.testimonials__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.testimonials__name {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.testimonials__role {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   CONTINUOUS RIGHT-TO-LEFT MARQUEE MOTION SYSTEM
+   ============================================ */
+
+.testimonials__trust-wrapper {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.testimonials__trust-badge-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.testimonials__trust-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 16px 0;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+/* Continuous Horizontal Track */
+.testimonials__trust-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: marquee-left 22s linear infinite;
+  will-change: transform;
+}
+
+/* PAUSE MOTION ON CURSOR HOVER */
+.testimonials__trust-container:hover .testimonials__trust-track {
+  animation-play-state: paused !important;
+}
+
+/* Continuous Right-to-Left Keyframe Loop */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 12px));
+  }
+}
+
+/* Individual Marquee Card Styling */
+.testimonials__trust-card {
+  width: 270px;
+  min-width: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 32px 24px;
+  background: rgba(10, 17, 40, 0.85);
+  border: 1.5px solid var(--color-border-gold);
+  border-radius: var(--radius-xl);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Hover Card Styling when paused */
+.testimonials__trust-card:hover {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(255, 107, 53, 0.20) 100%) !important;
+  border-color: rgba(245, 158, 11, 0.85) !important;
+  transform: translateY(-8px) scale(1.04) !important;
+  box-shadow: 0 20px 50px rgba(245, 158, 11, 0.4), 0 0 35px rgba(255, 107, 53, 0.3) !important;
+}
+
+.testimonials__trust-icon-box {
+  font-size: 2rem;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  transition: all 0.4s ease;
+}
+
+.testimonials__trust-card:hover .testimonials__trust-icon-box {
+  transform: scale(1.2) rotate(-8deg);
+  background: rgba(245, 158, 11, 0.35);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.5);
+}
+
+/* Animated Count Up Number Typography */
+.testimonials__trust-num {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, #FF6B35 0%, #F59E0B 50%, #FCD34D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.count-up-num {
+  display: inline-block;
+  transition: transform 0.1s ease;
+}
+
+.testimonials__trust-label {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: color 0.3s ease;
+}
+
+.testimonials__trust-card:hover .testimonials__trust-label {
+  color: #FFFFFF;
+}
+
+.testimonials__trust-glow {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 90px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.35), transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.testimonials__trust-card:hover .testimonials__trust-glow {
+  opacity: 1;
+}
+
+/* Responsive */
+/* Responsive layout handled by auto-fit and minmax */
+
+@media (max-width: 600px) {
+  .testimonials__trust-card {
+    width: 230px;
+    min-width: 230px;
+    padding: 24px 16px;
+  }
+}
