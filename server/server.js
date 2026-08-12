@@ -52,15 +52,19 @@ const connectDB = async () => {
     });
     console.log(`MongoDB Connected ${isMemoryServer ? '(In-Memory)' : ''}`);
 
-    // If using memory server, seed admin automatically
-    if (isMemoryServer) {
-      const Admin = (await import('./models/Admin.js')).default;
-      const adminExists = await Admin.findOne({ username: process.env.ADMIN_USERNAME });
-      if (!adminExists) {
-        const admin = new Admin({ username: process.env.ADMIN_USERNAME, password: process.env.ADMIN_PASSWORD });
-        await admin.save();
-        console.log('Default admin seeded in memory database.');
-      }
+    // Seed admin automatically based on env vars
+    const Admin = (await import('./models/Admin.js')).default;
+    const adminExists = await Admin.findOne({ username: process.env.ADMIN_USERNAME });
+    
+    if (adminExists) {
+      // If admin exists, just update the password in case they changed it in Render
+      adminExists.password = process.env.ADMIN_PASSWORD;
+      await adminExists.save();
+      console.log('Admin account password updated from environment.');
+    } else {
+      const admin = new Admin({ username: process.env.ADMIN_USERNAME, password: process.env.ADMIN_PASSWORD });
+      await admin.save();
+      console.log('Admin account seeded in database.');
     }
   } catch (err) {
     console.error('MongoDB connection error:', err);
