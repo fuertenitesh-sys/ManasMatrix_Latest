@@ -3,12 +3,12 @@ import './AdminSuccessAnimation.css';
 
 const AdminSuccessAnimation = ({ onComplete }) => {
   useEffect(() => {
-    // Animation runs for ~2.5s before transitioning to dashboard
+    // Animation runs for ~25s before transitioning to dashboard
     const timer = setTimeout(() => {
       if (onComplete) {
         onComplete();
       }
-    }, 2500);
+    }, 25000);
 
     return () => clearTimeout(timer);
   }, [onComplete]);
