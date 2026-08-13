@@ -4,24 +4,23 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #070B19; /* Deeper navy for cinematic feel */
+  background-color: #070B19; /* Elegant deep navy */
   z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   color: white;
-  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: opacity 1.5s ease;
 }
 
-/* Phase 6: Transition to Dashboard */
-.admin-cinema-overlay.phase-6 {
+/* Phase 3: Seamless Fade out into Dashboard */
+.admin-cinema-overlay.phase-3 {
   opacity: 0;
-  transform: scale(1.5);
   pointer-events: none;
 }
 
-/* Background Effects */
+/* Background Glow */
 .cinema-bg {
   position: absolute;
   top: 0;
@@ -29,67 +28,20 @@
   width: 100%;
   height: 100%;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.cinema-glow-1, .cinema-glow-2 {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-
-.cinema-glow-1 {
+.cinema-glow-center {
   width: 50vw;
   height: 50vw;
-  background: rgba(96, 165, 250, 0.08); /* Subtle blue */
-  top: -10%;
-  left: -10%;
-  animation: float 4s infinite alternate ease-in-out;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.08) 0%, transparent 60%);
+  border-radius: 50%;
+  animation: slowPulse 4s infinite alternate ease-in-out;
 }
 
-.cinema-glow-2 {
-  width: 60vw;
-  height: 60vw;
-  background: rgba(245, 158, 11, 0.05); /* Subtle orange/gold */
-  bottom: -20%;
-  right: -10%;
-  animation: float 5s infinite alternate-reverse ease-in-out;
-}
-
-.phase-1 .cinema-glow-1, 
-.phase-2 .cinema-glow-1, 
-.phase-3 .cinema-glow-1, 
-.phase-4 .cinema-glow-1, 
-.phase-5 .cinema-glow-1 {
-  opacity: 1;
-}
-
-/* Neural Network Background */
-.cinema-neural-net {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  opacity: 0;
-  background-image: 
-    radial-gradient(circle at center, rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px);
-  background-size: 50px 50px;
-  transition: opacity 0.8s ease, transform 5s linear;
-  transform-origin: center;
-}
-
-.phase-1 .cinema-neural-net { opacity: 0.2; transform: scale(1) rotate(0deg); }
-.phase-2 .cinema-neural-net { opacity: 0.4; transform: scale(1.05) rotate(2deg); }
-.phase-3 .cinema-neural-net { opacity: 0.3; transform: scale(1.1) rotate(4deg); }
-.phase-4 .cinema-neural-net { opacity: 0.3; transform: scale(1.15) rotate(6deg); }
-.phase-5 .cinema-neural-net { opacity: 0.2; transform: scale(1.2) rotate(8deg); }
-
-/* Main Content Container */
+/* Content Container */
 .cinema-content {
   position: relative;
   z-index: 10;
@@ -97,148 +49,43 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: transform 0.8s ease;
+  transform: translateY(15px);
+  transition: transform 1.5s ease-out;
 }
 
-.phase-5 .cinema-content {
-  transform: translateY(-30px);
+.phase-2 .cinema-content,
+.phase-3 .cinema-content {
+  transform: translateY(0);
 }
 
-/* Abstract Brain Phase 1 & 2 */
-.cinema-abstract-brain {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 150px;
-  height: 150px;
-  opacity: 0;
-  transition: all 0.8s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.phase-1 .cinema-abstract-brain {
-  opacity: 0.3;
-  transform: translate(-50%, -50%) scale(0.8);
-}
-
-.phase-2 .cinema-abstract-brain {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.phase-3 .cinema-abstract-brain,
-.phase-4 .cinema-abstract-brain,
-.phase-5 .cinema-abstract-brain {
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.2); /* Converging to center */
-}
-
-/* Brain SVG styles */
-.brain-path {
-  fill: none;
-  stroke: rgba(96, 165, 250, 0.6);
-  stroke-width: 1.5;
-  stroke-dasharray: 200;
-  stroke-dashoffset: 200;
-  transition: stroke-dashoffset 0.8s ease-out, stroke 0.4s ease;
-}
-
-.brain-node {
-  fill: rgba(245, 158, 11, 0.8);
-  opacity: 0;
-  transition: opacity 0.4s ease 0.4s;
-}
-
-.phase-2 .brain-path {
-  stroke-dashoffset: 0;
-  stroke: rgba(245, 158, 11, 0.8);
-}
-
-.phase-2 .brain-node {
-  opacity: 1;
-  animation: nodePulse 0.5s infinite alternate ease-in-out;
-}
-
-/* Actual Logo Phase 3+ */
+/* Elegant Logo Animation */
 .cinema-logo-container {
-  position: relative;
-  width: 120px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
   opacity: 0;
-  transform: scale(0.5);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  margin-bottom: 30px;
-}
-
-.phase-3 .cinema-logo-container,
-.phase-4 .cinema-logo-container,
-.phase-5 .cinema-logo-container {
-  opacity: 1;
-  transform: scale(1);
+  transform: scale(0.85);
+  animation: smoothFadeInUp 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  margin-bottom: 25px;
 }
 
 .cinema-actual-logo {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  position: relative;
-  z-index: 2;
-  filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.3));
+  filter: drop-shadow(0 4px 20px rgba(245, 158, 11, 0.25));
 }
 
-.logo-core-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.5) 0%, transparent 60%);
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  z-index: 1;
-}
-
-.phase-3 .logo-core-glow,
-.phase-4 .logo-core-glow,
-.phase-5 .logo-core-glow {
-  opacity: 1;
-  animation: logoBreath 1s infinite alternate ease-in-out;
-}
-
-.cinema-logo-sweep {
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.4) 50%, transparent 60%);
-  z-index: 3;
-  opacity: 0;
-  transform: translateX(-100%);
-  transition: opacity 0.2s ease;
-}
-
-.phase-3 .cinema-logo-sweep {
-  opacity: 1;
-  animation: lightSweep 1s ease-in-out;
-}
-
-/* Brand Text Phase 4+ */
+/* Brand Text Integration */
 .cinema-brand-text {
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
+  transform: translateY(15px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
   height: 0;
   overflow: hidden;
 }
 
-.phase-4 .cinema-brand-text,
-.phase-5 .cinema-brand-text {
+.phase-2 .cinema-brand-text,
+.phase-3 .cinema-brand-text {
   opacity: 1;
   transform: translateY(0);
   height: 80px;
@@ -259,107 +106,28 @@
 .cinema-brand-text h2 {
   font-size: 1rem;
   color: #9CA3AF;
-  margin: 10px 0 0 0;
+  margin: 12px 0 0 0;
   letter-spacing: 8px;
   text-transform: uppercase;
   font-weight: 400;
 }
 
-/* Welcome Text Phase 5+ */
-.cinema-welcome-text {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
-  margin-top: 20px;
-  position: relative;
-  height: 0;
-  overflow: hidden;
-}
-
-.phase-5 .cinema-welcome-text {
-  opacity: 1;
-  transform: translateY(0);
-  height: 100px;
-}
-
-.cinema-welcome-text h3 {
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: #FFFFFF;
-  margin: 0 0 12px 0;
-  letter-spacing: 2px;
-}
-
-.cinema-welcome-text p {
-  font-size: 0.9rem;
-  color: #60A5FA; /* Brand blue accent */
-  margin: 0;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.secure-pulse {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #60A5FA;
-  box-shadow: 0 0 10px #60A5FA, 0 0 20px #60A5FA;
-  margin-top: 20px;
-}
-
-.phase-5 .secure-pulse {
-  animation: radarPulse 1s infinite cubic-bezier(0.1, 0.8, 0.3, 1);
-}
-
 /* Keyframes */
-@keyframes float {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(5%, 5%); }
+@keyframes smoothFadeInUp {
+  0% { opacity: 0; transform: translateY(20px) scale(0.85); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-@keyframes nodePulse {
-  0% { r: 2; fill: rgba(96, 165, 250, 0.8); }
-  100% { r: 3; fill: rgba(245, 158, 11, 1); filter: drop-shadow(0 0 5px rgba(245,158,11,0.8)); }
-}
-
-@keyframes logoBreath {
-  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
-  100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.7; }
-}
-
-@keyframes lightSweep {
-  0% { transform: translateX(-100%) skewX(-15deg); }
-  100% { transform: translateX(200%) skewX(-15deg); }
-}
-
-@keyframes radarPulse {
-  0% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.6); }
-  70% { box-shadow: 0 0 0 30px rgba(96, 165, 250, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0); }
+@keyframes slowPulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.1); opacity: 1; }
 }
 
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   .admin-cinema-overlay,
-  .cinema-bg,
-  .cinema-glow-1,
-  .cinema-glow-2,
-  .cinema-neural-net,
-  .cinema-content,
-  .cinema-abstract-brain,
-  .brain-path,
-  .brain-node,
   .cinema-logo-container,
-  .logo-core-glow,
-  .cinema-logo-sweep,
-  .cinema-brand-text,
-  .cinema-welcome-text,
-  .secure-pulse {
+  .cinema-brand-text {
     animation: none !important;
     transition-duration: 0.2s !important;
   }

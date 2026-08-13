@@ -5,22 +5,17 @@ const AdminSuccessAnimation = ({ onComplete }) => {
   const [phase, setPhase] = useState(1);
 
   useEffect(() => {
-    const p2 = setTimeout(() => setPhase(2), 800); // 0.8s -> Brain Formation
-    const p3 = setTimeout(() => setPhase(3), 1800); // 1.8s -> Logo Reveal
-    const p4 = setTimeout(() => setPhase(4), 2800); // 2.8s -> Brand Reveal
-    const p5 = setTimeout(() => setPhase(5), 3600); // 3.6s -> Admin Access
-    const p6 = setTimeout(() => setPhase(6), 4400); // 4.4s -> Transition to dashboard
+    // Phase 1 is the initial elegant logo reveal (0s to 1.5s)
+    const p2 = setTimeout(() => setPhase(2), 1500); // 1.5s -> Brand text smoothly appears
+    const p3 = setTimeout(() => setPhase(3), 3500); // 3.5s -> Starts fading out cleanly
     
     const end = setTimeout(() => {
       if (onComplete) onComplete();
-    }, 5000); // 5s -> Done
+    }, 5000); // 5.0s -> Complete transition to dashboard
 
     return () => {
       clearTimeout(p2);
       clearTimeout(p3);
-      clearTimeout(p4);
-      clearTimeout(p5);
-      clearTimeout(p6);
       clearTimeout(end);
     };
   }, [onComplete]);
@@ -28,48 +23,15 @@ const AdminSuccessAnimation = ({ onComplete }) => {
   return (
     <div className={`admin-cinema-overlay phase-${phase}`} role="status" aria-live="polite">
       
-      {/* Background Glows */}
+      {/* Subtle, minimal background glow */}
       <div className="cinema-bg">
-        <div className="cinema-glow-1"></div>
-        <div className="cinema-glow-2"></div>
+        <div className="cinema-glow-center"></div>
       </div>
       
-      {/* Neural Network Base */}
-      <div className="cinema-neural-net"></div>
-
       <div className="cinema-content">
         
-        {/* Phase 1 & 2: Abstract Neural Brain */}
-        <div className="cinema-abstract-brain">
-          <svg viewBox="0 0 100 100" width="150" height="150">
-            {/* Elegant abstract neural paths shaping a brain */}
-            <path className="brain-path" d="M50 10 Q30 5 20 20 T10 50 Q15 70 30 80 T50 90 Q70 80 80 70 T90 50 Q85 30 80 20 T50 10 Z" />
-            <path className="brain-path" d="M50 10 Q40 30 25 45 T10 50" />
-            <path className="brain-path" d="M50 10 Q60 30 75 45 T90 50" />
-            <path className="brain-path" d="M30 80 Q45 60 50 45" />
-            <path className="brain-path" d="M70 80 Q55 60 50 45" />
-            <path className="brain-path" d="M20 20 Q40 40 50 45" />
-            <path className="brain-path" d="M80 20 Q60 40 50 45" />
-            
-            {/* Glowing nodes at intersections */}
-            <circle className="brain-node" cx="50" cy="10" r="2" />
-            <circle className="brain-node" cx="20" cy="20" r="2" />
-            <circle className="brain-node" cx="80" cy="20" r="2" />
-            <circle className="brain-node" cx="10" cy="50" r="2" />
-            <circle className="brain-node" cx="90" cy="50" r="2" />
-            <circle className="brain-node" cx="30" cy="80" r="2" />
-            <circle className="brain-node" cx="70" cy="80" r="2" />
-            <circle className="brain-node" cx="50" cy="90" r="2" />
-            <circle className="brain-node" cx="50" cy="45" r="2" />
-            <circle className="brain-node" cx="25" cy="45" r="2" />
-            <circle className="brain-node" cx="75" cy="45" r="2" />
-          </svg>
-        </div>
-
-        {/* Phase 3 & 4: Actual Existing Logo */}
+        {/* Elegant Logo Reveal */}
         <div className="cinema-logo-container">
-          <div className="logo-core-glow"></div>
-          <div className="cinema-logo-sweep"></div>
           <img 
             src="/logo_brain_icon.png" 
             alt="Manas Matrix" 
@@ -77,17 +39,10 @@ const AdminSuccessAnimation = ({ onComplete }) => {
           />
         </div>
         
-        {/* Phase 4: Brand Text */}
+        {/* Clean Typography */}
         <div className="cinema-brand-text">
           <h1>MANAS MATRIX</h1>
           <h2>ADMIN PORTAL</h2>
-        </div>
-        
-        {/* Phase 5: Welcome / Access */}
-        <div className="cinema-welcome-text">
-          <h3>WELCOME BACK</h3>
-          <p>SECURE ADMIN ACCESS</p>
-          <div className="secure-pulse"></div>
         </div>
         
       </div>
