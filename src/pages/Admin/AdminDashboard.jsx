@@ -96,7 +96,7 @@ const AdminDashboard = ({ onLogout }) => {
   const completedBookings = bookings.filter(b => b.status === 'Completed').length;
   const cancelledBookings = bookings.filter(b => b.status === 'Cancelled').length;
 
-  if (isLoading) return <div style={{ padding: '40px', textAlign: 'center' }}>Loading dashboard...</div>;
+  if (isLoading) return <div style={{ backgroundColor: '#F3F4F6', minHeight: '100vh', padding: '120px 24px 40px', textAlign: 'center', color: '#111827' }}>Loading data...</div>;
 
   return (
     <div style={{ backgroundColor: '#F3F4F6', minHeight: '100vh', padding: '24px', paddingTop: '100px', color: '#111827' }}>
