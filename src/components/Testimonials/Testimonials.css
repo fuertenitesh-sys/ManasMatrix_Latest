@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
+  overflow-y: hidden;
   gap: 24px;
   padding-bottom: 8px; /* Slight padding for shadow */
   scrollbar-width: none; /* Firefox */
@@ -22,6 +23,12 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Disable the global .glass-card hover transform specifically for testimonials to keep them perfectly stable during carousel hover */
+.testimonials__card:hover {
+  transform: none !important;
 }
 
 .testimonials__rating {
