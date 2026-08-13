@@ -97,6 +97,8 @@ const Testimonials = () => {
   // Double array for seamless infinite marquee loop (for trust badges)
   const marqueeItems = [...trustItems, ...trustItems];
 
+  const carouselTestimonials = [...testimonials, ...testimonials];
+
   const gridRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -105,14 +107,13 @@ const Testimonials = () => {
     
     const scrollStep = () => {
       if (gridRef.current && !isHovered) {
-        gridRef.current.scrollLeft += 1; // Adjust speed by changing this value
+        gridRef.current.scrollLeft += 1; // Smooth speed
         
-        // If we reach the end, optionally reset (though with 4 items they might just hit the end and stop)
-        // Since we are not duplicating the testimonial cards for an infinite loop, it will just scroll to the end
-        if (gridRef.current.scrollLeft >= (gridRef.current.scrollWidth - gridRef.current.clientWidth - 1)) {
-           // Optionally we can reset to 0: gridRef.current.scrollLeft = 0;
-           // But resetting abruptly looks bad without duplicated items.
-           // Allowing it to hit the end naturally is safer.
+        // Seamless infinite loop:
+        // Since we duplicated the array, scrollWidth / 2 is exactly the width of the first original set.
+        // Once we scroll past the first set, snap back to 0 invisibly.
+        if (gridRef.current.scrollLeft >= gridRef.current.scrollWidth / 2) {
+           gridRef.current.scrollLeft = 0;
         }
       }
       animationId = requestAnimationFrame(scrollStep);
@@ -150,8 +151,8 @@ const Testimonials = () => {
           onTouchStart={() => setIsHovered(true)}
           onTouchEnd={() => setIsHovered(false)}
         >
-          {testimonials.map((t, i) => (
-            <div key={t.name} className={`testimonials__card glass-card animate-reveal fade-up delay-${(i + 1) * 100}`} id={`testimonial-${i + 1}`}>
+          {carouselTestimonials.map((t, i) => (
+            <div key={`${t.name}-${i}`} className={`testimonials__card glass-card animate-reveal fade-up delay-${((i % 4) + 1) * 100}`} id={`testimonial-${i + 1}`}>
               <div className="testimonials__rating" style={{ display: 'flex', gap: '4px' }}>
                 {[...Array(t.rating)].map((_, idx) => (
                   <StarIcon key={idx} size={16} color="#FCD34D" />
