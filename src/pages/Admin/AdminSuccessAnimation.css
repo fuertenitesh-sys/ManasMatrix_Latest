@@ -11,7 +11,7 @@
   align-items: center;
   overflow: hidden;
   color: white;
-  transition: all 3s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* Phase 6: Transition to Dashboard */
@@ -36,7 +36,7 @@
   border-radius: 50%;
   filter: blur(100px);
   opacity: 0;
-  transition: opacity 4s ease;
+  transition: opacity 0.8s ease;
 }
 
 .cinema-glow-1 {
@@ -45,7 +45,7 @@
   background: rgba(96, 165, 250, 0.08); /* Subtle blue */
   top: -10%;
   left: -10%;
-  animation: float 20s infinite alternate ease-in-out;
+  animation: float 4s infinite alternate ease-in-out;
 }
 
 .cinema-glow-2 {
@@ -54,7 +54,7 @@
   background: rgba(245, 158, 11, 0.05); /* Subtle orange/gold */
   bottom: -20%;
   right: -10%;
-  animation: float 25s infinite alternate-reverse ease-in-out;
+  animation: float 5s infinite alternate-reverse ease-in-out;
 }
 
 .phase-1 .cinema-glow-1, 
@@ -79,7 +79,7 @@
     linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px);
   background-size: 50px 50px;
-  transition: opacity 4s ease, transform 25s linear;
+  transition: opacity 0.8s ease, transform 5s linear;
   transform-origin: center;
 }
 
@@ -97,7 +97,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: transform 4s ease;
+  transition: transform 0.8s ease;
 }
 
 .phase-5 .cinema-content {
@@ -113,7 +113,7 @@
   width: 150px;
   height: 150px;
   opacity: 0;
-  transition: all 4s ease;
+  transition: all 0.8s ease;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,13 +143,13 @@
   stroke-width: 1.5;
   stroke-dasharray: 200;
   stroke-dashoffset: 200;
-  transition: stroke-dashoffset 4s ease-out, stroke 2s ease;
+  transition: stroke-dashoffset 0.8s ease-out, stroke 0.4s ease;
 }
 
 .brain-node {
   fill: rgba(245, 158, 11, 0.8);
   opacity: 0;
-  transition: opacity 2s ease 2s;
+  transition: opacity 0.4s ease 0.4s;
 }
 
 .phase-2 .brain-path {
@@ -159,7 +159,7 @@
 
 .phase-2 .brain-node {
   opacity: 1;
-  animation: nodePulse 2s infinite alternate ease-in-out;
+  animation: nodePulse 0.5s infinite alternate ease-in-out;
 }
 
 /* Actual Logo Phase 3+ */
@@ -169,7 +169,7 @@
   height: 120px;
   opacity: 0;
   transform: scale(0.5);
-  transition: all 4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   margin-bottom: 30px;
 }
 
@@ -199,7 +199,7 @@
   background: radial-gradient(circle, rgba(245, 158, 11, 0.5) 0%, transparent 60%);
   border-radius: 50%;
   opacity: 0;
-  transition: opacity 3s ease;
+  transition: opacity 0.6s ease;
   z-index: 1;
 }
 
@@ -207,7 +207,7 @@
 .phase-4 .logo-core-glow,
 .phase-5 .logo-core-glow {
   opacity: 1;
-  animation: logoBreath 4s infinite alternate ease-in-out;
+  animation: logoBreath 1s infinite alternate ease-in-out;
 }
 
 .cinema-logo-sweep {
@@ -220,19 +220,19 @@
   z-index: 3;
   opacity: 0;
   transform: translateX(-100%);
-  transition: opacity 1s ease;
+  transition: opacity 0.2s ease;
 }
 
 .phase-3 .cinema-logo-sweep {
   opacity: 1;
-  animation: lightSweep 4s ease-in-out;
+  animation: lightSweep 1s ease-in-out;
 }
 
 /* Brand Text Phase 4+ */
 .cinema-brand-text {
   opacity: 0;
   transform: translateY(20px);
-  transition: all 3s ease;
+  transition: all 0.6s ease;
   height: 0;
   overflow: hidden;
 }
@@ -269,7 +269,7 @@
 .cinema-welcome-text {
   opacity: 0;
   transform: translateY(20px);
-  transition: all 3s ease;
+  transition: all 0.6s ease;
   margin-top: 20px;
   position: relative;
   height: 0;
@@ -313,7 +313,7 @@
 }
 
 .phase-5 .secure-pulse {
-  animation: radarPulse 3s infinite cubic-bezier(0.1, 0.8, 0.3, 1);
+  animation: radarPulse 1s infinite cubic-bezier(0.1, 0.8, 0.3, 1);
 }
 
 /* Keyframes */
@@ -361,6 +361,6 @@
   .cinema-welcome-text,
   .secure-pulse {
     animation: none !important;
-    transition-duration: 0.5s !important;
+    transition-duration: 0.2s !important;
   }
 }

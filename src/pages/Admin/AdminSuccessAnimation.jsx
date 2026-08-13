@@ -5,15 +5,15 @@ const AdminSuccessAnimation = ({ onComplete }) => {
   const [phase, setPhase] = useState(1);
 
   useEffect(() => {
-    const p2 = setTimeout(() => setPhase(2), 4000); // 4s -> Brain Formation
-    const p3 = setTimeout(() => setPhase(3), 9000); // 9s -> Logo Reveal
-    const p4 = setTimeout(() => setPhase(4), 14000); // 14s -> Brand Reveal
-    const p5 = setTimeout(() => setPhase(5), 18000); // 18s -> Admin Access
-    const p6 = setTimeout(() => setPhase(6), 22000); // 22s -> Transition to dashboard
+    const p2 = setTimeout(() => setPhase(2), 800); // 0.8s -> Brain Formation
+    const p3 = setTimeout(() => setPhase(3), 1800); // 1.8s -> Logo Reveal
+    const p4 = setTimeout(() => setPhase(4), 2800); // 2.8s -> Brand Reveal
+    const p5 = setTimeout(() => setPhase(5), 3600); // 3.6s -> Admin Access
+    const p6 = setTimeout(() => setPhase(6), 4400); // 4.4s -> Transition to dashboard
     
     const end = setTimeout(() => {
       if (onComplete) onComplete();
-    }, 25000); // 25s -> Done
+    }, 5000); // 5s -> Done
 
     return () => {
       clearTimeout(p2);
