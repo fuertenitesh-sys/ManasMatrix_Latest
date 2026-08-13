@@ -15,6 +15,7 @@ const AdminPage = () => {
           const data = await response.json();
           setAdminUser(data);
           setIsAuthenticated(true);
+          localStorage.setItem('isAdmin', 'true');
         } else {
           setIsAuthenticated(false);
           localStorage.removeItem('isAdmin');
