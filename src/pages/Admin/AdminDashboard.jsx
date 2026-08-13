@@ -8,6 +8,12 @@ const AdminDashboard = ({ onLogout }) => {
   const [statusFilter, setStatusFilter] = useState('All');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const recordsPerPage = 10;
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, statusFilter, startDate, endDate]);
 
   useEffect(() => {
     fetchBookings();
@@ -95,6 +101,27 @@ const AdminDashboard = ({ onLogout }) => {
   const confirmedBookings = isLoading ? '...' : bookings.filter(b => b.status === 'Confirmed').length;
   const completedBookings = isLoading ? '...' : bookings.filter(b => b.status === 'Completed').length;
   const cancelledBookings = isLoading ? '...' : bookings.filter(b => b.status === 'Cancelled').length;
+
+  // Pagination calculations
+  const totalPages = Math.ceil(filteredBookings.length / recordsPerPage);
+  const startIndex = (currentPage - 1) * recordsPerPage;
+  const currentBookings = filteredBookings.slice(startIndex, startIndex + recordsPerPage);
+
+  const getPageNumbers = () => {
+    const pages = [];
+    if (totalPages <= 5) {
+      for (let i = 1; i <= totalPages; i++) pages.push(i);
+    } else {
+      if (currentPage <= 3) {
+        pages.push(1, 2, 3, 4, '...', totalPages);
+      } else if (currentPage >= totalPages - 2) {
+        pages.push(1, '...', totalPages - 3, totalPages - 2, totalPages - 1, totalPages);
+      } else {
+        pages.push(1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages);
+      }
+    }
+    return pages;
+  };
 
   return (
     <div style={{ backgroundColor: '#F3F4F6', minHeight: '100vh', padding: '24px', paddingTop: '100px', color: '#111827' }}>
@@ -189,7 +216,7 @@ const AdminDashboard = ({ onLogout }) => {
                     <td colSpan="7" style={{ padding: '24px', textAlign: 'center', color: '#6B7280' }}>No bookings found.</td>
                   </tr>
                 ) : (
-                  filteredBookings.map(booking => (
+                  currentBookings.map(booking => (
                     <tr key={booking._id} style={{ borderBottom: '1px solid #E5E7EB' }}>
                       <td style={{ padding: '12px 16px', fontSize: '14px' }}>{booking.bookingId}</td>
                       <td style={{ padding: '12px 16px', fontSize: '14px', fontWeight: '500' }}>{booking.fullName}</td>
@@ -226,7 +253,7 @@ const AdminDashboard = ({ onLogout }) => {
                           <option value="Contacted">Contacted</option>
                           <option value="Confirmed">Confirmed</option>
                           <option value="Completed">Completed</option>
-                          <option value="Cancelled">Cancelled</option>
+                          {booking.status === 'Cancelled' && <option value="Cancelled" hidden>Cancelled</option>}
                         </select>
                       </td>
                     </tr>
@@ -235,6 +262,51 @@ const AdminDashboard = ({ onLogout }) => {
               </tbody>
             </table>
           </div>
+
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '16px', borderTop: '1px solid #E5E7EB', gap: '8px', flexWrap: 'wrap', backgroundColor: '#F9FAFB' }}>
+              <button 
+                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                style={{ padding: '6px 12px', border: '1px solid #D1D5DB', borderRadius: '4px', backgroundColor: currentPage === 1 ? '#F3F4F6' : 'white', cursor: currentPage === 1 ? 'not-allowed' : 'pointer', color: currentPage === 1 ? '#9CA3AF' : '#374151', fontSize: '14px' }}
+              >
+                Previous
+              </button>
+              
+              {getPageNumbers().map((page, index) => (
+                page === '...' ? (
+                  <span key={`ellipsis-${index}`} style={{ padding: '6px 8px', color: '#6B7280' }}>...</span>
+                ) : (
+                  <button
+                    key={page}
+                    onClick={() => setCurrentPage(page)}
+                    style={{ 
+                      padding: '6px 12px', 
+                      border: '1px solid',
+                      borderColor: currentPage === page ? '#3B82F6' : '#D1D5DB', 
+                      borderRadius: '4px', 
+                      backgroundColor: currentPage === page ? '#EFF6FF' : 'white', 
+                      color: currentPage === page ? '#1D4ED8' : '#374151',
+                      cursor: 'pointer',
+                      fontWeight: currentPage === page ? '600' : '400',
+                      fontSize: '14px'
+                    }}
+                  >
+                    {page}
+                  </button>
+                )
+              ))}
+              
+              <button 
+                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                style={{ padding: '6px 12px', border: '1px solid #D1D5DB', borderRadius: '4px', backgroundColor: currentPage === totalPages ? '#F3F4F6' : 'white', cursor: currentPage === totalPages ? 'not-allowed' : 'pointer', color: currentPage === totalPages ? '#9CA3AF' : '#374151', fontSize: '14px' }}
+              >
+                Next
+              </button>
+            </div>
+          )}
         </div>
 
       </div>
