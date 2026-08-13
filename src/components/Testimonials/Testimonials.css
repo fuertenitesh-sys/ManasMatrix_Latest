@@ -1,10 +1,29 @@
 .testimonials__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   gap: 24px;
+  padding-bottom: 24px;
+  /* Scrollbar styling for a professional look */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(245, 158, 11, 0.5) rgba(10, 17, 40, 0.1);
+}
+
+.testimonials__grid::-webkit-scrollbar {
+  height: 6px;
+}
+.testimonials__grid::-webkit-scrollbar-track {
+  background: rgba(10, 17, 40, 0.1);
+  border-radius: 4px;
+}
+.testimonials__grid::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.5);
+  border-radius: 4px;
 }
 
 .testimonials__card {
+  flex: 0 0 auto;
+  width: min(100%, 380px);
   padding: 32px;
   display: flex;
   flex-direction: column;
