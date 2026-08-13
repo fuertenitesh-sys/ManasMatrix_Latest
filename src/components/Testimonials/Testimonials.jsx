@@ -94,8 +94,34 @@ const trustItems = [
 ];
 
 const Testimonials = () => {
-  // Double array for seamless infinite marquee loop
+  // Double array for seamless infinite marquee loop (for trust badges)
   const marqueeItems = [...trustItems, ...trustItems];
+
+  const gridRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    let animationId;
+    
+    const scrollStep = () => {
+      if (gridRef.current && !isHovered) {
+        gridRef.current.scrollLeft += 1; // Adjust speed by changing this value
+        
+        // If we reach the end, optionally reset (though with 4 items they might just hit the end and stop)
+        // Since we are not duplicating the testimonial cards for an infinite loop, it will just scroll to the end
+        if (gridRef.current.scrollLeft >= (gridRef.current.scrollWidth - gridRef.current.clientWidth - 1)) {
+           // Optionally we can reset to 0: gridRef.current.scrollLeft = 0;
+           // But resetting abruptly looks bad without duplicated items.
+           // Allowing it to hit the end naturally is safer.
+        }
+      }
+      animationId = requestAnimationFrame(scrollStep);
+    };
+
+    animationId = requestAnimationFrame(scrollStep);
+
+    return () => cancelAnimationFrame(animationId);
+  }, [isHovered]);
 
   return (
     <section className="testimonials section" id="testimonials">
@@ -116,7 +142,14 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="testimonials__grid">
+        <div 
+          className="testimonials__grid" 
+          ref={gridRef}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onTouchStart={() => setIsHovered(true)}
+          onTouchEnd={() => setIsHovered(false)}
+        >
           {testimonials.map((t, i) => (
             <div key={t.name} className={`testimonials__card glass-card animate-reveal fade-up delay-${(i + 1) * 100}`} id={`testimonial-${i + 1}`}>
               <div className="testimonials__rating" style={{ display: 'flex', gap: '4px' }}>
