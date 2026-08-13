@@ -189,7 +189,6 @@ const AdminDashboard = ({ onLogout }) => {
               <option value="Contacted">Contacted</option>
               <option value="Confirmed">Confirmed</option>
               <option value="Completed">Completed</option>
-              <option value="Cancelled">Cancelled</option>
             </select>
           </div>
 
