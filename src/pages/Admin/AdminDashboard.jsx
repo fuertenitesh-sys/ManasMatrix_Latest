@@ -103,7 +103,7 @@ const AdminDashboard = ({ onLogout }) => {
   const cancelledBookings = isLoading ? '...' : bookings.filter(b => b.status === 'Cancelled').length;
 
   // Pagination calculations
-  const totalPages = Math.ceil(filteredBookings.length / recordsPerPage);
+  const totalPages = Math.max(1, Math.ceil(filteredBookings.length / recordsPerPage));
   const startIndex = (currentPage - 1) * recordsPerPage;
   const currentBookings = filteredBookings.slice(startIndex, startIndex + recordsPerPage);
 
@@ -264,8 +264,7 @@ const AdminDashboard = ({ onLogout }) => {
           </div>
 
           {/* Pagination Controls */}
-          {totalPages > 1 && (
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '16px', borderTop: '1px solid #E5E7EB', gap: '8px', flexWrap: 'wrap', backgroundColor: '#F9FAFB' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '16px', borderTop: '1px solid #E5E7EB', gap: '8px', flexWrap: 'wrap', backgroundColor: '#F9FAFB' }}>
               <button 
                 onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
@@ -306,7 +305,6 @@ const AdminDashboard = ({ onLogout }) => {
                 Next
               </button>
             </div>
-          )}
         </div>
 
       </div>
