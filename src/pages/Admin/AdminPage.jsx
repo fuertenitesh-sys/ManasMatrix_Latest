@@ -3,8 +3,7 @@ import AdminLogin from './AdminLogin';
 import AdminDashboard from './AdminDashboard';
 
 const AdminPage = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('isAdmin') === 'true');
   const [adminUser, setAdminUser] = useState(null);
 
   useEffect(() => {
@@ -16,11 +15,14 @@ const AdminPage = () => {
           const data = await response.json();
           setAdminUser(data);
           setIsAuthenticated(true);
+        } else {
+          setIsAuthenticated(false);
+          localStorage.removeItem('isAdmin');
         }
       } catch (error) {
         console.error('Auth check failed', error);
-      } finally {
-        setIsLoading(false);
+        setIsAuthenticated(false);
+        localStorage.removeItem('isAdmin');
       }
     };
 
@@ -35,11 +37,8 @@ const AdminPage = () => {
   const handleLogout = () => {
     setAdminUser(null);
     setIsAuthenticated(false);
+    localStorage.removeItem('isAdmin');
   };
-
-  if (isLoading) {
-    return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', backgroundColor: '#F3F4F6', color: '#111827', fontSize: '18px' }}>Loading Dashboard...</div>;
-  }
 
   return (
     <>

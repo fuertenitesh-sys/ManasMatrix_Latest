@@ -90,13 +90,11 @@ const AdminDashboard = ({ onLogout }) => {
   });
 
   // Summary stats
-  const totalBookings = bookings.length;
-  const newBookings = bookings.filter(b => b.status === 'New').length;
-  const confirmedBookings = bookings.filter(b => b.status === 'Confirmed').length;
-  const completedBookings = bookings.filter(b => b.status === 'Completed').length;
-  const cancelledBookings = bookings.filter(b => b.status === 'Cancelled').length;
-
-  if (isLoading) return <div style={{ backgroundColor: '#F3F4F6', minHeight: '100vh', padding: '120px 24px 40px', textAlign: 'center', color: '#111827' }}>Loading data...</div>;
+  const totalBookings = isLoading ? '...' : bookings.length;
+  const newBookings = isLoading ? '...' : bookings.filter(b => b.status === 'New').length;
+  const confirmedBookings = isLoading ? '...' : bookings.filter(b => b.status === 'Confirmed').length;
+  const completedBookings = isLoading ? '...' : bookings.filter(b => b.status === 'Completed').length;
+  const cancelledBookings = isLoading ? '...' : bookings.filter(b => b.status === 'Cancelled').length;
 
   return (
     <div style={{ backgroundColor: '#F3F4F6', minHeight: '100vh', padding: '24px', paddingTop: '100px', color: '#111827' }}>
@@ -182,7 +180,11 @@ const AdminDashboard = ({ onLogout }) => {
                 </tr>
               </thead>
               <tbody>
-                {filteredBookings.length === 0 ? (
+                {isLoading ? (
+                  <tr>
+                    <td colSpan="7" style={{ padding: '24px', textAlign: 'center', color: '#6B7280' }}>Loading bookings...</td>
+                  </tr>
+                ) : filteredBookings.length === 0 ? (
                   <tr>
                     <td colSpan="7" style={{ padding: '24px', textAlign: 'center', color: '#6B7280' }}>No bookings found.</td>
                   </tr>

@@ -29,6 +29,7 @@ const AdminLogin = ({ onLoginSuccess }) => {
         throw new Error(data.message || 'Login failed');
       }
 
+      localStorage.setItem('isAdmin', 'true');
       onLoginSuccess(data);
       navigate('/admin/bookings');
     } catch (err) {
