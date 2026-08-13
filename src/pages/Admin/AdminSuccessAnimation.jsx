@@ -1,50 +1,48 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './AdminSuccessAnimation.css';
 
 const AdminSuccessAnimation = ({ onComplete }) => {
-  const [phase, setPhase] = useState(1);
-
   useEffect(() => {
-    // Phase 1 is the initial elegant logo reveal (0s to 1.5s)
-    const p2 = setTimeout(() => setPhase(2), 1500); // 1.5s -> Brand text smoothly appears
-    const p3 = setTimeout(() => setPhase(3), 3500); // 3.5s -> Starts fading out cleanly
-    
-    const end = setTimeout(() => {
-      if (onComplete) onComplete();
-    }, 5000); // 5.0s -> Complete transition to dashboard
+    // Animation runs for ~2.5s before transitioning to dashboard
+    const timer = setTimeout(() => {
+      if (onComplete) {
+        onComplete();
+      }
+    }, 2500);
 
-    return () => {
-      clearTimeout(p2);
-      clearTimeout(p3);
-      clearTimeout(end);
-    };
+    return () => clearTimeout(timer);
   }, [onComplete]);
 
   return (
-    <div className={`admin-cinema-overlay phase-${phase}`} role="status" aria-live="polite">
-      
-      {/* Subtle, minimal background glow */}
-      <div className="cinema-bg">
-        <div className="cinema-glow-center"></div>
+    <div className="admin-success-overlay" role="status" aria-live="polite">
+      <div className="admin-success-background">
+        <div className="neural-lines"></div>
       </div>
       
-      <div className="cinema-content">
-        
-        {/* Elegant Logo Reveal */}
-        <div className="cinema-logo-container">
+      <div className="admin-success-content">
+        <div className="logo-container">
+          <div className="logo-glow"></div>
           <img 
             src="/logo_brain_icon.png" 
             alt="Manas Matrix" 
-            className="cinema-actual-logo" 
+            className="animated-logo" 
           />
         </div>
         
-        {/* Clean Typography */}
-        <div className="cinema-brand-text">
-          <h1>MANAS MATRIX</h1>
-          <h2>ADMIN PORTAL</h2>
+        <div className="brand-text">
+          <h1 className="brand-title">MANAS MATRIX</h1>
+          <p className="brand-subtitle">Admin Portal</p>
         </div>
         
+        <div className="welcome-text">
+          <h2 className="welcome-title">Welcome Back</h2>
+          <div className="loading-container">
+            <span className="loading-dot"></span>
+            <span className="loading-dot"></span>
+            <span className="loading-dot"></span>
+            <p className="loading-text">Preparing your dashboard...</p>
+          </div>
+        </div>
       </div>
     </div>
   );
