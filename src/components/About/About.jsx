@@ -120,10 +120,10 @@ const About = () => {
                 <span>Comprehensive Diagnostic Report</span>
               </div>
               <h3 className="section-title" style={{ textAlign: 'left' }}>
-                Inside Your Child's <span className="gradient-text-gold">Brain Report</span>
+                What's Inside Your <span className="gradient-text-gold">Brain Report</span>
               </h3>
               <p className="about__text">
-                Our 40+ page printed intelligence report provides detailed insights into 10 brain lobes, 8 multiple intelligences, learning sensitivity, and career suitability.
+                Our 68+ page printed intelligence report provides detailed insights into 10 brain lobes, 8 multiple intelligences, learning sensitivity, and career alignment for parents, students, and professionals.
               </p>
               <div className="about__report-points">
                 <div className="about__report-point">
@@ -140,7 +140,7 @@ const About = () => {
                 </div>
                 <div className="about__report-point">
                   <CheckIcon size={18} color="#F59E0B" />
-                  <div><strong>Career & Stream Selection:</strong> Ideal streams based on innate brain strengths.</div>
+                  <div><strong>Career & Growth Alignment:</strong> Ideal streams and career paths based on innate brain strengths.</div>
                 </div>
               </div>
             </div>
