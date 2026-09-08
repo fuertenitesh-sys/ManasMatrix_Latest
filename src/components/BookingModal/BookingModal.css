@@ -23,6 +23,8 @@
 .booking-modal-container {
   width: 90%;
   max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
   background: rgba(13, 17, 38, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
@@ -31,7 +33,6 @@
   position: relative;
   transform: translateY(20px) scale(0.95);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
 }
 
 .booking-modal-overlay.is-open .booking-modal-container {

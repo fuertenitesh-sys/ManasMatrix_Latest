@@ -249,6 +249,10 @@
 /* Responsive layout handled by auto-fit and minmax */
 
 @media (max-width: 600px) {
+  .testimonials__card {
+    width: 290px;
+    padding: 24px 18px;
+  }
   .testimonials__trust-card {
     width: 230px;
     min-width: 230px;

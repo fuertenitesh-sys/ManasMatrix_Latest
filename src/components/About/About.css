@@ -283,4 +283,30 @@
   text-align: center;
 }
 
-/* Responsive handled natively by CSS Grid auto-fit and minmax */
+/* Responsive */
+@media (max-width: 900px) {
+  .about__grid,
+  .about__report-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about__grid,
+  .about__report-grid {
+    gap: 24px;
+  }
+  .about__visual-img-wrapper {
+    height: 200px;
+  }
+  .about__report-img {
+    height: 240px;
+  }
+  .about__visual-inner {
+    padding: 20px 16px;
+  }
+  .about__visual-stats {
+    gap: 10px;
+  }
+}
