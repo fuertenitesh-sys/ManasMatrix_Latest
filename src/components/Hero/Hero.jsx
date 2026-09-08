@@ -40,21 +40,21 @@ const Hero = () => {
 
           {/* Heading - Original text size preserved */}
           <h1 className="hero__title">
-            <span className="hero__title-line">Know Yourself</span>
-            <span className="hero__title-highlight gradient-text-gold">Better to</span>
-            <span className="hero__title-line">Grow Better</span>
+            <span className="hero__title-line">Know Yourself.</span>
+            <span className="hero__title-highlight gradient-text-gold">Unlock Your</span>
+            <span className="hero__title-line">Potential.</span>
           </h1>
 
           {/* Subtitle - Original text size preserved */}
           <p className="hero__subtitle">
-            Understand how your child learns. Beyond marks. A scientific cognitive assessment that gives parents a clear, structured view of the skills shaping how their child thinks, focuses, learns, and grows.
+            Stop Guessing. Start Mapping. A scientific brain intelligence framework tailored for children, students, professionals, and business owners to decode innate strengths, elevate performance, and unlock true potential.
           </p>
 
           {/* Feature Pills with Vector SVG Icons */}
           <div className="hero__pills">
             <span className="hero__pill">
               <GraduationCapIcon size={14} color="#F59E0B" />
-              <span>Recommended for Ages 4 - 25</span>
+              <span>Children, Professionals & Businesses</span>
             </span>
             <span className="hero__pill">
               <DnaIcon size={14} color="#60A5FA" />
@@ -62,7 +62,7 @@ const Hero = () => {
             </span>
             <span className="hero__pill">
               <BarChartIcon size={14} color="#FF6B35" />
-              <span>Printed Intelligence Report</span>
+              <span>Personalized Growth Blueprint</span>
             </span>
           </div>
 
@@ -128,7 +128,7 @@ const Hero = () => {
                 <StarIcon size={14} color="#FCD34D" />
                 <span>4 Programs Available</span>
               </span>
-              <span className="hero__card-price">Starting ₹1,999</span>
+              <span className="hero__card-price">Get a Quote</span>
             </div>
           </div>
         </div>
