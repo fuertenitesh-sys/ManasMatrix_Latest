@@ -27,7 +27,15 @@ const CTABanner = () => {
         </p>
 
         <div className="cta-banner__actions animate-reveal fade-up delay-300">
-          <Link to="/contact" className="btn-primary cta-banner__btn" id="cta-banner-primary">
+          <Link
+            to="/contact"
+            className="btn-primary cta-banner__btn"
+            id="cta-banner-primary"
+            onClick={(e) => {
+              e.preventDefault();
+              window.dispatchEvent(new CustomEvent('open-booking-modal', { detail: { service: 'dmit' } }));
+            }}
+          >
             <span>🚀 Book Your Personal Brain Mapping Session</span>
           </Link>
           <a href="tel:9106545374" className="btn-secondary cta-banner__btn" id="cta-banner-secondary">
@@ -37,12 +45,21 @@ const CTABanner = () => {
 
         <div className="cta-banner__programs animate-reveal zoom-in delay-400">
           {[
-            { emoji: '🔍', name: 'Brain Mapping (DMIT)' },
-            { emoji: '💼', name: 'Business Development' },
-            { emoji: '🌱', name: 'Team Building' },
-            { emoji: '👨‍👩‍👧', name: 'Elite Family' },
+            { id: 'dmit', emoji: '🔍', name: 'Brain Mapping (DMIT)' },
+            { id: 'business', emoji: '💼', name: 'Business Development' },
+            { id: 'team', emoji: '🌱', name: 'Team Building' },
+            { id: 'elite', emoji: '👨‍👩‍👧', name: 'Elite Family' },
           ].map((p) => (
-            <Link to="/programs" key={p.name} className="cta-banner__program" style={{ textDecoration: 'none' }}>
+            <Link
+              to="/contact"
+              key={p.name}
+              className="cta-banner__program"
+              style={{ textDecoration: 'none' }}
+              onClick={(e) => {
+                e.preventDefault();
+                window.dispatchEvent(new CustomEvent('open-booking-modal', { detail: { service: p.id } }));
+              }}
+            >
               <span>{p.emoji}</span>
               <div>
                 <div className="cta-banner__program-name">{p.name}</div>

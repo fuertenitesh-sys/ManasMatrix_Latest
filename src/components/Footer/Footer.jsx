@@ -10,10 +10,10 @@ const Footer = () => {
   };
 
   const programs = [
-    { name: 'DISC Personality Assessment', price: '₹1,999', path: '/programs' },
-    { name: 'Growth Transformation (Child)', price: '₹9,999', path: '/programs' },
-    { name: 'Advanced Brain Mapping', price: '₹14,999', path: '/programs' },
-    { name: 'Elite Family Transformation', price: '₹37,499', path: '/programs' },
+    { name: 'Brain Mapping (DMIT)', path: '/programs' },
+    { name: 'Personalized Business Development', path: '/programs' },
+    { name: 'Team Building & Employee Development', path: '/programs' },
+    { name: 'Elite Family Brain Mapping', path: '/programs' },
   ];
 
   const services = [
@@ -74,7 +74,6 @@ const Footer = () => {
               {programs.map((p) => (
                 <Link key={p.name} to={p.path} className="footer__program-link" onClick={handleLinkClick}>
                   <span>{p.name}</span>
-                  <span className="footer__program-price">{p.price}</span>
                 </Link>
               ))}
             </div>
@@ -99,7 +98,7 @@ const Footer = () => {
               <li><Link to="/" className="footer__link" onClick={handleLinkClick}>Home</Link></li>
               <li><Link to="/about" className="footer__link" onClick={handleLinkClick}>About Us</Link></li>
               <li><Link to="/how-it-works" className="footer__link" onClick={handleLinkClick}>How It Works</Link></li>
-              <li><Link to="/programs" className="footer__link" onClick={handleLinkClick}>Programs & Pricing</Link></li>
+              <li><Link to="/programs" className="footer__link" onClick={handleLinkClick}>Programs</Link></li>
               <li><Link to="/services" className="footer__link" onClick={handleLinkClick}>Our Services</Link></li>
               <li><Link to="/contact" className="footer__link" onClick={handleLinkClick}>Contact Us</Link></li>
             </ul>

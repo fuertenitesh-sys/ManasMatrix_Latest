@@ -178,10 +178,10 @@ const Contact = () => {
                   required
                 >
                   <option value="">Select a program</option>
-                  <option value="disc">DISC Personality Assessment — ₹1,999</option>
-                  <option value="child">Growth Transformation Program — ₹9,999</option>
-                  <option value="professional">Advanced Brain Mapping (Professional) — ₹14,999</option>
-                  <option value="elite">Elite Family Transformation — ₹37,499</option>
+                  <option value="dmit">Brain Mapping (DMIT) Program</option>
+                  <option value="business">Personalized Business Development</option>
+                  <option value="team">Team Building & Employee Development</option>
+                  <option value="elite">Elite Family Brain Mapping</option>
                   <option value="counselling">General Counselling Enquiry</option>
                 </select>
               </div>

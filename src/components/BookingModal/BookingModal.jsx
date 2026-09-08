@@ -2,15 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { PhoneIcon, CheckIcon } from '../Icons';
 import './BookingModal.css';
 
-const BookingModal = ({ isOpen, onClose }) => {
+const BookingModal = ({ isOpen, onClose, defaultService = '' }) => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    service: '',
+    service: defaultService || '',
     date: '',
     time: ''
   });
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (defaultService) {
+      setFormData((prev) => ({ ...prev, service: defaultService }));
+    }
+  }, [defaultService, isOpen]);
 
   // Close on Escape key
   useEffect(() => {
@@ -130,10 +136,10 @@ const BookingModal = ({ isOpen, onClose }) => {
                   required
                 >
                   <option value="" disabled>Select Service</option>
-                  <option value="disc">DISC Personality Assessment</option>
-                  <option value="child">Growth Transformation (Child)</option>
-                  <option value="pro">Advanced Brain Mapping (Pro)</option>
-                  <option value="elite">Elite Family Transformation</option>
+                  <option value="dmit">Brain Mapping (DMIT) Program</option>
+                  <option value="business">Personalized Business Development</option>
+                  <option value="team">Team Building & Employee Development</option>
+                  <option value="elite">Elite Family Brain Mapping</option>
                   <option value="general">General Consultation</option>
                 </select>
               </div>

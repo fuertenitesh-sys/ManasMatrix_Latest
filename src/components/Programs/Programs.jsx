@@ -151,7 +151,14 @@ const Programs = () => {
                 ))}
               </div>
 
-              <Link to="/contact" className={`programs__cta ${program.ctaClass}`}>
+              <Link
+                to="/contact"
+                className={`programs__cta ${program.ctaClass}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.dispatchEvent(new CustomEvent('open-booking-modal', { detail: { service: program.id } }));
+                }}
+              >
                 <span>{program.ctaText}</span>
               </Link>
             </div>

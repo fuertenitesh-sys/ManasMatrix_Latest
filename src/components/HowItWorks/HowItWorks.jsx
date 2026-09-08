@@ -99,7 +99,15 @@ const HowItWorks = () => {
           <p className="how-it-works__cta-text">
             Ready to discover your brain's hidden potential?
           </p>
-          <Link to="/programs" className="btn-primary" id="howitworks-cta">
+          <Link
+            to="/programs"
+            className="btn-primary"
+            id="howitworks-cta"
+            onClick={(e) => {
+              e.preventDefault();
+              window.dispatchEvent(new CustomEvent('open-booking-modal', { detail: { service: 'dmit' } }));
+            }}
+          >
             <RocketIcon size={18} />
             <span>Start Your Journey</span>
           </Link>

@@ -8,7 +8,21 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState('');
   const location = useLocation();
+
+  useEffect(() => {
+    const handleOpenModal = (e) => {
+      if (e.detail?.service) {
+        setSelectedService(e.detail.service);
+      } else {
+        setSelectedService('');
+      }
+      setIsBookingOpen(true);
+    };
+    window.addEventListener('open-booking-modal', handleOpenModal);
+    return () => window.removeEventListener('open-booking-modal', handleOpenModal);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,8 +52,9 @@ const Navbar = () => {
   };
 
   const openBookingModal = (e) => {
-    e.preventDefault();
+    if (e && e.preventDefault) e.preventDefault();
     setMenuOpen(false);
+    setSelectedService('');
     setIsBookingOpen(true);
   };
 
@@ -134,7 +149,7 @@ const Navbar = () => {
       </nav>
 
       {/* Professional Booking Modal Overlay */}
-      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} defaultService={selectedService} />
     </>
   );
 };

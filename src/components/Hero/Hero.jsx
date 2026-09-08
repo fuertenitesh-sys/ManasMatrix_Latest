@@ -128,7 +128,16 @@ const Hero = () => {
                 <StarIcon size={14} color="#FCD34D" />
                 <span>4 Programs Available</span>
               </span>
-              <span className="hero__card-price">Get a Quote</span>
+              <button
+                className="hero__card-price"
+                style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.dispatchEvent(new CustomEvent('open-booking-modal', { detail: { service: 'general' } }));
+                }}
+              >
+                Get a Quote
+              </button>
             </div>
           </div>
         </div>
