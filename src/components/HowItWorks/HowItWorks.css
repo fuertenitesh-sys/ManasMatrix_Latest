@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  max-width: 800px;
+  max-width: 850px;
   margin: 0 auto;
   position: relative;
 }
@@ -77,7 +77,73 @@
   border-radius: var(--radius-full);
 }
 
-/* Target Audience Grid - Who Is This For? */
+/* 2. The Science Behind It - 2x2 Grid */
+.science__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.science__card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.science__card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 15px 40px rgba(245, 158, 11, 0.15);
+}
+
+.science__card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.science__icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.science__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.science__title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.science__desc {
+  font-size: 0.92rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+/* 3. Target Audience Grid - Who Is This For? */
 .target-audience__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -151,9 +217,121 @@
   margin-top: 4px;
 }
 
+/* 4. Learning Styles Grid */
+.learning-styles__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.learning-style__card {
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.learning-style__card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 15px 40px rgba(245, 158, 11, 0.15);
+}
+
+.learning-style__icon {
+  font-size: 2.4rem;
+  margin-bottom: 4px;
+}
+
+.learning-style__title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.learning-style__tagline {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.learning-style__desc {
+  font-size: 0.92rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+.learning-styles__banner {
+  margin-top: 28px;
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  background: rgba(245, 158, 11, 0.06);
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.5;
+}
+
+/* 5. Deliverables / What You Get Grid */
+.deliverables__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.deliverable__card {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.deliverable__card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(96, 165, 250, 0.5);
+  box-shadow: 0 12px 35px rgba(96, 165, 250, 0.15);
+}
+
+.deliverable__icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deliverable__title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.deliverable__desc {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
 .how-it-works__cta {
   text-align: center;
-  margin-top: 60px;
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -168,7 +346,10 @@
 
 /* Responsive */
 @media (max-width: 900px) {
-  .target-audience__grid {
+  .science__grid,
+  .target-audience__grid,
+  .learning-styles__grid,
+  .deliverables__grid {
     grid-template-columns: repeat(1, 1fr);
   }
 }
