@@ -6,82 +6,72 @@ import './Programs.css';
 const Programs = () => {
   const programsData = [
     {
-      id: 'disc',
-      title: 'DISC Assessment',
-      subtitle: 'Understand Personality & Behavioral Traits',
-      tagline: 'Ideal for Students & Early Career',
-      price: '₹1,999',
-      badge: 'Popular Entry',
-      badgeColor: 'rgba(59, 130, 246, 0.15)',
-      badgeTextColor: '#60A5FA',
-      icon: <BarChartIcon size={24} color="#60A5FA" />,
-      features: [
-        'DISC Personality Profile Analysis',
-        'Dominance, Influence, Steadiness & Compliance Score',
-        'Basic Communication & Behavior Style Insights',
-        'Digital Assessment Report',
-        'Self-Discovery Summary Session',
-      ],
-      outcomes: ['Behavioral Awareness', 'Communication Boost'],
-      ctaText: 'Book Assessment →',
-      ctaClass: 'btn-secondary',
-    },
-    {
-      id: 'child',
-      title: 'Child Program',
-      subtitle: 'Discover Innate Learning Potential',
-      tagline: 'Recommended for Ages 4 to 16',
-      price: '₹9,999',
+      id: 'dmit',
+      title: 'Brain Mapping (DMIT) Program',
+      subtitle: 'Unlock Your Hidden Potential',
+      tagline: 'Stop Guessing. Start Mapping.',
       badge: 'Most Popular',
       badgeColor: 'rgba(245, 158, 11, 0.15)',
       badgeTextColor: '#F59E0B',
-      icon: <ChildIcon size={24} color="#F59E0B" />,
+      icon: <BarChartIcon size={24} color="#F59E0B" />,
       features: [
-        'Full 10-Lobe DMI Fingerprint Brain Mapping',
-        'Multiple Intelligence (MI) & Brain Dominance Analysis',
-        'Visual, Auditory, Kinesthetic Learning Style Identification',
-        'Printed 40+ Page Premium Brain Report',
-        '1-on-1 Parent Counselling Session in Rajkot',
+        'Biometric Scanning & 68+ Page Report',
+        'Multiple Intelligences & Learning Style',
+        '1-on-1 Discovery Consultation',
+        'Lifetime Validity Biological Data'
       ],
-      outcomes: ['Study Method Clarity', 'Parenting Blueprint'],
-      ctaText: 'Unlock Child Potential →',
+      outcomes: ['Clear Career Path', 'Reduced Academic Stress'],
+      ctaText: 'Get a Quote →',
       ctaClass: 'btn-primary',
       popular: true,
     },
     {
-      id: 'professional',
-      title: 'Professional',
-      subtitle: 'Build The Mindset That Builds Success',
-      tagline: 'For Business Professionals & Leaders',
-      price: '₹14,999',
-      badge: 'Career & Business',
-      badgeColor: 'rgba(239, 68, 68, 0.15)',
-      badgeTextColor: '#EF4444',
-      icon: <BriefcaseIcon size={24} color="#FF6B35" />,
+      id: 'business',
+      title: 'Personalized Business Development',
+      subtitle: 'Decode the Intelligence Behind Successful Businesses',
+      tagline: 'Upgrade the thinking — upgrade the business',
+      badge: 'Founders & Leaders',
+      badgeColor: 'rgba(59, 130, 246, 0.15)',
+      badgeTextColor: '#60A5FA',
+      icon: <BriefcaseIcon size={24} color="#60A5FA" />,
       features: [
-        'Printed Premium Brain Mapping Report',
-        'Advanced Brain Intelligence Analysis',
-        'Personalized Business Growth Consultation',
-        'Leadership & Performance Analysis',
-        'Business Decision Making Assessment',
-        '30 Day Growth Optimization Plan',
-        'Habit Building & High Performance Coaching',
-        'Monthly Review & Performance Tracking',
+        'Brain-Based Business Development Framework',
+        '12 Core Business Brain Segments Analysis',
+        'Strategic Thinking & Decision Making',
+        'Sales Intelligence & Financial Discipline'
       ],
-      outcomes: ['Leadership Boost', 'Decision Making Clarity'],
-      ctaText: 'Elevate Your Performance →',
-      ctaClass: 'btn-primary',
+      outcomes: ['Strong Leadership', 'Business Clarity'],
+      ctaText: 'Get a Quote →',
+      ctaClass: 'btn-secondary',
     },
     {
-      id: 'elite-family',
-      title: 'Elite Family',
-      subtitle: 'Complete Family Transformation',
-      tagline: 'For Entire Family (Parents + Children)',
-      price: '₹37,499',
-      badge: 'Complete Package',
+      id: 'team',
+      title: 'Team Building & Employee Development',
+      subtitle: 'Train the Mind. Transform the Team.',
+      tagline: 'For Corporate Teams, Startups & MSMEs',
+      badge: 'Corporate Focus',
       badgeColor: 'rgba(168, 85, 247, 0.15)',
       badgeTextColor: '#C084FC',
       icon: <UsersIcon size={24} color="#C084FC" />,
+      features: [
+        'Team Mindset & Communication Intelligence',
+        'Problem Solving & Leadership Simulations',
+        'Activity-Based Learning Experiences',
+        'Customer Service Excellence Training'
+      ],
+      outcomes: ['Higher Motivation', 'Improved Productivity'],
+      ctaText: 'Get a Quote →',
+      ctaClass: 'btn-secondary',
+    },
+    {
+      id: 'elite-family',
+      title: 'Elite Family Brain Mapping',
+      subtitle: 'Complete Family Transformation',
+      tagline: 'For Entire Family (Parents + Children)',
+      badge: 'Complete Package',
+      badgeColor: 'rgba(239, 68, 68, 0.15)',
+      badgeTextColor: '#EF4444',
+      icon: <ChildIcon size={24} color="#EF4444" />,
       features: [
         'Complete Brain Mapping for 4 Family Members',
         'Family Harmony & Inter-relational Dynamics Analysis',
@@ -91,8 +81,8 @@ const Programs = () => {
         'Lifelong Cognitive Guidance & Support',
       ],
       outcomes: ['Family Harmony', 'Complete Alignment'],
-      ctaText: 'Transform Your Family →',
-      ctaClass: 'btn-primary',
+      ctaText: 'Get a Quote →',
+      ctaClass: 'btn-secondary',
     },
   ];
 
@@ -102,7 +92,7 @@ const Programs = () => {
         <div className="section-header">
           <div className="section-badge">
             <StarIcon size={14} color="#F59E0B" />
-            <span>Programs & Pricing</span>
+            <span>Programs</span>
           </div>
           <h2 className="section-title">
             Tailored Brain Intelligence <span className="gradient-text-gold">Programs</span>
@@ -133,10 +123,7 @@ const Programs = () => {
                 </div>
               </div>
 
-              <div className="programs__price-row">
-                <div className="programs__price">{program.price}</div>
-                <div className="programs__price-sub">only</div>
-              </div>
+
 
               <h3 className="programs__title">{program.title}</h3>
               <div className="programs__subtitle">{program.subtitle}</div>

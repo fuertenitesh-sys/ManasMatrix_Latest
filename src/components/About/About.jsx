@@ -53,11 +53,17 @@ const About = () => {
             </div>
 
             <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '8px' }}>
-              Unlocking Human Potential Through <span className="gradient-text-gold">Brain Intelligence</span>
+              Unlocking Human Potential with <span className="gradient-text-gold">Sandip Pala</span>
             </h2>
 
             <p className="about__text">
-              At MANAS MATRIX (GrowUp Business Services), we believe that every individual holds a unique blueprint of intelligence. Operating from Spire, 150 Feet Ring Road, Rajkot, our certified Brain Mapping experts specialize in Dermatoglyphics Multiple Intelligence (DMI) analysis to help children, families, and professionals discover their natural talents, learning styles, and growth pathways.
+              I am Sandip Pala, a Strategic Brain-Alignment and Development Strategist. Having worked closely with top-tier business coaches like Dr. Vivek Bindra and Harshvardhan Jain, I have mastered high-impact frameworks to help entrepreneurs move from "trial and error" to scientific scaling.
+            </p>
+            <p className="about__text" style={{ marginTop: '12px' }}>
+              My unique edge lies in merging traditional business management with Brain-Based Cognitive Analysis. By identifying the biological "Zone of Genius" within a leader or a team, I provide a clear "User Manual" for professional success.
+            </p>
+            <p className="about__text" style={{ marginTop: '12px', fontStyle: 'italic', fontWeight: '500', color: '#1E293B', borderLeft: '3px solid #F59E0B', paddingLeft: '12px' }}>
+              "I believe that once you truly know yourself, you can finally operate with the confidence and excellence you were born for. Stop guessing and start leading with absolute clarity."
             </p>
 
             {/* Specialization Tags */}

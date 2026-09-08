@@ -22,13 +22,13 @@ const CTABanner = () => {
         </h2>
         
         <p className="cta-banner__subtitle animate-reveal fade-up delay-200">
-          Don't just wonder about your potential — <em>discover it</em>. Join 500+ families
-          and professionals in Rajkot who have already unlocked their brain's true power.
+          Understanding Your Brain is Just the Beginning... Transformation Starts Now.
+          <br />Take the next step towards clarity and growth.
         </p>
 
         <div className="cta-banner__actions animate-reveal fade-up delay-300">
           <Link to="/contact" className="btn-primary cta-banner__btn" id="cta-banner-primary">
-            <span>🚀 Begin Your Elite Transformation Journey</span>
+            <span>🚀 Book Your Personal Brain Mapping Session</span>
           </Link>
           <a href="tel:9106545374" className="btn-secondary cta-banner__btn" id="cta-banner-secondary">
             📞 Call: 9106545374
@@ -37,16 +37,15 @@ const CTABanner = () => {
 
         <div className="cta-banner__programs animate-reveal zoom-in delay-400">
           {[
-            { emoji: '🔍', name: 'DISC Assessment', price: '₹1,999' },
-            { emoji: '🌱', name: 'Child Program', price: '₹9,999' },
-            { emoji: '💼', name: 'Professional', price: '₹14,999' },
-            { emoji: '👨‍👩‍👧', name: 'Elite Family', price: '₹37,499' },
+            { emoji: '🔍', name: 'Brain Mapping (DMIT)' },
+            { emoji: '💼', name: 'Business Development' },
+            { emoji: '🌱', name: 'Team Building' },
+            { emoji: '👨‍👩‍👧', name: 'Elite Family' },
           ].map((p) => (
             <Link to="/programs" key={p.name} className="cta-banner__program" style={{ textDecoration: 'none' }}>
               <span>{p.emoji}</span>
               <div>
                 <div className="cta-banner__program-name">{p.name}</div>
-                <div className="cta-banner__program-price">{p.price}</div>
               </div>
             </Link>
           ))}
