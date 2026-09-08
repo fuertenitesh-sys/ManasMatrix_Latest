@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FingerprintIcon, BrainIcon, BarChartIcon, UsersIcon, RocketIcon } from '../Icons';
+import { FingerprintIcon, BrainIcon, BarChartIcon, UsersIcon, RocketIcon, GraduationCapIcon, BriefcaseIcon } from '../Icons';
 import './HowItWorks.css';
 
 const steps = [
@@ -43,6 +43,39 @@ const steps = [
     desc: 'Regular follow-up sessions, habit coaching, and monthly/quarterly progress reviews to ensure lasting transformation.',
     color: '#0D9488',
     anim: 'fade-up delay-500',
+  },
+];
+
+const targetAudience = [
+  {
+    title: 'Parents',
+    subtitle: 'For Children & Family Growth',
+    desc: "Understand your child's brain map & natural learning style.",
+    badge: 'Parents & Kids',
+    badgeColor: 'rgba(236, 72, 153, 0.15)',
+    badgeTextColor: '#EC4899',
+    icon: <UsersIcon size={24} color="#EC4899" />,
+    anim: 'fade-left delay-100',
+  },
+  {
+    title: 'Students',
+    subtitle: 'For Stream & Career Clarity',
+    desc: 'Choose the right career path before wasting years.',
+    badge: 'Students & Career',
+    badgeColor: 'rgba(96, 165, 250, 0.15)',
+    badgeTextColor: '#60A5FA',
+    icon: <GraduationCapIcon size={24} color="#60A5FA" />,
+    anim: 'fade-up delay-200',
+  },
+  {
+    title: 'Professionals',
+    subtitle: 'For Business & Leadership',
+    desc: 'Discover why you are burnt out or stagnant.',
+    badge: 'Leaders & Business',
+    badgeColor: 'rgba(255, 107, 53, 0.15)',
+    badgeTextColor: '#FF6B35',
+    icon: <BriefcaseIcon size={24} color="#FF6B35" />,
+    anim: 'fade-right delay-300',
   },
 ];
 
@@ -92,6 +125,45 @@ const HowItWorks = () => {
               )}
             </div>
           ))}
+        </div>
+
+        {/* Who Is This For? Section */}
+        <div className="how-it-works__target animate-reveal fade-up" style={{ marginTop: '70px' }}>
+          <div className="section-header">
+            <div className="section-badge">
+              <UsersIcon size={14} color="#F59E0B" />
+              <span>Target Audience</span>
+            </div>
+            <h2 className="section-title">
+              Who Is This <span className="gradient-text-gold">For?</span>
+            </h2>
+            <div className="divider"></div>
+            <p className="section-subtitle">
+              Brain Mapping provides tailored clarity whether you are guiding a child, choosing a career, or scaling a business.
+            </p>
+          </div>
+
+          <div className="target-audience__grid">
+            {targetAudience.map((item) => (
+              <div key={item.title} className={`target-audience__card glass-card animate-reveal ${item.anim}`}>
+                <div className="target-audience__card-header">
+                  <div className="target-audience__icon-box">
+                    {item.icon}
+                  </div>
+                  <div
+                    className="target-audience__badge"
+                    style={{ background: item.badgeColor, color: item.badgeTextColor }}
+                  >
+                    <span>{item.badge}</span>
+                  </div>
+                </div>
+
+                <h3 className="target-audience__title">{item.title}</h3>
+                <div className="target-audience__subtitle">{item.subtitle}</div>
+                <p className="target-audience__desc">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Bottom CTA Box Component */}
