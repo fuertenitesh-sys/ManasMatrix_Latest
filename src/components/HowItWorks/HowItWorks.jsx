@@ -11,7 +11,10 @@ import {
   DnaIcon,
   CheckIcon,
   AwardIcon,
-  StarIcon
+  StarIcon,
+  EyeIcon,
+  HeadphonesIcon,
+  ActivityIcon
 } from '../Icons';
 import './HowItWorks.css';
 
@@ -131,21 +134,21 @@ const learningStyles = [
     title: 'Visual Learner',
     tagline: 'Learning by Seeing',
     desc: 'Thrives on visual cues, diagrams, charts, mind maps, and color-coded notes to process and retain information quickly.',
-    icon: '👁️',
+    icon: <EyeIcon size={26} color="#60A5FA" />,
     color: '#60A5FA',
   },
   {
     title: 'Auditory Learner',
     tagline: 'Learning by Hearing',
     desc: 'Absorbs information best through lectures, discussions, listening to explanations, and vocal repetition.',
-    icon: '👂',
+    icon: <HeadphonesIcon size={26} color="#F59E0B" />,
     color: '#F59E0B',
   },
   {
     title: 'Kinesthetic Learner',
     tagline: 'Learning by Doing',
     desc: 'Excels through hands-on practice, physical interaction, movement, role-playing, and real-world application.',
-    icon: '🤲',
+    icon: <ActivityIcon size={26} color="#10B981" />,
     color: '#10B981',
   },
 ];
@@ -315,7 +318,9 @@ const HowItWorks = ({ showTargetAudience }) => {
               <div className="learning-styles__grid">
                 {learningStyles.map((style) => (
                   <div key={style.title} className="learning-style__card glass-card">
-                    <div className="learning-style__icon">{style.icon}</div>
+                    <div className="learning-style__icon-box" style={{ background: `${style.color}15`, border: `1px solid ${style.color}30` }}>
+                      {style.icon}
+                    </div>
                     <h3 className="learning-style__title">{style.title}</h3>
                     <div className="learning-style__tagline" style={{ color: style.color }}>{style.tagline}</div>
                     <p className="learning-style__desc">{style.desc}</p>
