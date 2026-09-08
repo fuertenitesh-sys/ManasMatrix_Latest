@@ -8,31 +8,31 @@ const testimonials = [
     role: 'Mother of 2, Rajkot',
     text: 'The Brain Mapping Report for my son was life-changing! We finally understood why he struggles with traditional learning. The counselling helped us create a personalized approach that has improved his grades dramatically.',
     rating: 5,
-    program: 'Growth Transformation Program',
+    program: 'Brain Mapping (DMIT)',
     avatar: <HeartIcon size={20} color="#EC4899" />,
   },
   {
     name: 'Rahul Mehta',
     role: 'Business Owner, Rajkot',
-    text: 'The Advanced Brain Mapping for Professionals was exactly what I needed. Understanding my decision-making style and leadership strengths helped me grow my business by 40% in just 6 months.',
+    text: 'The Personalized Business Development program was exactly what I needed. Understanding my decision-making style and leadership strengths helped me grow my business by 40% in just 6 months.',
     rating: 5,
-    program: 'Advanced Brain Mapping',
+    program: 'Personalized Business Development',
     avatar: <BriefcaseIcon size={20} color="#3B82F6" />,
   },
   {
     name: 'Kavita & Vijay Patel',
     role: 'Parents, Rajkot',
-    text: 'The Elite Family Transformation Program brought our entire family closer. We understand each other so much better now. Our children\'s performance has improved and our communication as a family is so much healthier.',
+    text: 'The Elite Family Brain Mapping program brought our entire family closer. We understand each other so much better now. Our children\'s performance has improved and our communication as a family is so much healthier.',
     rating: 5,
-    program: 'Elite Family Transformation',
+    program: 'Elite Family Brain Mapping',
     avatar: <UsersIcon size={20} color="#F59E0B" />,
   },
   {
     name: 'Aakash Joshi',
     role: 'Student, Age 16',
-    text: 'I was confused about my career after 10th. The DISC Assessment and counselling helped me discover I have strong analytical and leadership abilities. Now I know exactly which direction to take!',
+    text: 'I was confused about my career after 10th. The DMIT Assessment and counselling helped me discover I have strong analytical and leadership abilities. Now I know exactly which direction to take!',
     rating: 5,
-    program: 'DISC Personality Assessment',
+    program: 'Brain Mapping (DMIT)',
     avatar: <GraduationCapIcon size={20} color="#8B5CF6" />,
   },
 ];
@@ -94,8 +94,35 @@ const trustItems = [
 ];
 
 const Testimonials = () => {
-  // Double array for seamless infinite marquee loop
+  // Double array for seamless infinite marquee loop (for trust badges)
   const marqueeItems = [...trustItems, ...trustItems];
+
+  const carouselTestimonials = [...testimonials, ...testimonials];
+
+  const gridRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    let animationId;
+    
+    const scrollStep = () => {
+      if (gridRef.current && !isHovered) {
+        gridRef.current.scrollLeft += 1; // Smooth speed
+        
+        // Seamless infinite loop:
+        // Since we duplicated the array, scrollWidth / 2 is exactly the width of the first original set.
+        // Once we scroll past the first set, snap back to 0 invisibly.
+        if (gridRef.current.scrollLeft >= gridRef.current.scrollWidth / 2) {
+           gridRef.current.scrollLeft = 0;
+        }
+      }
+      animationId = requestAnimationFrame(scrollStep);
+    };
+
+    animationId = requestAnimationFrame(scrollStep);
+
+    return () => cancelAnimationFrame(animationId);
+  }, [isHovered]);
 
   return (
     <section className="testimonials section" id="testimonials">
@@ -116,9 +143,16 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="testimonials__grid">
-          {testimonials.map((t, i) => (
-            <div key={t.name} className={`testimonials__card glass-card animate-reveal fade-up delay-${(i + 1) * 100}`} id={`testimonial-${i + 1}`}>
+        <div 
+          className="testimonials__grid" 
+          ref={gridRef}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onTouchStart={() => setIsHovered(true)}
+          onTouchEnd={() => setIsHovered(false)}
+        >
+          {carouselTestimonials.map((t, i) => (
+            <div key={`${t.name}-${i}`} className={`testimonials__card glass-card animate-reveal fade-up delay-${((i % 4) + 1) * 100}`} id={`testimonial-${i + 1}`}>
               <div className="testimonials__rating" style={{ display: 'flex', gap: '4px' }}>
                 {[...Array(t.rating)].map((_, idx) => (
                   <StarIcon key={idx} size={16} color="#FCD34D" />
