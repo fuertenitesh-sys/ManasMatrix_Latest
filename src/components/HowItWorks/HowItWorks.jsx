@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FingerprintIcon, BrainIcon, BarChartIcon, UsersIcon, RocketIcon, GraduationCapIcon, BriefcaseIcon } from '../Icons';
 import './HowItWorks.css';
 
@@ -79,7 +79,12 @@ const targetAudience = [
   },
 ];
 
-const HowItWorks = () => {
+const HowItWorks = ({ showTargetAudience }) => {
+  const location = useLocation();
+  const shouldShowAudience = showTargetAudience !== undefined 
+    ? showTargetAudience 
+    : location.pathname === '/how-it-works';
+
   return (
     <section className="how-it-works section" id="how-it-works">
       <div className="glow-orb" style={{ width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(124,58,237,0.1), transparent)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}></div>
@@ -127,44 +132,46 @@ const HowItWorks = () => {
           ))}
         </div>
 
-        {/* Who Is This For? Section */}
-        <div className="how-it-works__target animate-reveal fade-up" style={{ marginTop: '70px' }}>
-          <div className="section-header">
-            <div className="section-badge">
-              <UsersIcon size={14} color="#F59E0B" />
-              <span>Target Audience</span>
-            </div>
-            <h2 className="section-title">
-              Who Is This <span className="gradient-text-gold">For?</span>
-            </h2>
-            <div className="divider"></div>
-            <p className="section-subtitle">
-              Brain Mapping provides tailored clarity whether you are guiding a child, choosing a career, or scaling a business.
-            </p>
-          </div>
-
-          <div className="target-audience__grid">
-            {targetAudience.map((item) => (
-              <div key={item.title} className={`target-audience__card glass-card animate-reveal ${item.anim}`}>
-                <div className="target-audience__card-header">
-                  <div className="target-audience__icon-box">
-                    {item.icon}
-                  </div>
-                  <div
-                    className="target-audience__badge"
-                    style={{ background: item.badgeColor, color: item.badgeTextColor }}
-                  >
-                    <span>{item.badge}</span>
-                  </div>
-                </div>
-
-                <h3 className="target-audience__title">{item.title}</h3>
-                <div className="target-audience__subtitle">{item.subtitle}</div>
-                <p className="target-audience__desc">{item.desc}</p>
+        {/* Who Is This For? Section - Only rendered on /how-it-works page */}
+        {shouldShowAudience && (
+          <div className="how-it-works__target animate-reveal fade-up" style={{ marginTop: '70px' }}>
+            <div className="section-header">
+              <div className="section-badge">
+                <UsersIcon size={14} color="#F59E0B" />
+                <span>Target Audience</span>
               </div>
-            ))}
+              <h2 className="section-title">
+                Who Is This <span className="gradient-text-gold">For?</span>
+              </h2>
+              <div className="divider"></div>
+              <p className="section-subtitle">
+                Brain Mapping provides tailored clarity whether you are guiding a child, choosing a career, or scaling a business.
+              </p>
+            </div>
+
+            <div className="target-audience__grid">
+              {targetAudience.map((item) => (
+                <div key={item.title} className={`target-audience__card glass-card animate-reveal ${item.anim}`}>
+                  <div className="target-audience__card-header">
+                    <div className="target-audience__icon-box">
+                      {item.icon}
+                    </div>
+                    <div
+                      className="target-audience__badge"
+                      style={{ background: item.badgeColor, color: item.badgeTextColor }}
+                    >
+                      <span>{item.badge}</span>
+                    </div>
+                  </div>
+
+                  <h3 className="target-audience__title">{item.title}</h3>
+                  <div className="target-audience__subtitle">{item.subtitle}</div>
+                  <p className="target-audience__desc">{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Bottom CTA Box Component */}
         <div className="how-it-works__cta animate-reveal fade-up">

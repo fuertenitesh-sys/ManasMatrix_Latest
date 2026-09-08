@@ -16,7 +16,7 @@ const HowItWorksPage = () => {
         </p>
       </div>
 
-      <HowItWorks />
+      <HowItWorks showTargetAudience={true} />
       <CTABanner />
     </div>
   );
