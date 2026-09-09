@@ -140,6 +140,20 @@
   font-size: 0.95rem;
 }
 
+.about__quote {
+  margin: 16px 0;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.96rem;
+  color: #F8FAFC;
+  line-height: 1.7;
+  background: rgba(245, 158, 11, 0.08);
+  border-left: 4px solid var(--color-gold);
+  padding: 14px 18px;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
 .about__services-list {
   display: flex;
   flex-wrap: wrap;
@@ -148,19 +162,23 @@
 
 .about__service-tag {
   display: inline-block;
-  padding: 6px 12px;
-  background: rgba(245, 158, 11, 0.08);
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  padding: 7px 14px;
+  background: rgba(245, 158, 11, 0.14);
+  border: 1.5px solid rgba(245, 158, 11, 0.4);
   border-radius: var(--radius-full);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: var(--color-gold);
+  color: #FCD34D;
   transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .about__service-tag:hover {
-  background: rgba(245, 158, 11, 0.18);
-  transform: translateY(-1px);
+  background: rgba(245, 158, 11, 0.26);
+  border-color: #F59E0B;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
 }
 
 .about__features {

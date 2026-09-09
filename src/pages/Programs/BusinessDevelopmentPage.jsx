@@ -229,7 +229,7 @@ const BusinessDevelopmentPage = () => {
 
             <div className="animate-reveal fade-left">
               <div className="program-split-image-card">
-                <img src="/counselor.jpg" alt="Sandip Pala Strategic Brain Alignment" className="program-split-image" />
+                <img src="/sandip_pala_harshvardhan.jpg" alt="Sandip Pala Strategic Brain Alignment Strategist" className="program-split-image" />
               </div>
             </div>
           </div>

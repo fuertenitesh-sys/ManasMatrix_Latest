@@ -62,9 +62,9 @@ const About = () => {
             <p className="about__text" style={{ marginTop: '12px' }}>
               My unique edge lies in merging traditional business management with Brain-Based Cognitive Analysis. By identifying the biological "Zone of Genius" within a leader or a team, I provide a clear "User Manual" for professional success.
             </p>
-            <p className="about__text" style={{ marginTop: '12px', fontStyle: 'italic', fontWeight: '500', color: '#1E293B', borderLeft: '3px solid #F59E0B', paddingLeft: '12px' }}>
+            <blockquote className="about__quote">
               "I believe that once you truly know yourself, you can finally operate with the confidence and excellence you were born for. Stop guessing and start leading with absolute clarity."
-            </p>
+            </blockquote>
 
             {/* Specialization Tags */}
             <div className="about__services-list">
