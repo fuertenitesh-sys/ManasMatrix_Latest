@@ -13,7 +13,7 @@ const HomePage = () => {
     <>
       <Hero />
       <About />
-      <HowItWorks showTargetAudience={false} />
+      <HowItWorks />
       <Programs />
       <Services />
       <Testimonials />

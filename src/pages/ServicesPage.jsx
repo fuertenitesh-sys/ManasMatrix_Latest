@@ -16,7 +16,7 @@ const ServicesPage = () => {
         </p>
       </div>
 
-      <Services hideHeader={true} />
+      <Services hideHeader={true} showTargetAudience={true} />
       <CTABanner />
     </div>
   );

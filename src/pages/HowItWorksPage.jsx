@@ -16,7 +16,7 @@ const HowItWorksPage = () => {
         </p>
       </div>
 
-      <HowItWorks showTargetAudience={true} hideHeader={true} />
+      <HowItWorks hideHeader={true} />
       <CTABanner />
     </div>
   );
