@@ -229,34 +229,6 @@
   margin: 8px 0 12px;
 }
 
-.target-audience__card-media::before {
-  content: '';
-  position: absolute;
-  inset: -6px;
-  border-radius: 18px;
-  background: conic-gradient(
-    from 0deg,
-    rgba(245, 158, 11, 0.4),
-    rgba(124, 58, 237, 0.4),
-    rgba(96, 165, 250, 0.4),
-    rgba(245, 158, 11, 0.4)
-  );
-  filter: blur(14px);
-  opacity: 0.55;
-  z-index: 0;
-  animation: cardContinuousGlow 18s linear infinite;
-  will-change: transform;
-}
-
-@keyframes cardContinuousGlow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .target-audience__img-frame {
   position: relative;
   z-index: 1;
@@ -669,26 +641,9 @@
   border-color: rgba(255, 255, 255, 0.25);
 }
 
-/* Subtle Continuous Rotating Glow Motion around Hero Image */
+/* Clean Hero Image Frame */
 .audience-hero-media {
   position: relative;
-}
-
-.audience-hero-media::before {
-  content: '';
-  position: absolute;
-  inset: -14px;
-  border-radius: 32px;
-  background: conic-gradient(from 0deg, rgba(245, 158, 11, 0.35), rgba(124, 58, 237, 0.35), rgba(96, 165, 250, 0.35), rgba(245, 158, 11, 0.35));
-  filter: blur(20px);
-  opacity: 0.65;
-  z-index: 0;
-  animation: continuousGlowRing 22s linear infinite;
-}
-
-@keyframes continuousGlowRing {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 .audience-hero-img-frame {
