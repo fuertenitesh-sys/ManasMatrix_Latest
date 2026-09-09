@@ -431,6 +431,11 @@ const HowItWorks = ({ showTargetAudience }) => {
     };
   }, [selectedAudience]);
 
+  // Reset selected audience overlay when route changes
+  useEffect(() => {
+    setSelectedAudience(null);
+  }, [location]);
+
   // IntersectionObserver for smooth scroll-reveal animations inside fullpage view (repeatable on scroll)
   useEffect(() => {
     if (selectedAudience) {
@@ -453,7 +458,7 @@ const HowItWorks = ({ showTargetAudience }) => {
         threshold: 0.08,
       });
 
-      const elements = overlay.querySelectorAll('.audience-animate');
+      const elements = overlay.querySelectorAll('.audience-animate, .animate-reveal');
       elements.forEach((el) => observer.observe(el));
 
       return () => observer.disconnect();
