@@ -14,7 +14,7 @@ const Programs = ({ hideHeader = false }) => {
       badgeColor: 'rgba(236, 72, 153, 0.15)',
       badgeTextColor: '#EC4899',
       icon: <ChildIcon size={24} color="#EC4899" />,
-      cardImage: '/prog_child_dev.jpg',
+      cardImage: '/card_child_dev.jpg',
       detailPath: '/programs/child-development',
       features: [
         'DISC Personality Profile (Dominant, Influential, Steady, Conscientious)',
@@ -35,7 +35,7 @@ const Programs = ({ hideHeader = false }) => {
       badgeColor: 'rgba(59, 130, 246, 0.15)',
       badgeTextColor: '#60A5FA',
       icon: <BriefcaseIcon size={24} color="#60A5FA" />,
-      cardImage: '/prog_business_dev.jpg',
+      cardImage: '/card_biz_dev.jpg',
       detailPath: '/programs/business-development',
       features: [
         'Brain-Based Business Development Framework',
@@ -56,7 +56,7 @@ const Programs = ({ hideHeader = false }) => {
       badgeColor: 'rgba(245, 158, 11, 0.15)',
       badgeTextColor: '#F59E0B',
       icon: <BarChartIcon size={24} color="#F59E0B" />,
-      cardImage: '/prog_brain_mapping.jpg',
+      cardImage: '/card_brain_dmit.jpg',
       detailPath: '/programs/brain-mapping',
       features: [
         'Biometric Scanning & 68+ Page Printed Report',
@@ -77,7 +77,7 @@ const Programs = ({ hideHeader = false }) => {
       badgeColor: 'rgba(16, 185, 129, 0.15)',
       badgeTextColor: '#10B981',
       icon: <UsersIcon size={24} color="#10B981" />,
-      cardImage: '/prog_team_building.jpg',
+      cardImage: '/card_team_build.jpg',
       detailPath: '/programs/team-building',
       features: [
         'Activity-Based Learning & Practical Workshops',
