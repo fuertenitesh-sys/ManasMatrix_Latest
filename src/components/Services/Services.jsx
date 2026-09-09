@@ -11,26 +11,28 @@ const services = [
   { icon: <BarChartIcon size={26} color="#FF6B35" />, title: 'Business Counselling', desc: 'Make better business decisions by leveraging your natural brain strengths, leadership style, and SWOT profile.', anim: 'fade-right delay-300' },
 ];
 
-const Services = () => {
+const Services = ({ hideHeader = false }) => {
   return (
     <section className="services section" id="services">
       <div className="glow-orb" style={{ width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(59,130,246,0.1), transparent)', top: '0', right: '0' }}></div>
 
       <div className="container">
-        <div className="section-header animate-reveal fade-up">
-          <div className="section-badge">
-            <BrainIcon size={14} color="#F59E0B" />
-            <span>Our Services</span>
+        {!hideHeader && (
+          <div className="section-header animate-reveal fade-up">
+            <div className="section-badge">
+              <BrainIcon size={14} color="#F59E0B" />
+              <span>Our Services</span>
+            </div>
+            <h2 className="section-title">
+              Brain Mapping Counselling <br />
+              <span className="gradient-text-gold">For Every Life Area</span>
+            </h2>
+            <div className="divider"></div>
+            <p className="section-subtitle">
+              "Know Yourself Better to Grow Better" — discover in-depth insights through Brain Mapping (BMI) across all dimensions of life.
+            </p>
           </div>
-          <h2 className="section-title">
-            Brain Mapping Counselling <br />
-            <span className="gradient-text-gold">For Every Life Area</span>
-          </h2>
-          <div className="divider"></div>
-          <p className="section-subtitle">
-            "Know Yourself Better to Grow Better" — discover in-depth insights through Brain Mapping (BMI) across all dimensions of life.
-          </p>
-        </div>
+        )}
 
         <div className="services__grid">
           {services.map((service, i) => (

@@ -49,7 +49,7 @@ const About = () => {
           <div className="about__content animate-reveal fade-left">
             <div className="section-badge">
               <BrainIcon size={14} color="#F59E0B" />
-              <span>About MANAS MATRIX</span>
+              <span>Strategic Brain Leadership</span>
             </div>
 
             <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '8px' }}>

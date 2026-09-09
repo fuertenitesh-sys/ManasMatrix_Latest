@@ -16,7 +16,7 @@ const ProgramsPage = () => {
         </p>
       </div>
 
-      <Programs />
+      <Programs hideHeader={true} />
       <CTABanner />
     </div>
   );

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { StarIcon, CheckIcon, BriefcaseIcon, ChildIcon, UsersIcon, BarChartIcon } from '../Icons';
 import './Programs.css';
 
-const Programs = () => {
+const Programs = ({ hideHeader = false }) => {
   const programsData = [
     {
       id: 'dmit',
@@ -48,35 +48,33 @@ const Programs = () => {
       id: 'team',
       title: 'Team Building & Employee Development',
       subtitle: 'Train the Mind. Transform the Team.',
-      tagline: 'For Corporate Teams, Startups & MSMEs',
-      badge: 'Corporate Focus',
-      badgeColor: 'rgba(168, 85, 247, 0.15)',
-      badgeTextColor: '#C084FC',
-      icon: <UsersIcon size={24} color="#C084FC" />,
+      tagline: 'Right Person in the Right Seat',
+      badge: 'Teams & HR',
+      badgeColor: 'rgba(16, 185, 129, 0.15)',
+      badgeTextColor: '#10B981',
+      icon: <UsersIcon size={24} color="#10B981" />,
       features: [
-        'Team Mindset & Communication Intelligence',
-        'Problem Solving & Leadership Simulations',
-        'Activity-Based Learning Experiences',
-        'Customer Service Excellence Training'
+        'Team Cognitive Strengths Mapping',
+        'Conflict Resolution & Communication Style',
+        'Role Alignment Based on Innate Abilities',
+        'Productivity & Employee Retention Optimization'
       ],
-      outcomes: ['Higher Motivation', 'Improved Productivity'],
+      outcomes: ['Higher Productivity', 'Lower Conflict'],
       ctaText: 'Get a Quote →',
       ctaClass: 'btn-secondary',
     },
     {
-      id: 'elite-family',
+      id: 'elite',
       title: 'Elite Family Brain Mapping',
-      subtitle: 'Complete Family Transformation',
-      tagline: 'For Entire Family (Parents + Children)',
-      badge: 'Complete Package',
-      badgeColor: 'rgba(239, 68, 68, 0.15)',
-      badgeTextColor: '#EF4444',
-      icon: <ChildIcon size={24} color="#EF4444" />,
+      subtitle: 'Complete Family Cognitive Transformation',
+      tagline: 'Understand Every Member’s Unique Blueprint',
+      badge: 'Complete Family',
+      badgeColor: 'rgba(236, 72, 153, 0.15)',
+      badgeTextColor: '#EC4899',
+      icon: <ChildIcon size={24} color="#EC4899" />,
       features: [
-        'Complete Brain Mapping for 4 Family Members',
-        'Family Harmony & Inter-relational Dynamics Analysis',
-        'Parent-Child Communication Blueprint',
-        '4 Printed Premium Intelligence Reports',
+        'Whole-Family DMIT Brain Mapping (Parents + Kids)',
+        'Parent-Child Compatibility & Harmony Analysis',
         'Multiple Counselling & Progress Alignment Sessions',
         'Lifelong Cognitive Guidance & Support',
       ],
@@ -89,18 +87,20 @@ const Programs = () => {
   return (
     <section className="section programs" id="programs">
       <div className="container">
-        <div className="section-header">
-          <div className="section-badge">
-            <StarIcon size={14} color="#F59E0B" />
-            <span>Programs</span>
+        {!hideHeader && (
+          <div className="section-header">
+            <div className="section-badge">
+              <StarIcon size={14} color="#F59E0B" />
+              <span>Programs</span>
+            </div>
+            <h2 className="section-title">
+              Tailored Brain Intelligence <span className="gradient-text-gold">Programs</span>
+            </h2>
+            <p className="section-subtitle">
+              Scientific cognitive assessments designed to give clarity at every stage of life — from early childhood learning to executive performance.
+            </p>
           </div>
-          <h2 className="section-title">
-            Tailored Brain Intelligence <span className="gradient-text-gold">Programs</span>
-          </h2>
-          <p className="section-subtitle">
-            Scientific cognitive assessments designed to give clarity at every stage of life — from early childhood learning to executive performance.
-          </p>
-        </div>
+        )}
 
         {/* Balanced 2-Column Grid where Professional and Elite Family sit side-by-side */}
         <div className="programs__grid">

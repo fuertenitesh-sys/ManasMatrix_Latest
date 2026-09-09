@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PhoneIcon, MapPinIcon, InstagramIcon, CheckIcon, MailIcon } from '../Icons';
 import './Contact.css';
 
-const Contact = () => {
+const Contact = ({ hideHeader = false }) => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -30,19 +30,21 @@ const Contact = () => {
       <div className="glow-orb" style={{ width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(245,158,11,0.1), transparent)', bottom: '0', left: '0' }}></div>
 
       <div className="container">
-        <div className="section-header animate-reveal fade-up">
-          <div className="section-badge">
-            <PhoneIcon size={14} color="#F59E0B" />
-            <span>Get In Touch</span>
+        {!hideHeader && (
+          <div className="section-header animate-reveal fade-up">
+            <div className="section-badge">
+              <PhoneIcon size={14} color="#F59E0B" />
+              <span>Get In Touch</span>
+            </div>
+            <h2 className="section-title">
+              Begin Your <span className="gradient-text-gold">Transformation</span> Today
+            </h2>
+            <div className="divider"></div>
+            <p className="section-subtitle">
+              Contact us for a free consultation. Our experts in Rajkot are ready to guide you.
+            </p>
           </div>
-          <h2 className="section-title">
-            Begin Your <span className="gradient-text-gold">Transformation</span> Today
-          </h2>
-          <div className="divider"></div>
-          <p className="section-subtitle">
-            Contact us for a free consultation. Our experts in Rajkot are ready to guide you.
-          </p>
-        </div>
+        )}
 
         <div className="contact__grid">
           {/* Left Info Card */}
