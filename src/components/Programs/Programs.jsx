@@ -14,6 +14,7 @@ const Programs = ({ hideHeader = false }) => {
       badgeColor: 'rgba(236, 72, 153, 0.15)',
       badgeTextColor: '#EC4899',
       icon: <ChildIcon size={24} color="#EC4899" />,
+      cardImage: '/prog_child_dev.jpg',
       detailPath: '/programs/child-development',
       features: [
         'DISC Personality Profile (Dominant, Influential, Steady, Conscientious)',
@@ -34,6 +35,7 @@ const Programs = ({ hideHeader = false }) => {
       badgeColor: 'rgba(59, 130, 246, 0.15)',
       badgeTextColor: '#60A5FA',
       icon: <BriefcaseIcon size={24} color="#60A5FA" />,
+      cardImage: '/prog_business_dev.jpg',
       detailPath: '/programs/business-development',
       features: [
         'Brain-Based Business Development Framework',
@@ -54,6 +56,7 @@ const Programs = ({ hideHeader = false }) => {
       badgeColor: 'rgba(245, 158, 11, 0.15)',
       badgeTextColor: '#F59E0B',
       icon: <BarChartIcon size={24} color="#F59E0B" />,
+      cardImage: '/prog_brain_mapping.jpg',
       detailPath: '/programs/brain-mapping',
       features: [
         'Biometric Scanning & 68+ Page Printed Report',
@@ -74,6 +77,7 @@ const Programs = ({ hideHeader = false }) => {
       badgeColor: 'rgba(16, 185, 129, 0.15)',
       badgeTextColor: '#10B981',
       icon: <UsersIcon size={24} color="#10B981" />,
+      cardImage: '/prog_team_building.jpg',
       detailPath: '/programs/team-building',
       features: [
         'Activity-Based Learning & Practical Workshops',
@@ -123,6 +127,12 @@ const Programs = ({ hideHeader = false }) => {
                 >
                   <span>{program.badge}</span>
                 </div>
+              </div>
+
+              {/* Header Image Frame - Dedicated container ensuring zero text overlap */}
+              <div className="programs__card-img-box">
+                <img src={program.cardImage} alt={program.title} className="programs__card-img" />
+                <div className="programs__card-img-overlay"></div>
               </div>
 
               <h3 className="programs__title">{program.title}</h3>
