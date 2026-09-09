@@ -158,13 +158,17 @@
   gap: 14px;
   border-radius: var(--radius-xl);
   border: 1px solid var(--color-border);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease !important;
+  cursor: pointer;
 }
 
-.target-audience__card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(245, 158, 11, 0.5);
-  box-shadow: 0 15px 40px rgba(245, 158, 11, 0.15);
+.target-audience__card:hover,
+.target-audience__card--clickable:hover,
+.target-audience__card.animate-reveal.is-visible:hover,
+.target-audience__card--clickable.animate-reveal.is-visible:hover {
+  transform: translate3d(0, -10px, 0) scale3d(1.04, 1.04, 1) !important;
+  border-color: rgba(245, 158, 11, 0.6) !important;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.5), 0 0 35px rgba(245, 158, 11, 0.25) !important;
 }
 
 .target-audience__card-header {
@@ -183,6 +187,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
 }
 
 .target-audience__badge {
