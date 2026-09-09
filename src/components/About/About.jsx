@@ -12,7 +12,7 @@ const About = () => {
           <div className="about__visual animate-reveal fade-right">
             <div className="about__visual-card glass-card">
               <div className="about__visual-img-wrapper">
-                <img src="/about_counseling.jpg" alt="Dedicated Brain Intelligence Counseling Session" className="about__visual-showcase-img" />
+                <img src="/sandip_pala_dmi.jpg" alt="Sandip Pala - DMI Brain Analysis Technology" className="about__visual-showcase-img" />
                 <div className="about__visual-overlay"></div>
                 <div className="about__visual-badge">
                   <BrainIcon size={18} color="#F59E0B" />
