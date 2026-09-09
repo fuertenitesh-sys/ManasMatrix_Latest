@@ -111,7 +111,7 @@ const targetAudience = [
     fullPageData: {
       categoryBadge: 'Parents & Family Growth',
       heroTitle: "Understand Your Child's Unique Brain Map & Learning Potential",
-      heroSubtitle: "Stop guessing and stop forcing generic study methods. Discover your child's biological cognitive wiring to foster academic excellence, emotional confidence, and family harmony.",
+      heroSubtitle: "Stop guessing and forcing generic study methods. Discover your child's biological cognitive wiring to foster academic excellence, confidence, and long-term success.",
       heroImage: '/parents_hero.jpg',
       problemTitle: "Ending Academic Friction & Tuition Waste",
       problemSubtitle: "Why generic advice fails and how biological brain mapping changes everything for parents.",
@@ -186,7 +186,7 @@ const targetAudience = [
     fullPageData: {
       categoryBadge: 'Students & Career Clarity',
       heroTitle: "Choose the Right Career & Stream Before Wasting Years",
-      heroSubtitle: "Make critical academic and career choices based on scientific brain analysis, not peer pressure, societal expectations, or guesswork.",
+      heroSubtitle: "Stop relying on peer pressure and guesswork. Make critical academic and career choices grounded in scientific brain mapping and your natural biological strengths.",
       heroImage: '/students_hero.jpg',
       problemTitle: "'I'm Not Lazy, I'm Just Lost'",
       problemSubtitle: "Overcoming stream selection confusion and study burnout with scientific precision.",
@@ -261,7 +261,7 @@ const targetAudience = [
     fullPageData: {
       categoryBadge: 'Leaders & Business Growth',
       heroTitle: "Discover Your 'Zone of Genius' & Eliminate Corporate Burnout",
-      heroSubtitle: "Align your professional career, leadership style, and business decisions with your biological brain structure for peak fulfillment, high productivity, and sustainable success.",
+      heroSubtitle: "Overcome workplace fatigue and career stagnation. Align your leadership style, decision-making, and professional path with your innate biological brain wiring.",
       heroImage: '/professionals_hero.jpg',
       problemTitle: "Aligning Natural Brain Type with Corporate Reality",
       problemSubtitle: "Why career stagnation happens and how brain mapping restores executive energy and growth.",

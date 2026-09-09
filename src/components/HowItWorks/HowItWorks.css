@@ -536,10 +536,14 @@
 }
 
 .audience-hero-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   color: var(--color-text-secondary, #94a3b8);
-  line-height: 1.65;
+  line-height: 1.7;
+  max-width: 620px;
   margin-bottom: 32px;
+  text-wrap: pretty;
+  letter-spacing: 0.01em;
+  font-weight: 400;
 }
 
 .audience-hero-actions {
@@ -641,9 +645,11 @@
 .audience-section-subtitle {
   font-size: 1.05rem;
   color: var(--color-text-secondary, #94a3b8);
-  max-width: 750px;
+  max-width: 680px;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.7;
+  text-wrap: pretty;
+  letter-spacing: 0.01em;
 }
 
 /* 2 Column Grid for Problems & Solutions */
@@ -698,9 +704,11 @@
 }
 
 .audience-problem-content p {
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   color: var(--color-text-secondary, #94a3b8);
-  line-height: 1.6;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  text-wrap: pretty;
 }
 
 .audience-section-image-wrapper {
@@ -775,9 +783,11 @@
 }
 
 .audience-style-card p {
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   color: var(--color-text-secondary, #94a3b8);
-  line-height: 1.6;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  text-wrap: pretty;
 }
 
 /* Outcomes Grid */
@@ -817,9 +827,11 @@
 }
 
 .audience-outcome-text p {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: var(--color-text-secondary, #94a3b8);
-  line-height: 1.55;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  text-wrap: pretty;
 }
 
 /* CTA Banner Section */
@@ -851,6 +863,8 @@
   font-size: 1.05rem;
   color: var(--color-text-secondary, #94a3b8);
   max-width: 600px;
+  line-height: 1.65;
+  text-wrap: pretty;
 }
 
 .audience-cta-buttons {
