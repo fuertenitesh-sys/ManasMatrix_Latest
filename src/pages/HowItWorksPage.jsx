@@ -12,11 +12,11 @@ const HowItWorksPage = () => {
         </h1>
         <div className="divider"></div>
         <p className="section-subtitle">
-          From fingerprint scanning to personalized coaching — here is how we unlock your full potential.
+          From fingerprint scanning to personalized coaching — a simple, scientific 5-step journey to unlock your full potential.
         </p>
       </div>
 
-      <HowItWorks showTargetAudience={true} />
+      <HowItWorks showTargetAudience={true} hideHeader={true} />
       <CTABanner />
     </div>
   );

@@ -376,7 +376,7 @@ const deliverables = [
   },
 ];
 
-const HowItWorks = ({ showTargetAudience }) => {
+const HowItWorks = ({ showTargetAudience, hideHeader = false }) => {
   const location = useLocation();
   const [selectedAudience, setSelectedAudience] = useState(null);
   const [heroLoaded, setHeroLoaded] = useState(false);
@@ -471,19 +471,21 @@ const HowItWorks = ({ showTargetAudience }) => {
 
       <div className="container">
         {/* Section Header */}
-        <div className="section-header animate-reveal fade-up">
-          <div className="section-badge">
-            <RocketIcon size={14} color="#F59E0B" />
-            <span>The Process</span>
+        {!hideHeader && (
+          <div className="section-header animate-reveal fade-up">
+            <div className="section-badge">
+              <RocketIcon size={14} color="#F59E0B" />
+              <span>The Process</span>
+            </div>
+            <h2 className="section-title">
+              How Brain Mapping <span className="gradient-text-gold">Works</span>
+            </h2>
+            <div className="divider"></div>
+            <p className="section-subtitle">
+              From fingerprint scanning to personalized coaching — a simple, scientific 5-step journey to unlock your full potential.
+            </p>
           </div>
-          <h2 className="section-title">
-            How Brain Mapping <span className="gradient-text-gold">Works</span>
-          </h2>
-          <div className="divider"></div>
-          <p className="section-subtitle">
-            A simple, scientific, and life-changing 5-step journey to discover your true potential.
-          </p>
-        </div>
+        )}
 
         {/* 1. Full 5-Step Process Timeline */}
         <div className="how-it-works__steps">
@@ -677,24 +679,26 @@ const HowItWorks = ({ showTargetAudience }) => {
           </>
         )}
 
-        {/* Bottom CTA Box Component */}
-        <div className="how-it-works__cta animate-reveal fade-up">
-          <p className="how-it-works__cta-text">
-            Ready to discover your brain's hidden potential?
-          </p>
-          <Link
-            to="/programs"
-            className="btn-primary"
-            id="howitworks-cta"
-            onClick={(e) => {
-              e.preventDefault();
-              window.dispatchEvent(new CustomEvent('open-booking-modal', { detail: { service: 'dmit' } }));
-            }}
-          >
-            <RocketIcon size={18} />
-            <span>Start Your Journey</span>
-          </Link>
-        </div>
+        {/* Bottom CTA Box Component (only rendered when not in standalone page view) */}
+        {!shouldShowAudience && (
+          <div className="how-it-works__cta animate-reveal fade-up">
+            <p className="how-it-works__cta-text">
+              Ready to discover your brain's hidden potential?
+            </p>
+            <Link
+              to="/programs"
+              className="btn-primary"
+              id="howitworks-cta"
+              onClick={(e) => {
+                e.preventDefault();
+                window.dispatchEvent(new CustomEvent('open-booking-modal', { detail: { service: 'dmit' } }));
+              }}
+            >
+              <RocketIcon size={18} />
+              <span>Start Your Journey</span>
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* FULL PAGE AUDIENCE DETAIL VIEW (Full Viewport Experience) */}
