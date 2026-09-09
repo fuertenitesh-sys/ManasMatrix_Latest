@@ -222,6 +222,90 @@
   margin-top: 4px;
 }
 
+/* Continuous Subtle Animation for Target Audience Card Images (Parents, Students, Professionals) */
+.target-audience__card-media {
+  position: relative;
+  width: 100%;
+  margin: 8px 0 12px;
+}
+
+.target-audience__card-media::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 18px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(245, 158, 11, 0.4),
+    rgba(124, 58, 237, 0.4),
+    rgba(96, 165, 250, 0.4),
+    rgba(245, 158, 11, 0.4)
+  );
+  filter: blur(14px);
+  opacity: 0.55;
+  z-index: 0;
+  animation: cardContinuousGlow 18s linear infinite;
+  will-change: transform;
+}
+
+@keyframes cardContinuousGlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.target-audience__img-frame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 165px;
+  border-radius: var(--radius-md, 14px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #1e293b;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  animation: cardGentleFloat 6s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes cardGentleFloat {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.015);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+.target-audience__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+  animation: cardImageSubtlePulse 8s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes cardImageSubtlePulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.025);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
 /* 4. Learning Styles Grid */
 .learning-styles__grid {
   display: grid;

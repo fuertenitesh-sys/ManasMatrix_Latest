@@ -109,6 +109,7 @@ const targetAudience = [
     badgeTextColor: '#EC4899',
     icon: <UsersIcon size={24} color="#EC4899" />,
     anim: 'fade-left delay-100',
+    cardImage: '/parents_hero.jpg',
     fullPageData: {
       categoryBadge: 'Parents & Family Growth',
       heroTitle: "Understand Your Child's Unique Brain Map & Learning Potential",
@@ -184,6 +185,7 @@ const targetAudience = [
     badgeTextColor: '#60A5FA',
     icon: <GraduationCapIcon size={24} color="#60A5FA" />,
     anim: 'fade-up delay-200',
+    cardImage: '/students_hero.jpg',
     fullPageData: {
       categoryBadge: 'Students & Career Clarity',
       heroTitle: "Choose the Right Career & Stream Before Wasting Years",
@@ -259,6 +261,7 @@ const targetAudience = [
     badgeTextColor: '#FF6B35',
     icon: <BriefcaseIcon size={24} color="#FF6B35" />,
     anim: 'fade-right delay-300',
+    cardImage: '/professionals_hero.jpg',
     fullPageData: {
       categoryBadge: 'Leaders & Business Growth',
       heroTitle: "Discover Your 'Zone of Genius' & Eliminate Corporate Burnout",
@@ -386,6 +389,10 @@ const HowItWorks = ({ showTargetAudience }) => {
   // Preload all 6 images on component mount to avoid any load flash
   useEffect(() => {
     targetAudience.forEach((item) => {
+      if (item.cardImage) {
+        const img = new Image();
+        img.src = item.cardImage;
+      }
       if (item.fullPageData?.heroImage) {
         const img1 = new Image();
         img1.src = item.fullPageData.heroImage;
@@ -573,6 +580,19 @@ const HowItWorks = ({ showTargetAudience }) => {
                         <span>{item.badge}</span>
                       </div>
                     </div>
+
+                    {/* Continuous Motion Card Image Frame */}
+                    <div className="target-audience__card-media">
+                      <div className="target-audience__img-frame">
+                        <img 
+                          src={item.cardImage} 
+                          alt={item.title} 
+                          className="target-audience__img" 
+                          loading="eager"
+                        />
+                      </div>
+                    </div>
+
                     <h3 className="target-audience__title">{item.title}</h3>
                     <div className="target-audience__subtitle">{item.subtitle}</div>
                     <p className="target-audience__desc">{item.desc}</p>
