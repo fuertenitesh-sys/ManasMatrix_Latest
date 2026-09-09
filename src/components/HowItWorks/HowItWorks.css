@@ -562,13 +562,24 @@
   transform: translateX(-4px);
 }
 
-.audience-fullpage-back-btn .back-arrow {
-  font-size: 1.1rem;
+.back-btn-short {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .back-btn-full {
+    display: none;
+  }
+  .back-btn-short {
+    display: inline;
+  }
 }
 
 .audience-fullpage-nav-cta {
   padding: 8px 20px;
   font-size: 0.88rem;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* Hero Section */
@@ -988,7 +999,7 @@
   transform: translateX(-4px);
 }
 
-/* Responsive Full Page Layout */
+/* Responsive Full Page Layout & Button Optimization */
 @media (max-width: 992px) {
   .audience-hero-container,
   .audience-grid-2col {
@@ -1001,22 +1012,106 @@
   .audience-hero-title {
     font-size: 2rem;
   }
+  .audience-fullpage-nav-container .target-audience__badge {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
+  .audience-fullpage-navbar {
+    padding: 12px 16px;
+  }
+  .audience-fullpage-nav-container {
+    gap: 8px;
+    justify-content: space-between;
+  }
+  .audience-fullpage-back-btn {
+    padding: 8px 14px;
+    font-size: 0.82rem;
+    flex-shrink: 0;
+  }
+  .audience-fullpage-nav-cta {
+    padding: 8px 16px;
+    font-size: 0.82rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
   .audience-hero-section,
   .audience-section,
   .audience-cta-section {
-    padding: 50px 16px;
+    padding: 40px 16px;
   }
   .audience-outcomes-grid {
     grid-template-columns: 1fr;
   }
   .audience-cta-box {
-    padding: 36px 20px;
+    padding: 32px 16px;
   }
   .audience-cta-box h2 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+  }
+  .audience-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 12px;
+  }
+  .audience-hero-actions .btn-primary,
+  .audience-hero-actions .audience-secondary-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 12px 16px;
+    font-size: 0.88rem;
+    white-space: normal;
+  }
+  .audience-cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 12px;
+  }
+  .audience-cta-main-btn,
+  .audience-back-bottom-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 12px 16px;
+    font-size: 0.88rem;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .audience-fullpage-navbar {
+    padding: 10px 12px;
+  }
+  .audience-fullpage-back-btn {
+    padding: 7px 12px;
+    font-size: 0.78rem;
+    gap: 4px;
+  }
+  .audience-fullpage-nav-cta {
+    padding: 7px 12px;
+    font-size: 0.78rem;
+    gap: 6px;
+  }
+  .audience-hero-title {
+    font-size: 1.65rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .audience-fullpage-navbar {
+    padding: 8px 10px;
+  }
+  .audience-fullpage-back-btn {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+  .audience-fullpage-nav-cta {
+    padding: 6px 10px;
+    font-size: 0.75rem;
   }
 }
 

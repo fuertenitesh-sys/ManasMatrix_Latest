@@ -706,9 +706,11 @@ const HowItWorks = ({ showTargetAudience }) => {
               <button 
                 className="audience-fullpage-back-btn"
                 onClick={() => setSelectedAudience(null)}
+                aria-label="Back to How It Works"
               >
                 <span className="back-arrow">←</span>
-                <span>Back to How It Works</span>
+                <span className="back-btn-full">Back to How It Works</span>
+                <span className="back-btn-short">Back</span>
               </button>
 
               <div 
