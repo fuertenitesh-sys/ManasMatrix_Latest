@@ -131,7 +131,11 @@ const Programs = ({ hideHeader = false }) => {
 
               {/* Header Image Frame - Dedicated container ensuring zero text overlap */}
               <div className="programs__card-img-box">
-                <img src={program.cardImage} alt={program.title} className="programs__card-img" />
+                <img 
+                  src={program.cardImage} 
+                  alt={program.title} 
+                  className={`programs__card-img programs__card-img--${program.id}`} 
+                />
                 <div className="programs__card-img-overlay"></div>
               </div>
 
