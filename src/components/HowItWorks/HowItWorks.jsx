@@ -431,7 +431,7 @@ const HowItWorks = ({ showTargetAudience }) => {
     };
   }, [selectedAudience]);
 
-  // IntersectionObserver for smooth scroll-reveal animations inside fullpage view
+  // IntersectionObserver for smooth scroll-reveal animations inside fullpage view (repeatable on scroll)
   useEffect(() => {
     if (selectedAudience) {
       const overlay = document.querySelector('.audience-fullpage-overlay');
@@ -441,14 +441,16 @@ const HowItWorks = ({ showTargetAudience }) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
+          } else {
+            entry.target.classList.remove('is-visible');
           }
         });
       };
 
       const observer = new IntersectionObserver(observerCallback, {
         root: overlay,
-        rootMargin: '0px 0px -25px 0px',
-        threshold: 0.05,
+        rootMargin: '0px 0px -20px 0px',
+        threshold: 0.08,
       });
 
       const elements = overlay.querySelectorAll('.audience-animate');
@@ -838,18 +840,21 @@ const HowItWorks = ({ showTargetAudience }) => {
                 </div>
 
                 <div className="audience-styles-grid">
-                  {selectedAudience.fullPageData.styles.map((style, idx) => (
-                    <div 
-                      key={idx} 
-                      className={`audience-style-card glass-card audience-animate audience-fade-up delay-${(idx + 1) * 100}`}
-                    >
-                      <div className="audience-style-badge" style={{ background: `${style.color}20`, color: style.color }}>
-                        {style.badge}
+                  {selectedAudience.fullPageData.styles.map((style, idx) => {
+                    const animDir = idx % 3 === 0 ? 'audience-fade-right' : idx % 3 === 1 ? 'audience-fade-up' : 'audience-fade-left';
+                    return (
+                      <div 
+                        key={idx} 
+                        className={`audience-style-card glass-card audience-animate ${animDir} delay-${(idx + 1) * 100}`}
+                      >
+                        <div className="audience-style-badge" style={{ background: `${style.color}20`, color: style.color }}>
+                          {style.badge}
+                        </div>
+                        <h3 style={{ color: style.color }}>{style.title}</h3>
+                        <p>{style.desc}</p>
                       </div>
-                      <h3 style={{ color: style.color }}>{style.title}</h3>
-                      <p>{style.desc}</p>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -865,20 +870,23 @@ const HowItWorks = ({ showTargetAudience }) => {
                 </div>
 
                 <div className="audience-outcomes-grid">
-                  {selectedAudience.fullPageData.outcomes.map((out, idx) => (
-                    <div 
-                      key={idx} 
-                      className={`audience-outcome-card glass-card audience-animate audience-fade-up delay-${(idx + 1) * 100}`}
-                    >
-                      <div className="audience-outcome-check">
-                        <CheckIcon size={20} color={selectedAudience.badgeTextColor} />
+                  {selectedAudience.fullPageData.outcomes.map((out, idx) => {
+                    const animDir = idx % 2 === 0 ? 'audience-fade-right' : 'audience-fade-left';
+                    return (
+                      <div 
+                        key={idx} 
+                        className={`audience-outcome-card glass-card audience-animate ${animDir} delay-${(idx + 1) * 100}`}
+                      >
+                        <div className="audience-outcome-check">
+                          <CheckIcon size={20} color={selectedAudience.badgeTextColor} />
+                        </div>
+                        <div className="audience-outcome-text">
+                          <h4>{out.title}</h4>
+                          <p>{out.desc}</p>
+                        </div>
                       </div>
-                      <div className="audience-outcome-text">
-                        <h4>{out.title}</h4>
-                        <p>{out.desc}</p>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             </div>

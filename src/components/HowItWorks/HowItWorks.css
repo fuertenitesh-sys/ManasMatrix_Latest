@@ -504,6 +504,7 @@
   background: var(--color-bg, #0b0f19);
   color: var(--color-text-primary, #ffffff);
   overflow-y: auto;
+  overflow-x: hidden;
   animation: fullPageFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -1019,31 +1020,31 @@
   }
 }
 
-/* Scroll Reveal Animations for Audience Fullpage View */
+/* Scroll Reveal Animations for Audience Fullpage View (Repeatable) */
 .audience-animate {
   opacity: 0;
-  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
 .audience-animate.audience-fade-up {
-  transform: translateY(35px);
+  transform: translateY(28px);
 }
 
 .audience-animate.audience-fade-down {
-  transform: translateY(-35px);
+  transform: translateY(-28px);
 }
 
 .audience-animate.audience-fade-left {
-  transform: translateX(45px);
+  transform: translateX(32px);
 }
 
 .audience-animate.audience-fade-right {
-  transform: translateX(-45px);
+  transform: translateX(-32px);
 }
 
 .audience-animate.audience-zoom-in {
-  transform: scale(0.92);
+  transform: scale(0.94);
 }
 
 .audience-animate.is-visible {
@@ -1051,10 +1052,10 @@
   transform: translate(0) scale(1);
 }
 
-.audience-animate.delay-100 { transition-delay: 0.1s; }
-.audience-animate.delay-200 { transition-delay: 0.2s; }
-.audience-animate.delay-300 { transition-delay: 0.3s; }
-.audience-animate.delay-400 { transition-delay: 0.4s; }
+.audience-animate.delay-100 { transition-delay: 0.08s; }
+.audience-animate.delay-200 { transition-delay: 0.16s; }
+.audience-animate.delay-300 { transition-delay: 0.24s; }
+.audience-animate.delay-400 { transition-delay: 0.32s; }
 
 
 
