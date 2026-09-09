@@ -306,6 +306,16 @@
   pointer-events: none;
 }
 
+.navbar__dropdown::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  height: 24px;
+  background: transparent;
+}
+
 .navbar__dropdown--open {
   opacity: 1;
   visibility: visible;

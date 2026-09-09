@@ -130,21 +130,32 @@ const Navbar = () => {
                           isActive || location.pathname.startsWith('/programs') ? 'navbar__link--active' : ''
                         }`
                       }
+                      onMouseEnter={() => setDropdownOpen(true)}
                       onClick={() => handleNavClick(link.path)}
                     >
                       <span>{link.label}</span>
-                      <span className="navbar__dropdown-arrow">
+                      <span 
+                        className="navbar__dropdown-arrow"
+                        style={{
+                          transform: dropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                          transition: 'transform 0.25s ease'
+                        }}
+                      >
                         <ChevronDownIcon size={14} color="#F59E0B" />
                       </span>
                     </NavLink>
 
-                    <div className={`navbar__dropdown ${dropdownOpen ? 'navbar__dropdown--open' : ''}`}>
+                    <div 
+                      className={`navbar__dropdown ${dropdownOpen ? 'navbar__dropdown--open' : ''}`}
+                      onMouseEnter={() => setDropdownOpen(true)}
+                    >
                       {programOptions.map((opt) => (
                         <Link
                           key={opt.label}
                           to={opt.path}
                           className={`navbar__dropdown-item ${location.pathname === opt.path ? 'navbar__dropdown-item--active' : ''}`}
-                          onClick={() => {
+                          onClick={(e) => {
+                            e.stopPropagation();
                             setDropdownOpen(false);
                             handleNavClick(opt.path);
                           }}
