@@ -12,6 +12,11 @@ import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
 import AdminPage from './pages/Admin/AdminPage';
 
+import BrainMappingPage from './pages/Programs/BrainMappingPage';
+import BusinessDevelopmentPage from './pages/Programs/BusinessDevelopmentPage';
+import TeamBuildingPage from './pages/Programs/TeamBuildingPage';
+import ChildDevelopmentPage from './pages/Programs/ChildDevelopmentPage';
+
 import './App.css';
 
 const ScrollRevealObserver = () => {
@@ -57,6 +62,10 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/how-it-works" element={<HowItWorksPage />} />
             <Route path="/programs" element={<ProgramsPage />} />
+            <Route path="/programs/child-development" element={<ChildDevelopmentPage />} />
+            <Route path="/programs/business-development" element={<BusinessDevelopmentPage />} />
+            <Route path="/programs/brain-mapping" element={<BrainMappingPage />} />
+            <Route path="/programs/team-building" element={<TeamBuildingPage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/admin/bookings" element={<AdminPage />} />

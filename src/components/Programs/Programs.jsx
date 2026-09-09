@@ -6,24 +6,24 @@ import './Programs.css';
 const Programs = ({ hideHeader = false }) => {
   const programsData = [
     {
-      id: 'dmit',
-      title: 'Brain Mapping (DMIT) Program',
-      subtitle: 'Unlock Your Hidden Potential',
-      tagline: 'Stop Guessing. Start Mapping.',
-      badge: 'Most Popular',
-      badgeColor: 'rgba(245, 158, 11, 0.15)',
-      badgeTextColor: '#F59E0B',
-      icon: <BarChartIcon size={24} color="#F59E0B" />,
+      id: 'child',
+      title: 'Child Development & DISC Profile',
+      subtitle: 'Discover Your Child’s Innate Cognitive Genius Early',
+      tagline: 'Stop Scolding. Start Scientific Mentorship.',
+      badge: 'Children & Parents',
+      badgeColor: 'rgba(236, 72, 153, 0.15)',
+      badgeTextColor: '#EC4899',
+      icon: <ChildIcon size={24} color="#EC4899" />,
+      detailPath: '/programs/child-development',
       features: [
-        'Biometric Scanning & 68+ Page Report',
-        'Multiple Intelligences & Learning Style',
-        '1-on-1 Discovery Consultation',
-        'Lifetime Validity Biological Data'
+        'DISC Personality Profile (Dominant, Influential, Steady, Conscientious)',
+        'Mini Cognitive Assessment (Attention Span & Memory)',
+        'Natural SWOT Analysis for Kids',
+        'Quick Potential Snapshot & Parent Guide'
       ],
-      outcomes: ['Clear Career Path', 'Reduced Academic Stress'],
-      ctaText: 'Get a Quote →',
-      ctaClass: 'btn-primary',
-      popular: true,
+      outcomes: ['Zero Homework Stress', 'Early Talent Discovery'],
+      ctaText: 'Book Consultation',
+      popular: false,
     },
     {
       id: 'business',
@@ -34,15 +34,36 @@ const Programs = ({ hideHeader = false }) => {
       badgeColor: 'rgba(59, 130, 246, 0.15)',
       badgeTextColor: '#60A5FA',
       icon: <BriefcaseIcon size={24} color="#60A5FA" />,
+      detailPath: '/programs/business-development',
       features: [
         'Brain-Based Business Development Framework',
         '12 Core Business Brain Segments Analysis',
         'Strategic Thinking & Decision Making',
         'Sales Intelligence & Financial Discipline'
       ],
-      outcomes: ['Strong Leadership', 'Business Clarity'],
-      ctaText: 'Get a Quote →',
-      ctaClass: 'btn-secondary',
+      outcomes: ['Strong Leadership', 'Business Scaling Clarity'],
+      ctaText: 'Book Consultation',
+      popular: false,
+    },
+    {
+      id: 'dmit',
+      title: 'Brain Mapping (DMIT) Program',
+      subtitle: 'Decode Your Innate Biological Blueprint',
+      tagline: 'Stop Guessing. Start Mapping.',
+      badge: 'Most Popular',
+      badgeColor: 'rgba(245, 158, 11, 0.15)',
+      badgeTextColor: '#F59E0B',
+      icon: <BarChartIcon size={24} color="#F59E0B" />,
+      detailPath: '/programs/brain-mapping',
+      features: [
+        'Biometric Scanning & 68+ Page Printed Report',
+        'Multiple Intelligences & 3 Input Learning Styles',
+        '1-on-1 Discovery Consultation with Sandip Pala',
+        'Lifetime Validity Biological Fingerprint Data'
+      ],
+      outcomes: ['Clear Career Path', 'Reduced Academic Stress'],
+      ctaText: 'Book Consultation',
+      popular: true,
     },
     {
       id: 'team',
@@ -53,34 +74,16 @@ const Programs = ({ hideHeader = false }) => {
       badgeColor: 'rgba(16, 185, 129, 0.15)',
       badgeTextColor: '#10B981',
       icon: <UsersIcon size={24} color="#10B981" />,
+      detailPath: '/programs/team-building',
       features: [
-        'Team Cognitive Strengths Mapping',
-        'Conflict Resolution & Communication Style',
-        'Role Alignment Based on Innate Abilities',
-        'Productivity & Employee Retention Optimization'
+        'Activity-Based Learning & Practical Workshops',
+        'Problem Solving, Time Management & Customer Excellence',
+        'Conflict Resolution & Communication Alignment',
+        'Half-Day, Full-Day, & 2-Day Training Formats'
       ],
-      outcomes: ['Higher Productivity', 'Lower Conflict'],
-      ctaText: 'Get a Quote →',
-      ctaClass: 'btn-secondary',
-    },
-    {
-      id: 'elite',
-      title: 'Elite Family Brain Mapping',
-      subtitle: 'Complete Family Cognitive Transformation',
-      tagline: 'Understand Every Member’s Unique Blueprint',
-      badge: 'Complete Family',
-      badgeColor: 'rgba(236, 72, 153, 0.15)',
-      badgeTextColor: '#EC4899',
-      icon: <ChildIcon size={24} color="#EC4899" />,
-      features: [
-        'Whole-Family DMIT Brain Mapping (Parents + Kids)',
-        'Parent-Child Compatibility & Harmony Analysis',
-        'Multiple Counselling & Progress Alignment Sessions',
-        'Lifelong Cognitive Guidance & Support',
-      ],
-      outcomes: ['Family Harmony', 'Complete Alignment'],
-      ctaText: 'Get a Quote →',
-      ctaClass: 'btn-secondary',
+      outcomes: ['Higher Productivity', 'Reduced Office Friction'],
+      ctaText: 'Book Consultation',
+      popular: false,
     },
   ];
 
@@ -88,7 +91,7 @@ const Programs = ({ hideHeader = false }) => {
     <section className="section programs" id="programs">
       <div className="container">
         {!hideHeader && (
-          <div className="section-header">
+          <div className="section-header animate-reveal fade-up">
             <div className="section-badge">
               <StarIcon size={14} color="#F59E0B" />
               <span>Programs</span>
@@ -97,12 +100,11 @@ const Programs = ({ hideHeader = false }) => {
               Tailored Brain Intelligence <span className="gradient-text-gold">Programs</span>
             </h2>
             <p className="section-subtitle">
-              Scientific cognitive assessments designed to give clarity at every stage of life — from early childhood learning to executive performance.
+              Scientific cognitive assessments and brain-alignment frameworks designed to give clarity at every stage of life — from early childhood learning to executive scaling.
             </p>
           </div>
         )}
 
-        {/* Balanced 2-Column Grid where Professional and Elite Family sit side-by-side */}
         <div className="programs__grid">
           {programsData.map((program, index) => (
             <div
@@ -122,8 +124,6 @@ const Programs = ({ hideHeader = false }) => {
                   <span>{program.badge}</span>
                 </div>
               </div>
-
-
 
               <h3 className="programs__title">{program.title}</h3>
               <div className="programs__subtitle">{program.subtitle}</div>
@@ -151,22 +151,30 @@ const Programs = ({ hideHeader = false }) => {
                 ))}
               </div>
 
-              <Link
-                to="/contact"
-                className={`programs__cta ${program.ctaClass}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.dispatchEvent(new CustomEvent('open-booking-modal', { detail: { service: program.id } }));
-                }}
-              >
-                <span>{program.ctaText}</span>
-              </Link>
+              <div style={{ display: 'flex', gap: '12px', marginTop: '16px', flexWrap: 'wrap' }}>
+                <Link
+                  to={program.detailPath}
+                  className="btn-secondary"
+                  style={{ flex: 1, padding: '12px 18px', textAlign: 'center', fontSize: '0.86rem', borderRadius: '30px', textDecoration: 'none', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', whiteSpace: 'nowrap' }}
+                >
+                  <span>View Program Details →</span>
+                </Link>
+                <button
+                  className="btn-primary"
+                  style={{ flex: 1, padding: '12px 18px', fontSize: '0.86rem', whiteSpace: 'nowrap' }}
+                  onClick={() => {
+                    window.dispatchEvent(new CustomEvent('open-booking-modal', { detail: { service: program.id } }));
+                  }}
+                >
+                  <span>{program.ctaText}</span>
+                </button>
+              </div>
             </div>
           ))}
         </div>
 
         <p className="programs__note">
-          All programs include a 1-on-1 private consultation with certified Brain Mapping experts in Rajkot, Gujarat.
+          All programs include a 1-on-1 private consultation with Sandip Pala & certified Brain Mapping experts in Rajkot, Gujarat.
         </p>
       </div>
     </section>
