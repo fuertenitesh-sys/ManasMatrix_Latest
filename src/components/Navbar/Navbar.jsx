@@ -67,6 +67,11 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    setDropdownOpen(false);
+    setMenuOpen(false);
+  }, [location.pathname]);
+
   const navLinks = [
     { label: 'Home', path: '/' },
     { label: 'About', path: '/about' },
@@ -79,6 +84,9 @@ const Navbar = () => {
   const handleNavClick = (path) => {
     setMenuOpen(false);
     setDropdownOpen(false);
+    if (document.activeElement) {
+      document.activeElement.blur();
+    }
     if (location.pathname === path) {
       window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }
