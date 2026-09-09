@@ -1,14 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { PhoneIcon } from '../Icons';
+import { 
+  PhoneIcon, 
+  ChevronDownIcon, 
+  ChildIcon, 
+  BriefcaseIcon, 
+  BrainIcon, 
+  UsersIcon 
+} from '../Icons';
 import BookingModal from '../BookingModal/BookingModal';
 import './Navbar.css';
 
 const programOptions = [
-  { label: 'Child Development', path: '/programs/child-development', icon: '👶' },
-  { label: 'Personalized Business Development', path: '/programs/business-development', icon: '💼' },
-  { label: 'Brain Mapping (DMIT)', path: '/programs/brain-mapping', icon: '🧠' },
-  { label: 'Team Building & Employee Development', path: '/programs/team-building', icon: '👥' },
+  { 
+    label: 'Child Development', 
+    path: '/programs/child-development', 
+    icon: <ChildIcon size={18} color="#EC4899" /> 
+  },
+  { 
+    label: 'Personalized Business Development', 
+    path: '/programs/business-development', 
+    icon: <BriefcaseIcon size={18} color="#60A5FA" /> 
+  },
+  { 
+    label: 'Brain Mapping (DMIT)', 
+    path: '/programs/brain-mapping', 
+    icon: <BrainIcon size={18} color="#F59E0B" /> 
+  },
+  { 
+    label: 'Team Building & Employee Development', 
+    path: '/programs/team-building', 
+    icon: <UsersIcon size={18} color="#10B981" /> 
+  },
 ];
 
 const Navbar = () => {
@@ -102,7 +125,9 @@ const Navbar = () => {
                       onClick={() => handleNavClick(link.path)}
                     >
                       <span>{link.label}</span>
-                      <span className="navbar__dropdown-arrow">▾</span>
+                      <span className="navbar__dropdown-arrow">
+                        <ChevronDownIcon size={14} color="#F59E0B" />
+                      </span>
                     </NavLink>
 
                     <div className={`navbar__dropdown ${dropdownOpen ? 'navbar__dropdown--open' : ''}`}>
@@ -199,7 +224,14 @@ const Navbar = () => {
                             setMobileProgramsOpen(!mobileProgramsOpen);
                           }}
                         >
-                          {mobileProgramsOpen ? '▲' : '▼'}
+                          <ChevronDownIcon 
+                            size={16} 
+                            color="#F59E0B" 
+                            style={{ 
+                              transform: mobileProgramsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                              transition: 'transform 0.2s ease'
+                            }} 
+                          />
                         </button>
                       </div>
                     </li>
@@ -212,7 +244,7 @@ const Navbar = () => {
                             className={`navbar__mobile-sublink ${location.pathname === opt.path ? 'navbar__mobile-sublink--active' : ''}`}
                             onClick={() => handleNavClick(opt.path)}
                           >
-                            <span style={{ fontSize: '0.9rem' }}>{opt.icon}</span>
+                            <span className="navbar__dropdown-icon">{opt.icon}</span>
                             <span>{opt.label}</span>
                           </Link>
                         ))}
