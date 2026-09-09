@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 import { 
   FingerprintIcon, 
   BrainIcon, 
@@ -375,11 +376,34 @@ const deliverables = [
 const HowItWorks = ({ showTargetAudience }) => {
   const location = useLocation();
   const [selectedAudience, setSelectedAudience] = useState(null);
+  const [heroLoaded, setHeroLoaded] = useState(false);
+  const [secLoaded, setSecLoaded] = useState(false);
 
   const shouldShowAudience = showTargetAudience !== undefined 
     ? showTargetAudience 
     : location.pathname === '/how-it-works';
 
+  // Preload all 6 images on component mount to avoid any load flash
+  useEffect(() => {
+    targetAudience.forEach((item) => {
+      if (item.fullPageData?.heroImage) {
+        const img1 = new Image();
+        img1.src = item.fullPageData.heroImage;
+      }
+      if (item.fullPageData?.sectionImage) {
+        const img2 = new Image();
+        img2.src = item.fullPageData.sectionImage;
+      }
+    });
+  }, []);
+
+  // Reset image load states on audience change
+  useEffect(() => {
+    setHeroLoaded(false);
+    setSecLoaded(false);
+  }, [selectedAudience]);
+
+  // Handle ESC key and scroll lock
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
@@ -398,6 +422,33 @@ const HowItWorks = ({ showTargetAudience }) => {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKeyDown);
     };
+  }, [selectedAudience]);
+
+  // IntersectionObserver for smooth scroll-reveal animations inside fullpage view
+  useEffect(() => {
+    if (selectedAudience) {
+      const overlay = document.querySelector('.audience-fullpage-overlay');
+      if (!overlay) return;
+
+      const observerCallback = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(observerCallback, {
+        root: overlay,
+        rootMargin: '0px 0px -25px 0px',
+        threshold: 0.05,
+      });
+
+      const elements = overlay.querySelectorAll('.audience-animate');
+      elements.forEach((el) => observer.observe(el));
+
+      return () => observer.disconnect();
+    }
   }, [selectedAudience]);
 
   return (
@@ -658,7 +709,7 @@ const HowItWorks = ({ showTargetAudience }) => {
             {/* HERO SECTION */}
             <div className="audience-hero-section">
               <div className="audience-hero-container">
-                <div className="audience-hero-text">
+                <div className="audience-hero-text audience-animate audience-fade-right">
                   <div 
                     className="audience-hero-badge"
                     style={{ background: selectedAudience.badgeColor, color: selectedAudience.badgeTextColor }}
@@ -692,12 +743,13 @@ const HowItWorks = ({ showTargetAudience }) => {
                   </div>
                 </div>
 
-                <div className="audience-hero-media">
+                <div className="audience-hero-media audience-animate audience-fade-left">
                   <div className="audience-hero-img-frame">
                     <img 
                       src={selectedAudience.fullPageData.heroImage} 
                       alt={selectedAudience.fullPageData.heroTitle}
-                      className="audience-hero-img"
+                      className={`audience-hero-img ${heroLoaded ? 'is-loaded' : ''}`}
+                      onLoad={() => setHeroLoaded(true)}
                     />
                     <div className="audience-hero-img-overlay">
                       <StarIcon size={18} color="#F59E0B" />
@@ -711,7 +763,7 @@ const HowItWorks = ({ showTargetAudience }) => {
             {/* SECTION 1: CORE PROBLEMS & SOLUTIONS (Side-by-side Layout) */}
             <div className="audience-section section-dark" id="audience-deep-dive">
               <div className="audience-container">
-                <div className="audience-section-header">
+                <div className="audience-section-header audience-animate audience-fade-up">
                   <span className="audience-section-tag" style={{ color: selectedAudience.badgeTextColor }}>
                     Deep Dive Analysis
                   </span>
@@ -722,7 +774,10 @@ const HowItWorks = ({ showTargetAudience }) => {
                 <div className="audience-grid-2col">
                   <div className="audience-problems-list">
                     {selectedAudience.fullPageData.problems.map((prob, idx) => (
-                      <div key={idx} className="audience-problem-card glass-card">
+                      <div 
+                        key={idx} 
+                        className={`audience-problem-card glass-card audience-animate audience-fade-right delay-${(idx + 1) * 100}`}
+                      >
                         <div className="audience-problem-icon-num" style={{ background: `${selectedAudience.badgeTextColor}15`, color: selectedAudience.badgeTextColor }}>
                           0{idx + 1}
                         </div>
@@ -734,12 +789,13 @@ const HowItWorks = ({ showTargetAudience }) => {
                     ))}
                   </div>
 
-                  <div className="audience-section-image-wrapper">
+                  <div className="audience-section-image-wrapper audience-animate audience-fade-left">
                     <div className="audience-image-card glass-card">
                       <img 
                         src={selectedAudience.fullPageData.sectionImage} 
                         alt={selectedAudience.fullPageData.problemTitle}
-                        className="audience-section-img"
+                        className={`audience-section-img ${secLoaded ? 'is-loaded' : ''}`}
+                        onLoad={() => setSecLoaded(true)}
                       />
                       <div className="audience-image-caption">
                         <span>Personalized 68+ Page Biometric Intelligence Report</span>
@@ -753,7 +809,7 @@ const HowItWorks = ({ showTargetAudience }) => {
             {/* SECTION 2: CATEGORY SPECIFIC STYLES / QUOTIENTS */}
             <div className="audience-section">
               <div className="audience-container">
-                <div className="audience-section-header text-center">
+                <div className="audience-section-header text-center audience-animate audience-fade-up">
                   <span className="audience-section-tag" style={{ color: selectedAudience.badgeTextColor }}>
                     Neurological Assessment
                   </span>
@@ -763,7 +819,10 @@ const HowItWorks = ({ showTargetAudience }) => {
 
                 <div className="audience-styles-grid">
                   {selectedAudience.fullPageData.styles.map((style, idx) => (
-                    <div key={idx} className="audience-style-card glass-card">
+                    <div 
+                      key={idx} 
+                      className={`audience-style-card glass-card audience-animate audience-fade-up delay-${(idx + 1) * 100}`}
+                    >
                       <div className="audience-style-badge" style={{ background: `${style.color}20`, color: style.color }}>
                         {style.badge}
                       </div>
@@ -778,7 +837,7 @@ const HowItWorks = ({ showTargetAudience }) => {
             {/* SECTION 3: KEY OUTCOMES & TRANSFORMATION PILLARS */}
             <div className="audience-section section-dark">
               <div className="audience-container">
-                <div className="audience-section-header text-center">
+                <div className="audience-section-header text-center audience-animate audience-fade-up">
                   <span className="audience-section-tag" style={{ color: selectedAudience.badgeTextColor }}>
                     Proven Outcomes
                   </span>
@@ -787,7 +846,10 @@ const HowItWorks = ({ showTargetAudience }) => {
 
                 <div className="audience-outcomes-grid">
                   {selectedAudience.fullPageData.outcomes.map((out, idx) => (
-                    <div key={idx} className="audience-outcome-card glass-card">
+                    <div 
+                      key={idx} 
+                      className={`audience-outcome-card glass-card audience-animate audience-fade-up delay-${(idx + 1) * 100}`}
+                    >
                       <div className="audience-outcome-check">
                         <CheckIcon size={20} color={selectedAudience.badgeTextColor} />
                       </div>
@@ -804,7 +866,7 @@ const HowItWorks = ({ showTargetAudience }) => {
             {/* SECTION 4: CALL TO ACTION BANNER */}
             <div className="audience-cta-section">
               <div className="audience-container">
-                <div className="audience-cta-box glass-card">
+                <div className="audience-cta-box glass-card audience-animate audience-zoom-in">
                   <h2>Take the First Step Toward Scientific Clarity</h2>
                   <p>Book a 1-on-1 private consultation with Sandip Pala & certified brain mapping experts in Rajkot.</p>
                   
@@ -831,6 +893,9 @@ const HowItWorks = ({ showTargetAudience }) => {
               </div>
             </div>
           </div>
+
+          {/* Full Page Footer */}
+          <Footer />
         </div>
       )}
     </section>
