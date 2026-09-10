@@ -4,15 +4,16 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(5, 8, 24, 0.7);
+  background: rgba(5, 8, 24, 0.85);
   backdrop-filter: blur(12px);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 999999;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
+  padding: 20px;
 }
 
 .booking-modal-overlay.is-open {
@@ -23,37 +24,28 @@
 .booking-modal-container {
   width: 90%;
   max-width: 500px;
-  max-height: 90vh;
+  max-height: 85vh;
   overflow-y: auto;
   overflow-x: hidden;
   background: rgba(13, 17, 38, 0.98);
-  border: 1px solid rgba(245, 158, 11, 0.25);
+  border: 1px solid rgba(245, 158, 11, 0.3);
   border-radius: 24px;
   padding: 40px;
-  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.8), 0 0 35px rgba(245, 158, 11, 0.12);
+  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.9), 0 0 40px rgba(245, 158, 11, 0.15);
   position: relative;
   transform: translateY(20px) scale(0.95);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   outline: none;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(245, 158, 11, 0.4) transparent;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
 .booking-modal-container::-webkit-scrollbar {
-  width: 6px;
-}
-
-.booking-modal-container::-webkit-scrollbar-track {
+  display: none;
+  width: 0;
+  height: 0;
   background: transparent;
-}
-
-.booking-modal-container::-webkit-scrollbar-thumb {
-  background: rgba(245, 158, 11, 0.4);
-  border-radius: 10px;
-}
-
-.booking-modal-container::-webkit-scrollbar-thumb:hover {
-  background: rgba(245, 158, 11, 0.7);
 }
 
 .booking-modal-overlay.is-open .booking-modal-container {

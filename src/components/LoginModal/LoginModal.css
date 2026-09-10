@@ -3,7 +3,7 @@
   inset: 0;
   background: rgba(5, 8, 24, 0.85);
   backdrop-filter: blur(12px);
-  z-index: 2000;
+  z-index: 999999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,21 +23,14 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(245, 158, 11, 0.15);
   animation: fadeInUp 0.4s ease;
   outline: none;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(245, 158, 11, 0.4) transparent;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .login-modal__card::-webkit-scrollbar {
-  width: 6px;
-}
-
-.login-modal__card::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.login-modal__card::-webkit-scrollbar-thumb {
-  background: rgba(245, 158, 11, 0.4);
-  border-radius: 10px;
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .login-modal__close {
