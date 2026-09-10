@@ -74,9 +74,11 @@
 
 .login-modal__logo-icon-img {
   height: 44px;
-  width: auto;
-  object-fit: contain;
+  aspect-ratio: 755 / 434;
+  object-fit: cover;
+  object-position: top center;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+  display: block;
 }
 
 .login-modal__logo-text-group {
