@@ -112,7 +112,7 @@ const TeamBuildingPage = () => {
 
           <div className="program-hero__image-wrapper animate-reveal fade-left">
             <div className="program-hero__image-card">
-              <img src="/prog_team_building.jpg" alt="Team Building & Employee Development Workshop" className="program-hero__image" />
+              <img src="/prog_team_building.jpg" alt="Team Building & Employee Development Workshop" className="program-hero__image" loading="eager" fetchPriority="high" decoding="sync" />
               <div className="program-hero__image-badge">
                 <BuildingIcon size={20} color="#F59E0B" />
                 <span>Activity-Based Training • On-Site & Off-Site</span>

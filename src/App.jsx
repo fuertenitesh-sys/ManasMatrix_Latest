@@ -50,6 +50,23 @@ const ScrollRevealObserver = () => {
 };
 
 function App() {
+  useEffect(() => {
+    const imagesToPreload = [
+      '/card_child_dev.jpg',
+      '/card_biz_dev.jpg',
+      '/card_brain_dmit.jpg',
+      '/card_team_build.jpg',
+      '/prog_child_dev.jpg',
+      '/prog_business_dev.jpg',
+      '/prog_brain_mapping.jpg',
+      '/prog_team_building.jpg'
+    ];
+    imagesToPreload.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   return (
     <Router>
       <ScrollToTop />

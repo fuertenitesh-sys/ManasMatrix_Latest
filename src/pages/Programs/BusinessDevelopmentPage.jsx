@@ -110,7 +110,7 @@ const BusinessDevelopmentPage = () => {
 
           <div className="program-hero__image-wrapper animate-reveal fade-left">
             <div className="program-hero__image-card">
-              <img src="/prog_business_dev.jpg" alt="Personalized Business Development Program" className="program-hero__image" />
+              <img src="/prog_business_dev.jpg" alt="Personalized Business Development Program" className="program-hero__image" loading="eager" fetchPriority="high" decoding="sync" />
               <div className="program-hero__image-badge">
                 <BuildingIcon size={20} color="#F59E0B" />
                 <span>12 Core Business Brain Segments • Executive Scaling</span>

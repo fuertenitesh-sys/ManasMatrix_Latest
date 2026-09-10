@@ -113,7 +113,7 @@ const ChildDevelopmentPage = () => {
 
           <div className="program-hero__image-wrapper animate-reveal fade-left">
             <div className="program-hero__image-card">
-              <img src="/prog_child_dev.jpg" alt="Child Development & Cognitive Assessment" className="program-hero__image" />
+              <img src="/prog_child_dev.jpg" alt="Child Development & Cognitive Assessment" className="program-hero__image" loading="eager" fetchPriority="high" decoding="sync" />
               <div className="program-hero__image-badge">
                 <BrainIcon size={20} color="#F59E0B" />
                 <span>DISC Profile • Mini Cognitive Assessment • SWOT Report</span>

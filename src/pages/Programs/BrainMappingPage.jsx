@@ -156,7 +156,7 @@ const BrainMappingPage = () => {
 
           <div className="program-hero__image-wrapper animate-reveal fade-left">
             <div className="program-hero__image-card">
-              <img src="/prog_brain_mapping.jpg" alt="Brain Mapping DMIT Biometric Scanning" className="program-hero__image" />
+              <img src="/prog_brain_mapping.jpg" alt="Brain Mapping DMIT Biometric Scanning" className="program-hero__image" loading="eager" fetchPriority="high" decoding="sync" />
               <div className="program-hero__image-badge">
                 <FingerprintIcon size={20} color="#F59E0B" />
                 <span>10 Lobe Neural Blueprint • 100% Scientific</span>
