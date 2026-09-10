@@ -14,7 +14,9 @@ const BookingModal = ({ isOpen, onClose, defaultService = '' }) => {
 
   useEffect(() => {
     if (defaultService) {
-      setFormData((prev) => ({ ...prev, service: defaultService }));
+      let s = defaultService;
+      if (s === 'child-development' || s === 'parenting') s = 'child';
+      setFormData((prev) => ({ ...prev, service: s }));
     }
   }, [defaultService, isOpen]);
 
@@ -136,6 +138,7 @@ const BookingModal = ({ isOpen, onClose, defaultService = '' }) => {
                   required
                 >
                   <option value="" disabled>Select Service</option>
+                  <option value="child">Child Development</option>
                   <option value="dmit">Brain Mapping (DMIT) Program</option>
                   <option value="business">Personalized Business Development</option>
                   <option value="team">Team Building & Employee Development</option>
