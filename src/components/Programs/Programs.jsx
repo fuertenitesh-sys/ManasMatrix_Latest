@@ -1,59 +1,72 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { StarIcon, BriefcaseIcon, ChildIcon, UsersIcon, BarChartIcon, ArrowRightIcon } from '../Icons';
+import { 
+  StarIcon, 
+  BriefcaseIcon, 
+  ChildIcon, 
+  UsersIcon, 
+  BarChartIcon, 
+  ChevronRightIcon, 
+  ArrowRightIcon 
+} from '../Icons';
 import './Programs.css';
 
+const programsData = [
+  {
+    id: 'dmit',
+    title: 'Dermatoglyphics Brain Mapping',
+    tagline: 'FROM BIOMETRIC FINGERPRINTS TO 10 LOBE MAPS',
+    desc: 'Scientific fingerprint analysis to decode 10 brain lobes, left vs. right hemisphere dominance, 8 multiple intelligences, and innate learning sensitivities—replacing trial and error with biological clarity.',
+    image: '/card_brain_dmit.jpg',
+    icon: <BarChartIcon size={24} color="#F59E0B" />,
+    badge: 'Most Popular',
+    detailPath: '/programs/brain-mapping'
+  },
+  {
+    id: 'child',
+    title: 'Child Development & DISC Profile',
+    tagline: 'FROM EARLY TALENT DISCOVERY TO ZERO HOMEWORK STRESS',
+    desc: 'Identify your child\'s innate cognitive channels (Visual, Auditory, Kinesthetic) and DISC personality type (Dominant Eagle, Influential Peacock, Steady Dove, Conscientious Owl) to foster academic confidence and eliminate study friction.',
+    image: '/card_child_dev.jpg',
+    icon: <ChildIcon size={24} color="#EC4899" />,
+    badge: 'Children & Parents',
+    detailPath: '/programs/child-development'
+  },
+  {
+    id: 'business',
+    title: 'Personalized Business Development',
+    tagline: 'FROM TRIAL-AND-ERROR TO SCIENTIFIC SCALING',
+    desc: 'Spearheaded by Sandip Pala with frameworks refined alongside top business coaches Dr. Vivek Bindra and Harshvardhan Jain. Aligns executive decision-making and leadership roles with your biological "Zone of Genius" for sustainable business scaling.',
+    image: '/card_biz_dev.jpg',
+    icon: <BriefcaseIcon size={24} color="#60A5FA" />,
+    badge: 'Founders & Leaders',
+    detailPath: '/programs/business-development'
+  },
+  {
+    id: 'team',
+    title: 'Team Building & Corporate Growth',
+    tagline: 'FROM CONFLICT TO HIGH-PERFORMANCE TEAM SYNERGY',
+    desc: 'Build resilient, high-output corporate teams by evaluating individual brain lobe distributions, communication styles, and leadership traits—optimizing delegation and preventing workplace burnout.',
+    image: '/card_team_build.jpg',
+    icon: <UsersIcon size={24} color="#10B981" />,
+    badge: 'Teams & HR',
+    detailPath: '/programs/team-building'
+  },
+  {
+    id: 'report',
+    title: 'Comprehensive Diagnostic Report',
+    tagline: 'FROM 68+ PAGE PRINTED REPORT TO LIFETIME ROADMAP',
+    desc: 'In-depth printed diagnostic report covering 10 brain lobes, 8 multiple intelligences, quotient assessment (IQ, EQ, CQ, AQ), and lifetime actionable remediation plans verified across neuroscience and genetics.',
+    image: '/brain_report.jpg',
+    icon: <BarChartIcon size={24} color="#C084FC" />,
+    badge: '68+ Page Report',
+    detailPath: '/about'
+  }
+];
+
 const Programs = ({ hideHeader = false }) => {
-  const programsData = [
-    {
-      id: 'child',
-      title: 'Child Development & DISC Profile',
-      shortDesc: 'Identify your child’s innate cognitive channels and DISC personality profile to foster academic confidence and eliminate study stress early.',
-      badge: 'Children & Parents',
-      badgeColor: 'rgba(236, 72, 153, 0.15)',
-      badgeTextColor: '#EC4899',
-      icon: <ChildIcon size={22} color="#EC4899" />,
-      cardImage: '/card_child_dev.jpg',
-      detailPath: '/programs/child-development',
-      popular: false,
-    },
-    {
-      id: 'business',
-      title: 'Personalized Business Development',
-      shortDesc: 'Spearheaded by Sandip Pala to align executive decision-making and leadership roles with your biological "Zone of Genius" for sustainable scaling.',
-      badge: 'Founders & Leaders',
-      badgeColor: 'rgba(59, 130, 246, 0.15)',
-      badgeTextColor: '#60A5FA',
-      icon: <BriefcaseIcon size={22} color="#60A5FA" />,
-      cardImage: '/card_biz_dev.jpg',
-      detailPath: '/programs/business-development',
-      popular: false,
-    },
-    {
-      id: 'dmit',
-      title: 'Brain Mapping (DMIT) Program',
-      shortDesc: 'Decode your 10 brain lobes, hemisphere dominance, and learning sensitivities with a printed 68+ page biometric diagnostic report.',
-      badge: 'Most Popular',
-      badgeColor: 'rgba(245, 158, 11, 0.15)',
-      badgeTextColor: '#F59E0B',
-      icon: <BarChartIcon size={22} color="#F59E0B" />,
-      cardImage: '/card_brain_dmit.jpg',
-      detailPath: '/programs/brain-mapping',
-      popular: true,
-    },
-    {
-      id: 'team',
-      title: 'Team Building & Employee Development',
-      shortDesc: 'Build resilient corporate teams by evaluating brain lobe distributions, communication styles, and leadership traits to optimize performance.',
-      badge: 'Teams & HR',
-      badgeColor: 'rgba(16, 185, 129, 0.15)',
-      badgeTextColor: '#10B981',
-      icon: <UsersIcon size={22} color="#10B981" />,
-      cardImage: '/card_team_build.jpg',
-      detailPath: '/programs/team-building',
-      popular: false,
-    },
-  ];
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
+  const currentTab = programsData[activeTabIndex];
 
   return (
     <section className="section programs" id="programs">
@@ -73,53 +86,64 @@ const Programs = ({ hideHeader = false }) => {
           </div>
         )}
 
-        <div className="programs__grid">
-          {programsData.map((program, index) => (
-            <div
-              key={program.id}
-              className={`programs__card glass-card ${program.popular ? 'programs__card--popular' : ''} animate-reveal ${index % 2 === 0 ? 'fade-left delay-100' : 'fade-right delay-200'}`}
-            >
-              {program.popular && <div className="programs__popular-tag">MOST RECOMMENDED</div>}
-
-              {/* Card Header: Icon & Category Badge */}
-              <div className="programs__card-header">
-                <div className="programs__card-icon-box">
-                  {program.icon}
-                </div>
-                <div
-                  className="programs__badge"
-                  style={{ background: program.badgeColor, color: program.badgeTextColor }}
+        {/* Tabbed Side-by-Side Showcase Grid */}
+        <div className="programs-tabbed__grid">
+          {/* Left Column: Vertical Menu List */}
+          <div className="programs-tabbed__list animate-reveal fade-right">
+            {programsData.map((prog, index) => {
+              const isActive = activeTabIndex === index;
+              return (
+                <button
+                  key={prog.id}
+                  className={`programs-tabbed__item ${isActive ? 'programs-tabbed__item--active' : ''}`}
+                  onClick={() => setActiveTabIndex(index)}
+                  type="button"
                 >
-                  <span>{program.badge}</span>
-                </div>
-              </div>
+                  <span className="programs-tabbed__item-title">{prog.title}</span>
+                  {isActive && (
+                    <span className="programs-tabbed__item-arrow">
+                      <ChevronRightIcon size={18} color="#F59E0B" />
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
 
-              {/* Header Image Frame */}
-              <div className="programs__card-img-box">
-                <img 
-                  src={program.cardImage} 
-                  alt={program.title} 
-                  className={`programs__card-img programs__card-img--${program.id}`} 
-                />
-                <div className="programs__card-img-overlay"></div>
-              </div>
-
-              {/* Title & Short Description */}
-              <h3 className="programs__title">{program.title}</h3>
-              <p className="programs__short-desc">{program.shortDesc}</p>
-
-              {/* Action Button: View Program Details */}
-              <div className="programs__card-action">
-                <Link
-                  to={program.detailPath}
-                  className="btn-primary programs__detail-btn"
-                >
-                  <span>View Program Details</span>
-                  <ArrowRightIcon size={16} color="#FFFFFF" />
-                </Link>
+          {/* Right Column: Active Program Card Showcase */}
+          <div className="programs-tabbed__card glass-card animate-reveal fade-left">
+            {/* Header Image with Overlay & Floating Badge */}
+            <div className="programs-tabbed__img-wrapper">
+              <img src={currentTab.image} alt={currentTab.title} className="programs-tabbed__img" />
+              <div className="programs-tabbed__img-overlay"></div>
+              <div className="programs-tabbed__icon-badge">
+                {currentTab.icon}
               </div>
             </div>
-          ))}
+
+            {/* Program Details Content */}
+            <div className="programs-tabbed__content">
+              <h3 className="programs-tabbed__card-title">{currentTab.title}</h3>
+              <div className="programs-tabbed__card-tagline">{currentTab.tagline}</div>
+              <p className="programs-tabbed__card-desc">{currentTab.desc}</p>
+
+              <div className="programs-tabbed__action-row">
+                <Link to={currentTab.detailPath} className="programs-tabbed__cta-btn">
+                  <span>READ MORE</span>
+                  <ArrowRightIcon size={16} color="#FFFFFF" />
+                </Link>
+                <button
+                  className="btn-primary"
+                  style={{ padding: '10px 22px', fontSize: '0.82rem', whiteSpace: 'nowrap' }}
+                  onClick={() => {
+                    window.dispatchEvent(new CustomEvent('open-booking-modal', { detail: { service: currentTab.id } }));
+                  }}
+                >
+                  <span>Book Consultation</span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <p className="programs__note">
