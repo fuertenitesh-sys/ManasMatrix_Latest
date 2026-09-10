@@ -399,33 +399,36 @@
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
-/* Tabbed About Section Layout (Matching Screenshot Design) */
+/* Tabbed About Section Layout (Compact & Proportionate) */
 .about-tabbed__grid {
   display: grid;
-  grid-template-columns: minmax(280px, 360px) 1fr;
-  gap: 32px;
+  grid-template-columns: minmax(260px, 320px) 1fr;
+  gap: 28px;
   align-items: start;
-  margin-top: 40px;
+  margin-top: 32px;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-tabbed__list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .about-tabbed__item {
   width: 100%;
   background: rgba(15, 23, 42, 0.6);
   border: 1.5px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  padding: 18px 22px;
+  border-radius: 12px;
+  padding: 14px 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   text-align: left;
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #CBD5E1;
   cursor: pointer;
@@ -443,15 +446,15 @@
 .about-tabbed__item--active {
   background: rgba(245, 158, 11, 0.12) !important;
   border: 1.5px solid #F59E0B !important;
-  border-left: 5px solid #F59E0B !important;
+  border-left: 4px solid #F59E0B !important;
   color: #F59E0B !important;
   font-weight: 700 !important;
-  box-shadow: 0 4px 24px rgba(245, 158, 11, 0.18);
-  transform: translateX(6px) !important;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.16);
+  transform: translateX(4px) !important;
 }
 
 .about-tabbed__item-title {
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 .about-tabbed__item-arrow {
@@ -459,22 +462,22 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-left: 12px;
+  margin-left: 10px;
 }
 
-/* Right Card Container */
+/* Right Card Container - Compact & Sleek */
 .about-tabbed__card {
   background: rgba(15, 23, 42, 0.92);
   border: 1.5px solid rgba(245, 158, 11, 0.35);
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(245, 158, 11, 0.1);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 24px rgba(245, 158, 11, 0.08);
   transition: all 0.3s ease;
 }
 
 .about-tabbed__img-wrapper {
   position: relative;
-  height: 300px;
+  height: 210px;
   overflow: hidden;
 }
 
@@ -482,86 +485,86 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 20%;
   display: block;
   transition: transform 0.4s ease;
 }
 
 .about-tabbed__card:hover .about-tabbed__img {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .about-tabbed__img-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(5, 8, 24, 0.1) 0%, rgba(15, 23, 42, 0.95) 100%);
+  background: linear-gradient(180deg, rgba(5, 8, 24, 0.15) 0%, rgba(15, 23, 42, 0.92) 100%);
 }
 
 .about-tabbed__icon-badge {
   position: absolute;
-  bottom: 20px;
-  left: 24px;
-  width: 52px;
-  height: 52px;
+  bottom: 14px;
+  left: 18px;
+  width: 44px;
+  height: 44px;
   background: rgba(5, 8, 24, 0.92);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1.5px solid #F59E0B;
-  border-radius: 14px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
   z-index: 2;
 }
 
 .about-tabbed__content {
-  padding: 28px 32px 32px 32px;
+  padding: 20px 24px 24px 24px;
   display: flex;
   flex-direction: column;
 }
 
 .about-tabbed__card-title {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 800;
   color: #FFFFFF;
-  margin-bottom: 6px;
-  line-height: 1.2;
+  margin-bottom: 4px;
+  line-height: 1.25;
 }
 
 .about-tabbed__card-tagline {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   color: #60A5FA;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .about-tabbed__card-desc {
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   color: #CBD5E1;
-  line-height: 1.7;
-  margin-bottom: 24px;
+  line-height: 1.65;
+  margin-bottom: 18px;
 }
 
 .about-tabbed__cta-btn {
   background: #0F172A;
   border: 1.5px solid #38BDF8;
   color: #FFFFFF;
-  padding: 12px 28px;
-  border-radius: 8px;
-  font-size: 0.85rem;
+  padding: 10px 22px;
+  border-radius: 7px;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   width: fit-content;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .about-tabbed__cta-btn:hover {
@@ -569,18 +572,19 @@
   border-color: #38BDF8;
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.35);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.3);
 }
 
 @media (max-width: 900px) {
   .about-tabbed__grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
   }
   .about-tabbed__img-wrapper {
-    height: 240px;
+    height: 180px;
   }
   .about-tabbed__content {
-    padding: 20px 24px;
+    padding: 16px 18px;
   }
 }
+
