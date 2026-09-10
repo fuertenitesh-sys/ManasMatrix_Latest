@@ -118,7 +118,15 @@ const Programs = ({ hideHeader = false }) => {
               <p className="programs-tabbed__card-desc">{currentTab.desc}</p>
 
               <div className="programs-tabbed__action-row">
-                <Link to={currentTab.detailPath} className="programs-tabbed__cta-btn">
+                <Link 
+                  to={currentTab.detailPath} 
+                  className="programs-tabbed__cta-btn"
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    document.documentElement.scrollTop = 0;
+                    document.body.scrollTop = 0;
+                  }}
+                >
                   <span>READ MORE</span>
                   <ArrowRightIcon size={16} color="#FFFFFF" />
                 </Link>
