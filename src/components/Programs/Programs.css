@@ -7,7 +7,7 @@
   display: grid;
   grid-template-columns: minmax(280px, 340px) 1fr;
   gap: 36px;
-  align-items: start;
+  align-items: center;
   width: 100%;
   margin-top: 36px;
 }
@@ -15,7 +15,8 @@
 .programs-tabbed__list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
+  justify-content: center;
 }
 
 .programs-tabbed__item {
