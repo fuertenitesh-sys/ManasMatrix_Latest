@@ -43,6 +43,7 @@
   flex-shrink: 0;
   transition: transform var(--transition-fast);
   margin-left: 0;
+  overflow: visible;
 }
 
 .navbar__logo:hover {
@@ -50,16 +51,18 @@
 }
 
 .navbar__logo-icon-img {
-  height: 44px;
+  height: 48px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.6));
   flex-shrink: 0;
+  display: block;
 }
 
 .navbar__logo-text-group {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .navbar__logo-title {
@@ -71,17 +74,19 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1;
+  line-height: 1.25;
+  padding-bottom: 2px;
   text-shadow: 0 2px 10px rgba(0,0,0,0.5);
   white-space: nowrap;
 }
 
 .navbar__logo-sub {
-  font-size: 0.65rem; /* Original text size preserved */
+  font-size: 0.68rem; /* Original text size preserved */
   color: var(--color-text-secondary);
   letter-spacing: 0.5px;
   font-weight: 500;
-  margin-top: 2px;
+  margin-top: 1px;
+  line-height: 1.2;
   white-space: nowrap;
 }
 
