@@ -257,7 +257,7 @@ const targetAudience = [
   }
 ];
 
-const Services = ({ hideHeader = false, showTargetAudience = true }) => {
+const Services = ({ hideHeader = false, showTargetAudience = false }) => {
   const location = useLocation();
   const [selectedAudience, setSelectedAudience] = useState(null);
   const [heroLoaded, setHeroLoaded] = useState(false);

@@ -15,7 +15,7 @@ const HomePage = () => {
       <About />
       <HowItWorks />
       <Programs />
-      <Services />
+      <Services showTargetAudience={false} />
       <Testimonials />
       <CTABanner />
       <Contact />
