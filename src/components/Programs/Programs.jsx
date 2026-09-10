@@ -58,6 +58,14 @@ const Programs = ({ hideHeader = false }) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const currentTab = programsData[activeTabIndex];
 
+  // Preload all 4 card images into browser memory immediately on component mount
+  useEffect(() => {
+    programsData.forEach((prog) => {
+      const img = new window.Image();
+      img.src = prog.image;
+    });
+  }, []);
+
   return (
     <section className="section programs" id="programs">
       <div className="container">
@@ -102,11 +110,33 @@ const Programs = ({ hideHeader = false }) => {
 
           {/* Right Column: Active Program Card Showcase */}
           <div className="programs-tabbed__card glass-card animate-reveal fade-left">
-            {/* Header Image with Overlay & Floating Badge */}
+            {/* Header Image Container - Pre-rendered Eager Stack with Instant Cross-fade */}
             <div className="programs-tabbed__img-wrapper">
-              <img src={currentTab.image} alt={currentTab.title} className="programs-tabbed__img" />
-              <div className="programs-tabbed__img-overlay"></div>
-              <div className="programs-tabbed__icon-badge">
+              {programsData.map((prog, idx) => (
+                <img
+                  key={prog.id}
+                  src={prog.image}
+                  alt={prog.title}
+                  loading="eager"
+                  fetchPriority={idx === 0 ? "high" : "auto"}
+                  decoding="sync"
+                  className="programs-tabbed__img"
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center 20%',
+                    opacity: activeTabIndex === idx ? 1 : 0,
+                    transition: 'opacity 0.25s ease-in-out',
+                    zIndex: activeTabIndex === idx ? 1 : 0,
+                    pointerEvents: 'none'
+                  }}
+                />
+              ))}
+              <div className="programs-tabbed__img-overlay" style={{ zIndex: 2 }}></div>
+              <div className="programs-tabbed__icon-badge" style={{ zIndex: 3 }}>
                 {currentTab.icon}
               </div>
             </div>
