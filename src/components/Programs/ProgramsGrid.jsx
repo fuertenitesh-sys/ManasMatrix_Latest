@@ -92,27 +92,20 @@ const ProgramsGrid = () => {
             <h3 className="programs__title">{program.title}</h3>
             <p className="programs__short-desc">{program.shortDesc}</p>
 
-            {/* Action Buttons matching reference screenshot */}
-            <div className="programs__card-actions">
+            {/* Single Prominent Action Button: View Program Details */}
+            <div className="programs__card-actions" style={{ paddingTop: '16px' }}>
               <Link
                 to={program.detailPath}
-                className="programs__card-btn-secondary"
+                className="programs__card-btn-primary"
+                style={{ width: '100%', textDecoration: 'none', textAlign: 'center', justifyContent: 'center' }}
                 onClick={() => {
                   window.scrollTo(0, 0);
                   document.documentElement.scrollTop = 0;
                   document.body.scrollTop = 0;
                 }}
               >
-                View Details &rarr;
+                View Program Details &rarr;
               </Link>
-              <button
-                className="programs__card-btn-primary"
-                onClick={() => {
-                  window.dispatchEvent(new CustomEvent('open-booking-modal', { detail: { service: program.id } }));
-                }}
-              >
-                Book Consultation
-              </button>
             </div>
           </div>
         ))}
