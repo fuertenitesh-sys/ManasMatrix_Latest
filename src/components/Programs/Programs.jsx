@@ -13,18 +13,8 @@ import './Programs.css';
 
 const programsData = [
   {
-    id: 'dmit',
-    title: 'Dermatoglyphics Brain Mapping',
-    tagline: 'FROM BIOMETRIC FINGERPRINTS TO 10 LOBE MAPS',
-    desc: 'Scientific fingerprint analysis to decode 10 brain lobes, left vs. right hemisphere dominance, 8 multiple intelligences, and innate learning sensitivities—replacing trial and error with biological clarity.',
-    image: '/card_brain_dmit.jpg',
-    icon: <BarChartIcon size={24} color="#F59E0B" />,
-    badge: 'Most Popular',
-    detailPath: '/programs/brain-mapping'
-  },
-  {
     id: 'child',
-    title: 'Child Development & DISC Profile',
+    title: 'Child Development',
     tagline: 'FROM EARLY TALENT DISCOVERY TO ZERO HOMEWORK STRESS',
     desc: 'Identify your child\'s innate cognitive channels (Visual, Auditory, Kinesthetic) and DISC personality type (Dominant Eagle, Influential Peacock, Steady Dove, Conscientious Owl) to foster academic confidence and eliminate study friction.',
     image: '/card_child_dev.jpg',
@@ -43,24 +33,24 @@ const programsData = [
     detailPath: '/programs/business-development'
   },
   {
+    id: 'dmit',
+    title: 'Brain Mapping (DMIT)',
+    tagline: 'FROM BIOMETRIC FINGERPRINTS TO 10 LOBE MAPS',
+    desc: 'Scientific fingerprint analysis to decode 10 brain lobes, left vs. right hemisphere dominance, 8 multiple intelligences, and innate learning sensitivities—replacing trial and error with biological clarity.',
+    image: '/card_brain_dmit.jpg',
+    icon: <BarChartIcon size={24} color="#F59E0B" />,
+    badge: 'Most Popular',
+    detailPath: '/programs/brain-mapping'
+  },
+  {
     id: 'team',
-    title: 'Team Building & Corporate Growth',
+    title: 'Team Building & Employee Development',
     tagline: 'FROM CONFLICT TO HIGH-PERFORMANCE TEAM SYNERGY',
     desc: 'Build resilient, high-output corporate teams by evaluating individual brain lobe distributions, communication styles, and leadership traits—optimizing delegation and preventing workplace burnout.',
     image: '/card_team_build.jpg',
     icon: <UsersIcon size={24} color="#10B981" />,
     badge: 'Teams & HR',
     detailPath: '/programs/team-building'
-  },
-  {
-    id: 'report',
-    title: 'Comprehensive Diagnostic Report',
-    tagline: 'FROM 68+ PAGE PRINTED REPORT TO LIFETIME ROADMAP',
-    desc: 'In-depth printed diagnostic report covering 10 brain lobes, 8 multiple intelligences, quotient assessment (IQ, EQ, CQ, AQ), and lifetime actionable remediation plans verified across neuroscience and genetics.',
-    image: '/brain_report.jpg',
-    icon: <BarChartIcon size={24} color="#C084FC" />,
-    badge: '68+ Page Report',
-    detailPath: '/about'
   }
 ];
 
