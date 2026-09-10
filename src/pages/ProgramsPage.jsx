@@ -1,5 +1,5 @@
 import React from 'react';
-import Programs from '../components/Programs/Programs';
+import ProgramsGrid from '../components/Programs/ProgramsGrid';
 import CTABanner from '../components/CTABanner/CTABanner';
 
 const ProgramsPage = () => {
@@ -16,7 +16,7 @@ const ProgramsPage = () => {
         </p>
       </div>
 
-      <Programs hideHeader={true} />
+      <ProgramsGrid />
       <CTABanner />
     </div>
   );
