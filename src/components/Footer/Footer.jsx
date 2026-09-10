@@ -34,7 +34,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="footer__brand animate-reveal fade-up delay-100">
             <Link to="/" className="footer__logo" onClick={handleLinkClick} style={{ textDecoration: 'none' }}>
-              <img src="/logo_clean.png" alt="MANAS MATRIX Logo Icon" className="footer__logo-icon-img" />
+              <img src="/logo_brain_icon.png" alt="MANAS MATRIX Logo Icon" className="footer__logo-icon-img" />
               <div className="footer__logo-text-group">
                 <span className="footer__logo-title">MANAS MATRIX</span>
                 <span className="footer__logo-sub">GrowUp Business Services</span>

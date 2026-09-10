@@ -105,7 +105,7 @@ const Navbar = () => {
         <div className="navbar__inner">
           {/* Logo: MANAS MATRIX GrowUp Business Services */}
           <Link to="/" className="navbar__logo" id="navbar-logo" onClick={() => handleNavClick('/')}>
-            <img src="/logo_clean.png" alt="MANAS MATRIX Logo Icon" className="navbar__logo-icon-img" />
+            <img src="/logo_brain_icon.png" alt="MANAS MATRIX Logo Icon" className="navbar__logo-icon-img" />
             <div className="navbar__logo-text-group">
               <span className="navbar__logo-title">MANAS MATRIX</span>
               <span className="navbar__logo-sub">GrowUp Business Services</span>

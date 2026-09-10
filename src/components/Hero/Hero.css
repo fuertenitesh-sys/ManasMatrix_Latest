@@ -247,10 +247,8 @@
 .hero__card-logo-img {
   height: 40px;
   width: auto;
-  aspect-ratio: 755 / 434;
-  object-fit: cover;
-  object-position: top center;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
   display: block;
 }
 
