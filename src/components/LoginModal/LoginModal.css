@@ -14,11 +14,30 @@
 .login-modal__card {
   width: 100%;
   max-width: 440px;
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: 36px 32px;
   position: relative;
   border: 1.5px solid var(--color-border-gold);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(245, 158, 11, 0.15);
   animation: fadeInUp 0.4s ease;
+  outline: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(245, 158, 11, 0.4) transparent;
+}
+
+.login-modal__card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.login-modal__card::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.login-modal__card::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.4);
+  border-radius: 10px;
 }
 
 .login-modal__close {

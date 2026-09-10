@@ -25,14 +25,35 @@
   max-width: 500px;
   max-height: 90vh;
   overflow-y: auto;
-  background: rgba(13, 17, 38, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-x: hidden;
+  background: rgba(13, 17, 38, 0.98);
+  border: 1px solid rgba(245, 158, 11, 0.25);
   border-radius: 24px;
   padding: 40px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.8), 0 0 35px rgba(245, 158, 11, 0.12);
   position: relative;
   transform: translateY(20px) scale(0.95);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(245, 158, 11, 0.4) transparent;
+}
+
+.booking-modal-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.booking-modal-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.booking-modal-container::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.4);
+  border-radius: 10px;
+}
+
+.booking-modal-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.7);
 }
 
 .booking-modal-overlay.is-open .booking-modal-container {
