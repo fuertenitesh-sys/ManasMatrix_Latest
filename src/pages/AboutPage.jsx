@@ -1,5 +1,6 @@
 import React from 'react';
 import CTABanner from '../components/CTABanner/CTABanner';
+import AboutTabbed from '../components/About/AboutTabbed';
 import { 
   BrainIcon, 
   DnaIcon, 
@@ -110,6 +111,9 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
+
+        {/* 3. Interactive Tabbed Program Showcase (Dedicated About Page Only) */}
+        <AboutTabbed />
 
         {/* 3. Founder Spotlight Section */}
         <div className="about-page__bio-grid animate-reveal fade-up">
