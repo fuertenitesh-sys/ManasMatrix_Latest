@@ -431,4 +431,18 @@
   }
 }
 
+@media (max-width: 480px) {
+  .programs__card-actions {
+    flex-direction: column !important;
+  }
+  .programs__card-actions .btn-secondary,
+  .programs__card-actions .btn-primary {
+    width: 100% !important;
+    flex: none !important;
+    text-align: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+}
+
 

@@ -149,7 +149,7 @@ const ProgramsGrid = () => {
               ))}
             </div>
 
-            <div style={{ display: 'flex', gap: '12px', marginTop: '16px', flexWrap: 'wrap' }}>
+            <div className="programs__card-actions" style={{ display: 'flex', gap: '12px', marginTop: '16px', flexWrap: 'wrap' }}>
               <Link
                 to={program.detailPath}
                 className="btn-secondary"
