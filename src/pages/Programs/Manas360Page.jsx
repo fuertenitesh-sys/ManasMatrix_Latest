@@ -57,7 +57,7 @@ const Manas360Page = () => {
           </div>
           <div className="program-hero__image-wrapper animate-reveal fade-left">
             <div className="program-hero__image-card">
-              <img src="/prog_brain_mapping.jpg" alt="Manas 360 brain performance program" className="program-hero__image" loading="eager" fetchPriority="high" decoding="sync" />
+              <img src="/prog_brain_mapping.webp" alt="Manas 360 brain performance program" className="program-hero__image" loading="eager" fetchPriority="high" decoding="sync" />
               <div className="program-hero__image-badge">
                 <ActivityIcon size={20} color="#F59E0B" />
                 <span>Mind • Emotion • Learning • Behavior • Performance</span>

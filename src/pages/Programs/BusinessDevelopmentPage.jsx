@@ -55,7 +55,7 @@ const BusinessDevelopmentPage = () => {
           </div>
           <div className="program-hero__image-wrapper animate-reveal fade-left">
             <div className="program-hero__image-card">
-              <img src="/prog_business_dev.jpg" alt="Personalized business owner counseling" className="program-hero__image" loading="eager" fetchPriority="high" decoding="sync" />
+              <img src="/prog_business_dev.webp" alt="Personalized business owner counseling" className="program-hero__image" loading="eager" fetchPriority="high" decoding="sync" />
               <div className="program-hero__image-badge">
                 <BrainIcon size={20} color="#F59E0B" />
                 <span>Leadership • Decisions • Communication</span>

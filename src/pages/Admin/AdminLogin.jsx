@@ -32,7 +32,7 @@ const AdminLogin = ({ onLoginSuccess }) => {
       }
 
       onLoginSuccess(data);
-      navigate('/admin/bookings');
+      navigate('/admin');
     } catch (err) {
       setError(err.message || 'Invalid credentials');
     } finally {
@@ -43,7 +43,7 @@ const AdminLogin = ({ onLoginSuccess }) => {
   return (
     <main className="admin-login">
       <form className="admin-login__card" onSubmit={handleSubmit}>
-        <img src="/logo_brain_icon.png" alt="" className="admin-login__logo" />
+        <img src="/logo_brain_icon.webp" alt="" className="admin-login__logo" />
         <p className="admin-login__eyebrow">MANAS MATRIX</p>
         <h1>Admin Login</h1>
         <p className="admin-login__description">Sign in to manage bookings and contact enquiries.</p>

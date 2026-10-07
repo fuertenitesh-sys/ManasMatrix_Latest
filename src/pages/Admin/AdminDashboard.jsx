@@ -147,7 +147,7 @@ const AdminDashboard = ({ onLogout, adminUser }) => {
         {/* Header */}
         <div className="admin-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
           <div className="admin-header__brand">
-            <img src="/logo_brain_icon.png" alt="" className="admin-header__logo" />
+            <img src="/logo_brain_icon.webp" alt="" className="admin-header__logo" />
             <div>
               <span className="admin-header__eyebrow">MANAS MATRIX</span>
               <h1>Admin Dashboard</h1>

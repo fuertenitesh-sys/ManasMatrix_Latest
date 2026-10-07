@@ -52,7 +52,7 @@ const BrainMappingPage = () => {
           </div>
           <div className="program-hero__image-wrapper animate-reveal fade-left">
             <div className="program-hero__image-card">
-              <img src="/prog_brain_mapping.jpg" alt="Brain Mapping Report and fingerprint assessment" className="program-hero__image" loading="eager" fetchPriority="high" decoding="sync" />
+              <img src="/prog_brain_mapping.webp" alt="Brain Mapping Report and fingerprint assessment" className="program-hero__image" loading="eager" fetchPriority="high" decoding="sync" />
               <div className="program-hero__image-badge">
                 <BrainIcon size={20} color="#F59E0B" />
                 <span>Strengths • Style • Development Areas</span>

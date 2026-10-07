@@ -18,7 +18,7 @@ const HomePage = () => {
       <Services showTargetAudience={false} />
       <Testimonials />
       <CTABanner />
-      <Contact />
+      <Contact showNextSteps />
     </>
   );
 };

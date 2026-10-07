@@ -49,7 +49,7 @@ const TeamBuildingPage = () => {
           </div>
           <div className="program-hero__image-wrapper animate-reveal fade-left">
             <div className="program-hero__image-card">
-              <img src="/prog_team_building.jpg" alt="HR Matrix team brain mapping and development" className="program-hero__image" loading="eager" fetchPriority="high" decoding="sync" />
+              <img src="/prog_team_building.webp" alt="HR Matrix team brain mapping and development" className="program-hero__image" loading="eager" fetchPriority="high" decoding="sync" />
               <div className="program-hero__image-badge">
                 <UsersIcon size={20} color="#F59E0B" />
                 <span>Individual Reports • Team Summary Dashboard</span>

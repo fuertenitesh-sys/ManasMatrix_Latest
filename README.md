@@ -36,7 +36,13 @@ Optional frontend contact settings can be supplied through `.env` using `.env.ex
 
 ## Contact enquiries and MongoDB Atlas
 
-Contact Us submissions are stored in MongoDB and can be viewed after admin login at `/admin/bookings`. Configure the backend by copying `server/.env.example` to `server/.env`, then set `DATABASE_URL`, `ADMIN_USERNAME`, `ADMIN_PASSWORD`, and `JWT_SECRET`. Use the Atlas connection string provided for the cluster; replace the password placeholder and URL-encode special characters in the password. Do not commit `server/.env`.
+Contact Us submissions are stored in MongoDB and can be viewed after admin login at `/admin`. Configure the backend by copying `server/.env.example` to `server/.env`, then set `DATABASE_URL`, `ADMIN_USERNAME`, `ADMIN_PASSWORD`, and `JWT_SECRET`. Use the Atlas connection string provided for the cluster; replace the password placeholder and URL-encode special characters in the password. Do not commit `server/.env`.
+
+### Nginx VPS API proxy
+
+When the frontend and Express backend run on the same VPS, keep the Express server running on port `5000` and include `deploy/nginx-api-location.conf` inside the HTTPS `server` block that serves `manasmatrix.com`. This forwards `/api/` requests to Express instead of letting the static-site handler return `405 Method Not Allowed`. Then run `sudo nginx -t` and reload Nginx with `sudo systemctl reload nginx`.
+
+Verify the backend is listening with `sudo ss -ltnp | grep :5000`, then test the public proxy with a POST to `/api/auth/login` using deliberately invalid credentials. A `401` JSON response confirms the request reached Express; `405` means the Nginx location has not been applied, and `502` means Express is not reachable on port `5000`.
 
 The admin requests API accepts either the admin login cookie or an `x-api-key` header. To use an API key, set `ADMIN_API_KEY` in `server/.env` to a random secret at least 32 characters long, then restart the backend. Generate one with `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"` and keep it private. In Postman, add a header with key `x-api-key` and the configured secret as its value; never put the key in the URL or frontend. Use `GET /api/admin/requests` for all requests, or add `?source=booking` for bookings only and `?source=contact` for Contact Us enquiries only. The JSON response includes a `summary` with total, booking, and contact lead counts plus a `data` array of the requested records. Counts cover all leads even when `source` filters the returned records. An invalid source returns HTTP 400.
 

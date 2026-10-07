@@ -60,7 +60,7 @@ const ChildDevelopmentPage = () => {
           </div>
           <div className="program-hero__image-wrapper animate-reveal fade-left">
             <div className="program-hero__image-card">
-              <img src="/prog_child_dev.jpg" alt="Brain Mapping guidance for children and students" className="program-hero__image" loading="eager" fetchPriority="high" decoding="sync" />
+              <img src="/prog_child_dev.webp" alt="Brain Mapping guidance for children and students" className="program-hero__image" loading="eager" fetchPriority="high" decoding="sync" />
               <div className="program-hero__image-badge">
                 <BrainIcon size={20} color="#F59E0B" />
                 <span>Learning style • Strengths • Direction</span>

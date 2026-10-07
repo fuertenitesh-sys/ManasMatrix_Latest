@@ -17,12 +17,12 @@ import TermsOfServicePage from './pages/TermsOfServicePage';
 import FamilyCounselingPage from './pages/Programs/FamilyCounselingPage';
 import EmployeeProgressReportPage from './pages/Programs/EmployeeProgressReportPage';
 import AdminPage from './pages/Admin/AdminPage';
-
 import BrainMappingPage from './pages/Programs/BrainMappingPage';
 import BusinessDevelopmentPage from './pages/Programs/BusinessDevelopmentPage';
 import TeamBuildingPage from './pages/Programs/TeamBuildingPage';
 import ChildDevelopmentPage from './pages/Programs/ChildDevelopmentPage';
 import Manas360Page from './pages/Programs/Manas360Page';
+import NotFoundPage from './pages/NotFoundPage';
 
 import './App.css';
 
@@ -34,8 +34,7 @@ const ScrollRevealObserver = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-        } else {
-          entry.target.classList.remove('is-visible');
+          observer.unobserve(entry.target);
         }
       });
     };
@@ -81,7 +80,8 @@ function App() {
             <Route path="/disclaimer" element={<DisclaimerPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/terms-of-service" element={<TermsOfServicePage />} />
-            <Route path="/admin/bookings" element={<AdminPage />} />
+            <Route path="/admin" element={<AdminPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <a className="floating-cta" href="https://wa.me/919106545374" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Manas Matrix" title="WhatsApp Us">

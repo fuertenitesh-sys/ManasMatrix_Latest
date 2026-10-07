@@ -38,7 +38,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="footer__brand animate-reveal fade-up delay-100">
             <Link to="/" className="footer__logo" onClick={handleLinkClick} style={{ textDecoration: 'none' }}>
-              <img src="/logo_brain_icon.png" alt="MANAS MATRIX Logo Icon" className="footer__logo-icon-img" />
+              <img src="/logo_brain_icon.webp" alt="MANAS MATRIX Logo Icon" className="footer__logo-icon-img" />
               <div className="footer__logo-text-group">
                 <span className="footer__logo-title">MANAS MATRIX</span>
                 <span className="footer__logo-sub">Understand Brain. Unlock Potential.</span>
@@ -51,7 +51,6 @@ const Footer = () => {
 
             <div className="footer__contact-quick">
               <a href="tel:9106545374" className="footer__phone" id="footer-phone">📞 9106545374</a>
-              <a href="https://wa.me/919106545374" className="footer__phone" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
               <a
                 href={mapSearchUrl}
                 target="_blank"
@@ -128,15 +127,18 @@ const Footer = () => {
 
       <div className="footer__bottom animate-reveal fade-up">
         <div className="container footer__bottom-inner">
-          <p>© {currentYear} Manas Matrix. All rights reserved.</p>
-          <a
-            href={mapSearchUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer__map-bottom-link"
-          >
-            📍 Spire, 150 Feet Ring Road, Rajkot, Gujarat 360006 (Get Directions ↗) | 📞 9106545374
-          </a>
+          <p>
+            Copyright © {currentYear} All rights reserved by Manas Matrix | Designed &amp; Developed by{' '}
+            <a
+              href="https://fuertedevelopers.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer__developer-link"
+            >
+              Fuerte Developers
+            </a>{' '}
+            |
+          </p>
         </div>
       </div>
     </footer>

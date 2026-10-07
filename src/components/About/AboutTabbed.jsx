@@ -17,7 +17,7 @@ const aboutTabs = [
     title: 'Dermatoglyphics Brain Mapping',
     tagline: 'FROM BIOMETRIC FINGERPRINTS TO 10 LOBE MAPS',
     desc: 'Scientific fingerprint analysis to decode 10 brain lobes, left vs. right hemisphere dominance, 8 multiple intelligences, and innate learning sensitivities—replacing trial and error with biological clarity.',
-    image: '/sandip_pala_dmi.jpg',
+    image: '/sandip_pala_dmi.webp',
     icon: <BrainIcon size={24} color="#F59E0B" />,
     link: '/programs/brain-mapping'
   },
@@ -26,7 +26,7 @@ const aboutTabs = [
     title: 'Child Development & DISC Profile',
     tagline: 'FROM EARLY TALENT DISCOVERY TO ZERO HOMEWORK STRESS',
     desc: 'Identify your child\'s innate cognitive channels (Visual, Auditory, Kinesthetic) and DISC personality type (Dominant Eagle, Influential Peacock, Steady Dove, Conscientious Owl) to foster academic confidence and eliminate study friction.',
-    image: '/card_child_dev.jpg',
+    image: '/card_child_dev.webp',
     icon: <ChildIcon size={24} color="#EC4899" />,
     link: '/programs/child-development'
   },
@@ -35,7 +35,7 @@ const aboutTabs = [
     title: 'Personalized Business Development',
     tagline: 'FROM TRIAL-AND-ERROR TO SCIENTIFIC SCALING',
     desc: 'Spearheaded by Sandip Pala with frameworks refined alongside top business coaches Dr. Vivek Bindra and Harshvardhan Jain. Aligns executive decision-making and leadership roles with your biological "Zone of Genius" for sustainable business scaling.',
-    image: '/sandip_pala_harshvardhan.jpg',
+    image: '/sandip_pala_harshvardhan.webp',
     icon: <BriefcaseIcon size={24} color="#60A5FA" />,
     link: '/programs/business-development'
   },
@@ -44,7 +44,7 @@ const aboutTabs = [
     title: 'Team Building & Corporate Growth',
     tagline: 'FROM CONFLICT TO HIGH-PERFORMANCE TEAM SYNERGY',
     desc: 'Build resilient, high-output corporate teams by evaluating individual brain lobe distributions, communication styles, and leadership traits—optimizing delegation and preventing workplace burnout.',
-    image: '/card_team_build.jpg',
+    image: '/card_team_build.webp',
     icon: <UsersIcon size={24} color="#10B981" />,
     link: '/programs/team-building'
   },
@@ -53,7 +53,7 @@ const aboutTabs = [
     title: 'Comprehensive Diagnostic Report',
     tagline: 'FROM 68+ PAGE PRINTED REPORT TO LIFETIME ROADMAP',
     desc: 'In-depth printed diagnostic report covering 10 brain lobes, 8 multiple intelligences, quotient assessment (IQ, EQ, CQ, AQ), and lifetime actionable remediation plans verified across neuroscience and genetics.',
-    image: '/brain_report.jpg',
+    image: '/brain_report.webp',
     icon: <BarChartIcon size={24} color="#C084FC" />,
     link: '/about'
   }
@@ -107,7 +107,7 @@ const AboutTabbed = () => {
         <div className="about-tabbed__card glass-card animate-reveal fade-left">
           {/* Image Header with Badge */}
           <div className="about-tabbed__img-wrapper">
-            <img src={currentTab.image} alt={currentTab.title} className="about-tabbed__img" />
+            <img src={currentTab.image} alt={currentTab.title} className="about-tabbed__img" loading="lazy" decoding="async" />
             <div className="about-tabbed__img-overlay"></div>
             <div className="about-tabbed__icon-badge">
               {currentTab.icon}

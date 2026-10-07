@@ -239,20 +239,6 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: #1e293b;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  animation: cardGentleFloat 6s ease-in-out infinite alternate;
-  will-change: transform;
-}
-
-@keyframes cardGentleFloat {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(0, -4px, 0) scale(1.015);
-  }
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
 }
 
 .target-audience__img {
@@ -261,20 +247,6 @@
   object-fit: cover;
   display: block;
   transition: transform 0.5s ease;
-  animation: cardImageSubtlePulse 8s ease-in-out infinite alternate;
-  will-change: transform;
-}
-
-@keyframes cardImageSubtlePulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.025);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 
 
@@ -1151,5 +1123,4 @@
 .audience-animate.delay-200 { transition-delay: 0.16s; }
 .audience-animate.delay-300 { transition-delay: 0.24s; }
 .audience-animate.delay-400 { transition-delay: 0.32s; }
-
 

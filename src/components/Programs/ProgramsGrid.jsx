@@ -13,7 +13,7 @@ const programsGridData = [
     badgeColor: 'rgba(236, 72, 153, 0.15)',
     badgeTextColor: '#EC4899',
     icon: <FingerprintIcon size={24} color="#EC4899" />,
-    cardImage: '/card_brain_dmit.jpg',
+    cardImage: '/card_brain_dmit.webp',
     detailPath: '/programs/brain-mapping',
     features: [
       'Options for children, students, adults and professionals',
@@ -34,7 +34,7 @@ const programsGridData = [
     badgeColor: 'rgba(59, 130, 246, 0.15)',
     badgeTextColor: '#60A5FA',
     icon: <BriefcaseIcon size={24} color="#60A5FA" />,
-    cardImage: '/card_biz_dev.jpg',
+    cardImage: '/card_biz_dev.webp',
     detailPath: '/programs/business-development',
     features: [
       'Personalized Business Counseling',
@@ -55,7 +55,7 @@ const programsGridData = [
     badgeColor: 'rgba(245, 158, 11, 0.15)',
     badgeTextColor: '#F59E0B',
     icon: <BrainIcon size={24} color="#F59E0B" />,
-    cardImage: '/card_brain_dmit.jpg',
+    cardImage: '/card_brain_dmit.webp',
     detailPath: '/programs/manas-360',
     features: [
       'Built on the MANAS framework',
@@ -76,7 +76,7 @@ const programsGridData = [
     badgeColor: 'rgba(16, 185, 129, 0.15)',
     badgeTextColor: '#10B981',
     icon: <BuildingIcon size={24} color="#10B981" />,
-    cardImage: '/card_team_build.jpg',
+    cardImage: '/card_team_build.webp',
     detailPath: '/programs/team-building',
     features: [
       'Individual Brain Mapping Report for each participant',
@@ -119,6 +119,8 @@ const ProgramsGrid = () => {
                 src={program.cardImage} 
                 alt={program.title} 
                 className={`programs__card-img programs__card-img--${program.id}`} 
+                loading="lazy"
+                decoding="async"
               />
               <div className="programs__card-img-overlay"></div>
             </div>

@@ -26,7 +26,7 @@ const Hero = () => {
     <section className="hero" id="home" ref={heroRef}>
       {/* Full Section Vivid HD Background Image */}
       <div className="hero__full-bg">
-        <img src="/hero_student_vivid.jpg" alt="Student learning background" className="hero__full-bg-img" />
+        <img src="/hero_student_vivid.webp" alt="Student learning background" className="hero__full-bg-img" />
         <div className="hero__full-bg-overlay"></div>
         <div className="hero__orb hero__orb--1"></div>
         <div className="hero__orb hero__orb--2"></div>
@@ -102,7 +102,7 @@ const Hero = () => {
         <div className="hero__right animate-reveal fade-right">
           <div className="hero__floating-card glass-card">
             <div className="hero__card-header">
-              <img src="/logo_brain_icon.png" alt="Manas Matrix logo" className="hero__card-logo-img" />
+              <img src="/logo_brain_icon.webp" alt="Manas Matrix logo" className="hero__card-logo-img" />
               <div>
                 <div className="hero__card-title">MANAS MATRIX</div>
                 <div className="hero__card-sub">Brain Mapping Report & Counseling</div>

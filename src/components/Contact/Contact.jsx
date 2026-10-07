@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { PhoneIcon, MapPinIcon, MailIcon, MessageCircleIcon, CheckIcon } from '../Icons';
+import { PhoneIcon, MapPinIcon, MailIcon, CheckIcon } from '../Icons';
 import './Contact.css';
 
-const Contact = ({ hideHeader = false }) => {
+const Contact = ({ hideHeader = false, showMap = false, showNextSteps = false }) => {
   const [searchParams] = useSearchParams();
   const [formData, setFormData] = useState(() => ({
     name: '',
@@ -18,6 +18,23 @@ const Contact = ({ hideHeader = false }) => {
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const mapContainerRef = useRef(null);
+  const [isMapVisible, setIsMapVisible] = useState(false);
+
+  useEffect(() => {
+    const mapContainer = mapContainerRef.current;
+    if (!showMap || !mapContainer || isMapVisible) return undefined;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsMapVisible(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: '200px 0px' });
+
+    observer.observe(mapContainer);
+    return () => observer.disconnect();
+  }, [isMapVisible, showMap]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -51,6 +68,7 @@ const Contact = ({ hideHeader = false }) => {
   };
 
   const mapSearchUrl = "https://maps.google.com/?q=MANAS+MATRIX+Spire+150+Feet+Ring+Rd+Rajkot";
+  const mapEmbedUrl = "https://maps.google.com/maps?q=MANAS+MATRIX+Spire+150+Feet+Ring+Rd+Rajkot&output=embed";
 
   return (
     <section className="contact section" id="contact">
@@ -78,7 +96,7 @@ const Contact = ({ hideHeader = false }) => {
           <div className="contact__info animate-reveal fade-left delay-100">
             <div className="contact__info-card glass-card">
               <div className="contact__brand-header animate-reveal fade-up">
-                <img src="/logo_brain_icon.png" alt="MANAS MATRIX Logo Icon" className="contact__logo-icon-img" />
+                <img src="/logo_brain_icon.webp" alt="MANAS MATRIX Logo Icon" className="contact__logo-icon-img" />
                 <div className="contact__brand-text">
                   <span className="contact__brand-title">MANAS MATRIX</span>
                   <span className="contact__brand-sub">Understand Brain. Unlock Potential.</span>
@@ -99,16 +117,6 @@ const Contact = ({ hideHeader = false }) => {
                   <div>
                     <div className="contact__detail-label">Call Us Directly</div>
                     <div className="contact__detail-value">9106545374 ↗</div>
-                  </div>
-                </a>
-
-                <a href="https://wa.me/919106545374" target="_blank" rel="noopener noreferrer" className="contact__detail contact__detail--clickable" id="contact-whatsapp">
-                  <div className="contact__detail-icon">
-                    <MessageCircleIcon size={20} color="#10B981" />
-                  </div>
-                  <div>
-                    <div className="contact__detail-label">WhatsApp</div>
-                    <div className="contact__detail-value">WhatsApp Us ↗</div>
                   </div>
                 </a>
 
@@ -274,10 +282,29 @@ const Contact = ({ hideHeader = false }) => {
           </div>
         </div>
 
-        <div className="contact__next-step glass-card animate-reveal fade-up">
-          <h3>What Happens Next?</h3>
-          <p>We will call or WhatsApp you within the agreed response time to understand your goal, explain the right option and answer your questions about the process, report and booking.</p>
-        </div>
+        {showNextSteps && (
+          <div className="contact__next-step glass-card animate-reveal fade-up">
+            <h3>What Happens Next?</h3>
+            <p>We will call or WhatsApp you within the agreed response time to understand your goal, explain the right option and answer your questions about the process, report and booking.</p>
+          </div>
+        )}
+
+        {showMap && (
+          <div className="contact__map animate-reveal fade-up">
+            <h3 className="contact__map-title">Rajkot Office</h3>
+            <div className="contact__map-frame" ref={mapContainerRef}>
+              {isMapVisible && (
+                <iframe
+                  className="contact__map-embed"
+                  src={mapEmbedUrl}
+                  title="Manas Matrix Rajkot Office on Google Maps"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

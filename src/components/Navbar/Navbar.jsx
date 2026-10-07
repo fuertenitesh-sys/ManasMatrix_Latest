@@ -122,7 +122,7 @@ const Navbar = () => {
         <div className="navbar__inner">
           {/* Manas Matrix brand */}
           <Link to="/" className="navbar__logo" id="navbar-logo" onClick={() => handleNavClick('/')}>
-            <img src="/logo_brain_icon.png" alt="MANAS MATRIX Logo Icon" className="navbar__logo-icon-img" />
+            <img src="/logo_brain_icon.webp" alt="MANAS MATRIX Logo Icon" className="navbar__logo-icon-img" />
             <div className="navbar__logo-text-group">
               <span className="navbar__logo-title">MANAS MATRIX</span>
               <span className="navbar__logo-sub">Understand Brain. Unlock Potential.</span>
@@ -210,7 +210,7 @@ const Navbar = () => {
                 onClick={async () => {
                   try {
                     await fetch('/api/auth/logout', { method: 'POST' });
-                    window.location.href = '/admin/bookings';
+                    window.location.href = '/admin';
                   } catch(err) {}
                 }}
               >

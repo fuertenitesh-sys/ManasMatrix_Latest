@@ -286,3 +286,35 @@
 .contact__next-step { margin-top:32px; padding:24px 28px; }
 .contact__next-step h3 { margin:0 0 8px; color:var(--color-text-primary); }
 .contact__next-step p { margin:0; color:var(--color-text-secondary); line-height:1.7; }
+.contact__map {
+  margin-top: 32px;
+}
+
+.contact__map-title {
+  margin: 0 0 16px;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+}
+
+.contact__map-frame {
+  min-height: 380px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.contact__map-embed {
+  display: block;
+  width: 100%;
+  height: 380px;
+  border: 0;
+}
+
+@media (max-width: 576px) {
+  .contact__map-frame {
+    min-height: 300px;
+  }
+
+  .contact__map-embed {
+    height: 300px;
+  }
+}

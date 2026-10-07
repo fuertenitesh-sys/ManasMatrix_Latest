@@ -27,7 +27,7 @@ const FamilyCounselingPage = () => {
           </div>
           <div className="program-hero__image-wrapper animate-reveal fade-left">
             <div className="program-hero__image-card">
-              <img src="/parents_hero.jpg" alt="Family counseling and family understanding" className="program-hero__image" />
+              <img src="/parents_hero.webp" alt="Family counseling and family understanding" className="program-hero__image" />
               <div className="program-hero__image-badge"><UsersIcon size={20} color="#F59E0B" /><span>Understand • Communicate • Grow</span></div>
             </div>
           </div>

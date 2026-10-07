@@ -16,7 +16,7 @@ const ContactPage = () => {
         </p>
       </div>
 
-      <Contact hideHeader={true} />
+      <Contact hideHeader={true} showMap />
     </div>
   );
 };

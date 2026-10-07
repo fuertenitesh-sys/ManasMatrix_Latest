@@ -4,6 +4,40 @@
   position: relative;
 }
 
+.not-found {
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(245, 158, 11, 0.08), transparent 55%),
+    var(--color-bg-primary);
+}
+
+.not-found__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.not-found__code {
+  margin: 8px 0 0;
+  color: rgba(245, 158, 11, 0.14);
+  font-family: var(--font-heading);
+  font-size: clamp(8rem, 28vw, 17rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+}
+
+.not-found .section-title {
+  margin-top: 12px;
+}
+
+.not-found__home-link {
+  margin-top: 28px;
+}
+
 /* Floating CTA button */
 .floating-cta {
   position: fixed;
@@ -21,8 +55,6 @@
   box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
   z-index: 999;
   transition: all var(--transition-normal);
-  animation: pulse-glow 2s ease-in-out infinite;
-  will-change: transform;
 }
 
 .floating-cta:hover {

@@ -72,7 +72,7 @@ const AboutPage = () => {
           <div className="about__visual animate-reveal fade-left">
             <div className="about__visual-card">
               <div className="about__visual-img-wrapper">
-                <img src="/sandip_pala_dmi.jpg" alt="Sandip Pala, founder of Manas Matrix" className="about__visual-showcase-img" />
+                <img src="/sandip_pala_dmi.webp" alt="Sandip Pala, founder of Manas Matrix" className="about__visual-showcase-img" />
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@ const AboutPage = () => {
 
         <div className="about-page__bio-grid animate-reveal fade-up">
           <div className="about-page__bio-img-card glass-card">
-            <img src="/sandip_pala_harshvardhan.jpg" alt="Sandip Pala, founder of Manas Matrix" className="about-page__bio-img" />
+            <img src="/sandip_pala_harshvardhan.webp" alt="Sandip Pala, founder of Manas Matrix" className="about-page__bio-img" />
           </div>
           <div className="about__content">
             <div className="section-badge">
@@ -161,7 +161,7 @@ const AboutPage = () => {
             </div>
             <div className="about__report-img-wrapper">
               <div className="about__report-img-card glass-card">
-                <img src="/brain_report.jpg" alt="Sample Manas Matrix Brain Mapping Report" className="about__report-img" />
+                <img src="/brain_report.webp" alt="Sample Manas Matrix Brain Mapping Report" className="about__report-img" />
                 <div className="about__report-img-badge">
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                     <FingerprintIcon size={14} color="#F59E0B" />

@@ -11,7 +11,7 @@ const About = () => {
           <div className="about__visual animate-reveal fade-right">
             <div className="about__visual-card glass-card">
               <div className="about__visual-img-wrapper">
-                <img src="/sandip_pala_dmi.jpg" alt="Sandip Pala, founder of Manas Matrix" className="about__visual-showcase-img" />
+                <img src="/sandip_pala_dmi.webp" alt="Sandip Pala, founder of Manas Matrix" className="about__visual-showcase-img" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>

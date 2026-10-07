@@ -17,7 +17,7 @@ const programsData = [
     title: 'Brain Mapping Reports (BMR)',
     tagline: 'CLEAR INSIGHT, WITH PERSONAL COUNSELING',
     desc: 'Understand strengths, behavioral style, learning or working pattern, communication style and development areas. Options are available for children, students, adults, professionals and families.',
-    image: '/card_brain_dmit.jpg',
+    image: '/card_brain_dmit.webp',
     icon: <FingerprintIcon size={24} color="#EC4899" />,
     badge: 'Individuals & Families',
     detailPath: '/programs/brain-mapping'
@@ -27,7 +27,7 @@ const programsData = [
     title: 'For Business Owners',
     tagline: 'DEVELOP THE PERSON BEHIND THE BUSINESS',
     desc: 'Personalized Business Counseling and the Brain-Based Development Program help business owners understand their working style, leadership approach and strengths, then apply that insight to practical growth.',
-    image: '/card_biz_dev.jpg',
+    image: '/card_biz_dev.webp',
     icon: <BriefcaseIcon size={24} color="#60A5FA" />,
     badge: 'Founders & Leaders',
     detailPath: '/programs/business-development'
@@ -37,7 +37,7 @@ const programsData = [
     title: 'Manas 360 — Brain Performance Program',
     tagline: 'UNLOCK YOUR BRAIN. UNLOCK YOUR STRENGTH.',
     desc: 'A guided program for professionals and business owners across mind, emotion, learning, behavior and performance, built on the MANAS framework.',
-    image: '/card_brain_dmit.jpg',
+    image: '/card_brain_dmit.webp',
     icon: <BrainIcon size={24} color="#F59E0B" />,
     badge: 'Five Areas of Development',
     detailPath: '/programs/manas-360'
@@ -47,7 +47,7 @@ const programsData = [
     title: 'HR Matrix — For Organizations & HR',
     tagline: 'UNDERSTAND YOUR PEOPLE. BUILD STRONGER TEAMS.',
     desc: 'Map your team in one organized process. Each participating employee receives an individual report, while HR and management receive a summary dashboard of team strengths, working styles and development areas.',
-    image: '/card_team_build.jpg',
+    image: '/card_team_build.webp',
     icon: <BuildingIcon size={24} color="#10B981" />,
     badge: 'Teams & HR',
     detailPath: '/programs/team-building'

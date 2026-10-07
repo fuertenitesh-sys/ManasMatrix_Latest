@@ -21,7 +21,6 @@
 .cta-banner__orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
 }
 
 .cta-banner__orb--1 {
@@ -30,8 +29,6 @@
   background: radial-gradient(circle, rgba(245, 158, 11, 0.15), transparent);
   top: -200px;
   left: -100px;
-  animation: float 8s ease-in-out infinite;
-  will-change: transform;
 }
 
 .cta-banner__orb--2 {
@@ -40,8 +37,6 @@
   background: radial-gradient(circle, rgba(124, 58, 237, 0.12), transparent);
   bottom: -150px;
   right: -100px;
-  animation: float 10s ease-in-out infinite reverse;
-  will-change: transform;
 }
 
 .cta-banner__orb--3 {
@@ -65,9 +60,7 @@
 
 .cta-banner__brain {
   font-size: 4rem;
-  animation: float 3s ease-in-out infinite;
   filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.4));
-  will-change: transform;
 }
 
 .cta-banner__title {
